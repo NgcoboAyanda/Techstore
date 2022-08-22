@@ -1,21 +1,27 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //Pages
+const Home = ()=>{
+    return(
+        <>
+            <h1>HOme page bItch</h1>
+        </>
+    )
+}
 
 const App = ()=>{
 
     return(
         <div className='app'>
             <Router>
-                <Switch>
-                    <Route>
-
+                <Routes>
+                    <Route path='/' element={<Home/>}>
                     </Route>
-                </Switch>
+                </Routes>
             </Router>
             <footer className='footer'>
-
+                this is the footer
             </footer>
         </div>
     )
