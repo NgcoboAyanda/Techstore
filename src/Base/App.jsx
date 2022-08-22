@@ -2,13 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //Pages
-const Home = ()=>{
-    return(
-        <>
-            <h1>HOme page bItch</h1>
-        </>
-    )
-}
+import HomePage from '../Pages/Home/HomePage';
 
 const App = ()=>{
 
@@ -16,7 +10,7 @@ const App = ()=>{
         <div className='app'>
             <Router>
                 <Routes>
-                    <Route path='/' element={<Home/>}>
+                    <Route path='/' element={<HomePage/>}>
                     </Route>
                 </Routes>
             </Router>
