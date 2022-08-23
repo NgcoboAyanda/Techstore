@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'; 
 
 //Pages
 import BasePage from '../Pages/Base/BasePage';
