@@ -1,12 +1,14 @@
 import React from 'react';
 
+import { Auth } from '../../Features/Auth/Auth';
+
 //css
 import './HomePage.css'
 
 const HomePage = ()=>{
     return(
         <div className="app__homepage">
-            <h1>This is the home page lil nigga</h1>
+            <Auth/>
         </div>
     )
 };

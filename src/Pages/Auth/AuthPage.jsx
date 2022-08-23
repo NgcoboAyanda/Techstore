@@ -24,6 +24,7 @@ const AuthPage = ()=>{
 
     return(
         <div>
+            this is the authpage motherfuck
             {logo}
         </div>
     )
