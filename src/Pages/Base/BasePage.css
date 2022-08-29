@@ -1,1 +1,33 @@
- 
+.app__base-page{
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app__base-page__animation{
+    display: inline-block;
+}
+.app__base-page__animation__inner{
+    width: 100px;
+    height: 100px;
+}
+.app__base-page__animation__inner > .spinner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.app__base-page__animation__inner > .spinner > .spinner__icon{
+    width: 100%;
+    height: 100%;
+}
+.app__base-page__animation__inner > .spinner > .spinner__label{
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: -13px;
+    color: var(--font-color-normal);
+    font-size: var(--font-size-mid);
+    font-weight: var(--font-weight-thick);
+}

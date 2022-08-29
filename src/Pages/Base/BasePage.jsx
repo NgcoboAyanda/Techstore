@@ -1,4 +1,5 @@
 import React from 'react';
+import Loader from '../../Components/Loader/Loader';
 
 import './BasePage.css';
 
@@ -10,8 +11,12 @@ import './BasePage.css';
 
 const BasePage = ()=>{
     return(
-        <div className="app__basepage">
-            this is the base page bozo
+        <div className="app__base-page">
+            <div className="app__base-page__animation">
+                <div className="app__base-page__animation__inner">
+                    <Loader/>
+                </div>
+            </div>
         </div>
     )
 }

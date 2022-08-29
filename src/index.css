@@ -3,11 +3,43 @@ NB: THIS APP USES THE CSS BEM METHODOLOGY, SEE  https://en.bem.info/methodology/
 
 */
 
-/* Fonts */
+/* Fonts 
+IBM plex
+*/
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600&display=swap');
 
 /* Base Styling */
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+}
+
+:root{
+    /* Colors */
+    --color-primary: #CC0000;
+
+    /* Fonts */
+    --font-size-small: 12px;
+    --font-size-normal: 16px;
+    --font-size-mid: 19px;
+    --font-size-large: 23px;
+
+    /* font-weight */
+    --font-weight-tiny: 200;
+    --font-weight-thin: 300;
+    --font-weight-normal: 400;
+    --font-weight-mid: 500;
+    --font-weight-thick: 600; 
+
+    /* font-color */
+    --font-color-lighter: rgb(255, 255, 255);
+    --font-color-light: rgb(214, 214, 214);
+    --font-color-normal: rgb(102,102,102);
+    --font-color-mid: rgb(51,51,51);
+
+}
+
+body{
+    font-family: 'IBM Plex Sans', sans-serif;
 }

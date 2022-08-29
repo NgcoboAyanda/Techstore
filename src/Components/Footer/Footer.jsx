@@ -4,8 +4,31 @@ import './Footer.css'
 
 export default ()=>{
     return(
-        <footer className="app__footer">
-            this is the footer bitch ass nigg
+        <footer className="footer app__footer">
+            <div className="app__footer__inner">
+                <ul className="links">
+                    <li className="links__item">
+                        <a href="#" className="links__item__link">
+                            Terms
+                        </a>
+                    </li>
+                    <li className="links__item">
+
+                    </li>
+                    <li className="links__item">
+
+                    </li>
+                    <li className="links__item">
+
+                    </li>
+                    <li className="links__item">
+
+                    </li>
+                    <li className="links__item">
+
+                    </li>
+                </ul>
+            </div>
         </footer>
     )
 }
