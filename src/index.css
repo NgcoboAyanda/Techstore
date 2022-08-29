@@ -43,3 +43,7 @@ IBM plex
 body{
     font-family: 'IBM Plex Sans', sans-serif;
 }
+
+.page{
+    flex: 1;
+}

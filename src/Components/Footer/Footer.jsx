@@ -29,7 +29,7 @@ export default ()=>{
                     </li>
                     <li className="links__item">
                         <a href="#" className="link">
-                            Do Not Sell My Personal Information
+                            POPI Act
                         </a>
                     </li>
                     <li className="links__item">
@@ -40,6 +40,11 @@ export default ()=>{
                     <li className="links__item">
                         <a href="#" className="link">
                             Interest Based Ads
+                        </a>
+                    </li>
+                    <li className="links__item">
+                        <a href="#" className="link">
+                            Cookies
                         </a>
                     </li>
                     <li className="links__item">

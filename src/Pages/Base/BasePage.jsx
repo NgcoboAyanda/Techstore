@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
 import Loader from '../../Components/Loader/Loader';
 
 import './BasePage.css';
@@ -10,8 +11,23 @@ import './BasePage.css';
 //*If user login passes, user will be redirected to the HomePage.
 
 const BasePage = ()=>{
+    let navigate = useNavigate()
+
+
+    useEffect(
+        ()=>{
+            setTimeout(
+                ()=>{
+                    navigate("/auth")
+                },
+                3000
+            )
+        },
+        []
+    )
+
     return(
-        <div className="app__base-page">
+        <div className="app__base-page page">
             <div className="app__base-page__animation">
                 <div className="app__base-page__animation__inner">
                     <Loader/>

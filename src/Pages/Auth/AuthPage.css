@@ -1,0 +1,16 @@
+.app__auth-page{
+    padding: 24px 16px;
+}
+
+.app__auth-page__inner{
+}
+.app__auth-page__logo{
+    height: 48px;
+    display: flex;
+    justify-content: center;
+}
+.app__auth-page__logo__inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

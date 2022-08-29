@@ -1,0 +1,11 @@
+.app__logo{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.app__logo > img{
+    height: 450%;
+}
