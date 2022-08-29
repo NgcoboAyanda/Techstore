@@ -1,8 +1,10 @@
 .app__footer{
     background-color: rgb(51, 51, 51);
     color: var(--font-color-lighter);
-    font-size: var(--font-size-normal);
+    font-size: var(--font-size-small);
     padding: 16px;
+    display: flex;
+    justify-content: center;
 }
 
 .app__footer__inner{
@@ -10,6 +12,17 @@
 }
 
 .app__footer__inner > .links{
-    display: flex;
+    display: inline-block;
     list-style-type: none;
+    justify-content: space-between;
+}
+
+.app__footer__inner > .links > .links__item {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.app__footer__inner > .links > .links__item > a{
+    color: var(--font-color-lighter);
+    text-decoration: none;
 }

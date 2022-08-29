@@ -10,6 +10,8 @@ import HomePage from '../Pages/Home/HomePage';
 //components
 import Footer from '../Components/Footer/Footer';
 
+import './App.css'
+
 const App = ()=>{
     //Getting the auth{loggedIn:bool} state so that we can redirect the user
     const loggedIn = useSelector(state=> state.auth.loggedIn)
