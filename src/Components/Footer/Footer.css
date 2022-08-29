@@ -20,9 +20,13 @@
 .app__footer__inner > .links > .links__item {
     display: inline-block;
     margin-right: 30px;
+    margin-top: 5px;
 }
 
 .app__footer__inner > .links > .links__item > a{
     color: var(--font-color-lighter);
     text-decoration: none;
+}
+.app__footer__inner > .links > .links__item > a:hover{
+    color: var(--font-color-light);
 }

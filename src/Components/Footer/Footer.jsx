@@ -34,6 +34,11 @@ export default ()=>{
                     </li>
                     <li className="links__item">
                         <a href="#" className="link">
+                            About Us
+                        </a>
+                    </li>
+                    <li className="links__item">
+                        <a href="#" className="link">
                             Interest Based Ads
                         </a>
                     </li>
