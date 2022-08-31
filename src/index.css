@@ -6,7 +6,7 @@ NB: THIS APP USES THE CSS BEM METHODOLOGY, SEE  https://en.bem.info/methodology/
 /* Fonts 
 IBM plex
 */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600;700&display=swap');
 
 /* Base Styling */
 * {
@@ -23,7 +23,7 @@ IBM plex
     --font-size-small: 14px;
     --font-size-normal: 18px;
     --font-size-mid: 21px;
-    --font-size-large: 25px;
+    --font-size-large: 23px;
 
     /* font-weight */
     --font-weight-tiny: 200;
@@ -31,6 +31,7 @@ IBM plex
     --font-weight-normal: 400;
     --font-weight-mid: 500;
     --font-weight-thick: 600; 
+    --font-weight-thickest: 700;
 
     /* font-color */
     --font-color-lighter: rgb(255, 255, 255);
@@ -46,4 +47,21 @@ body{
 
 .page{
     flex: 1;
+}
+
+
+/* Modifiers */
+.heading-normal{
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-thick);
+}
+
+.--fill-parent{
+    /* the element completely fill the parent element */
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.--transparent{
+    background-color: transparent;
 }

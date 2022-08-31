@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from '../../Components/Logo/Logo';
+import SigninForm from '../../Components/SigninForm/SigninForm';
 
 import './AuthPage.css'
 
@@ -13,11 +14,11 @@ const AuthPage = ()=>{
                         <Logo/>
                     </div>
                 </div>
-                <form action="" className="app__auth-page__form">
+                <div className="app__auth-page__form">
                     <div className="app__auth-page__form__inner">
-
+                        <SigninForm/>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     )

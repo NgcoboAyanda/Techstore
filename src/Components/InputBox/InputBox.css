@@ -1,0 +1,18 @@
+.input-box{
+    height: 44px;
+}
+
+.input-box_normal{
+    border: 1px solid var(--font-color-mid);
+}
+
+/*
+.input-box__inner{
+
+} */
+
+.input-box__element__inner > input {
+    font-size: var(--font-size-normal);
+    padding: 9px 8px;
+    border: none;
+}

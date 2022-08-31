@@ -1,13 +1,21 @@
 .app__auth-page{
     padding: 24px 16px;
+    display: flex;
+    justify-content: center;
 }
 
 .app__auth-page__inner{
+    max-width: 500px;
+    width: 100%;
+}
+.app__auth-page__inner > * {
+    width: 100% !important;
 }
 .app__auth-page__logo{
     height: 48px;
     display: flex;
     justify-content: center;
+    margin-bottom: 8px;
 }
 .app__auth-page__logo__inner{
     display: flex;
