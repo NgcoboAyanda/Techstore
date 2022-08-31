@@ -9,8 +9,12 @@ const SigninForm = () => {
     const[emailInputValue, setEmailInputValue] = useState('')
     const[passwordInputValue, setPasswordInputValue] = useState('')
 
+    const submitForm = e =>{
+        e.preventDefault()
+    }
+
     return (
-        <form className="login-form">
+        <form className="login-form" onSubmit={e=>submitForm(e)}>
             <div className="login-form__inner">
                 <div className="login-form__heading">
                     <div className="login-form__heading__inner">

@@ -17,12 +17,16 @@ IBM plex
 }
 
 :root{
-    /* Colors */
+    /* Theme colors */
     --color-primary: #CC0000;
 
+    /* Colors that represent errors */
+    --color-error: #b85300;
+    --colo-error-bg: #FFF5EB;
+
     /* Fonts */
-    --font-size-small: 14px;
-    --font-size-normal: 18px;
+    --font-size-small: 13px;
+    --font-size-normal: 16px;
     --font-size-mid: 21px;
     --font-size-large: 23px;
 
@@ -56,7 +60,7 @@ body{
 /* text styling classes */
 .heading-normal{
     font-size: var(--font-size-large);
-    font-weight: var(--font-weight-thick);
+    font-weight: var(--font-weight-thickest);
 }
 
 /* Modifiers */
@@ -66,7 +70,7 @@ body{
     width: 100% !important;
 }
 
-.--transparent{
+.--bg-transparent{
     background-color: transparent;
 }
 

@@ -9,7 +9,7 @@ const Logo = ()=>{
 
     return(
         <div className="app__logo">
-            <img src={appLogo} alt="" srcset="" />
+            <img src={appLogo} alt="" srcSet="" />
         </div>
     )
 }
