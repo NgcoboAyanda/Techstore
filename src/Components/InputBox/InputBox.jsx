@@ -24,7 +24,6 @@ const InputBox = ({ type='text', value='', setValue}) =>{
         if(type === 'email'){
             let pattern = /\S+@\S+\.\S+/;
             let match = pattern.test(value)
-            console.log(match)
             if(!match){
                 setError('Please enter a valid email address.')
             }

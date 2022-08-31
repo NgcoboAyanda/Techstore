@@ -13,7 +13,7 @@ const SigninForm = () => {
     const[checkboxValue, setCheckboxValue] = useState(false)
 
     const submitForm = () =>{
-        
+        console.log('submitted boyeeee')
     }
 
     const forgotPassword = ()=>{
@@ -51,17 +51,17 @@ const SigninForm = () => {
                 </div>
                 <div className="login-form__sign-in-btn">
                     <div className="login-form__sign-in-btn__inner">
-                        <Button submit={submitForm} className="button_filled" label="Sign in"/>
+                        <Button onClick={submitForm} className="button_filled" label="Sign in" submit={true}/>
                     </div>
                 </div>
                 <div className="login-form__forgot-password-btn">
                     <div className="login-form__forgot-password-btn__inner --fill-parent">
-                        <Button submit={submitForm} className="button_bare --fill-parent" label="Forgot Password?" />
+                        <Button onClick={submitForm} className="button_bare --fill-parent" label="Forgot Password?" />
                     </div>
                 </div>
                 <div className="login-form__sign-up-btn">
                     <div className="login-form__sign-up-btn__inner">
-                        <Button submit={signUp} className="button_bordered --fill-parent" label="Create your TS account."/>
+                        <Button onClick={signUp} className="button_bordered --fill-parent" label="Create your account"/>
                     </div>
                 </div>
             </div>
