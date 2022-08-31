@@ -16,6 +16,14 @@ const SigninForm = () => {
         
     }
 
+    const forgotPassword = ()=>{
+
+    }
+
+    const signUp = ()=>{
+
+    }
+
     return (
         <form className="login-form" onSubmit={e=>e.preventDefault()}>
             <div className="login-form__inner">
@@ -48,7 +56,12 @@ const SigninForm = () => {
                 </div>
                 <div className="login-form__forgot-password-btn">
                     <div className="login-form__forgot-password-btn__inner --fill-parent">
-                        <Button submit={submitForm} className="button-bare --fill-parent" label="Forgot Password?" />
+                        <Button submit={submitForm} className="button_bare --fill-parent" label="Forgot Password?" />
+                    </div>
+                </div>
+                <div className="login-form__sign-up-btn">
+                    <div className="login-form__sign-up-btn__inner">
+                        <Button submit={signUp} className="button_bordered --fill-parent" label="Create your TS account."/>
                     </div>
                 </div>
             </div>

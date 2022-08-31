@@ -1,6 +1,5 @@
 .button_submit{
     width: 100%;
-    margin: 16px 0;
     font-family: var(--font-family-default);
 }
 
@@ -29,17 +28,18 @@
     font-weight: var(--font-weight-mid);
 }
 
-.button-bare{
+.button_bare{
     background-color: transparent;
+    padding: 16px 0;
 }
-.button-bare > .button__inner{
+.button_bare > .button__inner{
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: default;
 }
-.button-bare > .button__inner> button{
+.button_bare > .button__inner> button{
     border: none;
     background-color: transparent;
     font-size: var(--font-size-normal);
@@ -48,3 +48,34 @@
     cursor: pointer;
 }
 
+.button_bordered{
+    border-radius: 3px;
+    color: var(--font-color-light);
+    border: 1px solid currentColor !important;
+}
+.button_bordered:hover{
+    color: var(--font-color-mid);
+}
+.button_bordered:active{
+    border: none;
+    background-color: var(--font-color-light);
+    color: var(--font-color-lighter);
+}
+.button_bordered > .button__inner{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+.button_bordered > .button__inner> button{
+    color: currentColor;
+    height: 57px;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: var(--font-size-mid);
+    font-family: inherit;
+    font-weight: var(--font-weight-mid);
+    cursor: pointer;
+}

@@ -29,3 +29,16 @@
 .login-form__checkbox{
     margin: 20px 0;
 }
+
+.login-form__sign-in-btn{
+    margin: 16px 0;
+}
+
+.login-form__forgot-password-btn{
+    margin-bottom: 8px;
+
+}
+
+.login-form__sign-up-btn{
+    margin: 16px 0;
+}
