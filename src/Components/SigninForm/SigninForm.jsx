@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InputBox from '../InputBox/InputBox';
 
 import './SigninForm.css';
@@ -6,6 +6,9 @@ import './SigninForm.css';
 /* The Login form component */
 
 const SigninForm = () => {
+    const[emailInputValue, setEmailInputValue] = useState('')
+    const[passwordInputValue, setPasswordInputValue] = useState('')
+
     return (
         <form className="login-form">
             <div className="login-form__inner">
@@ -18,7 +21,12 @@ const SigninForm = () => {
                 </div>
                 <div className="login-form__email-box">
                     <div className="login-form__email-box__inner">
-                        <InputBox type='email' />
+                        <InputBox type='email' value={emailInputValue} setValue={setEmailInputValue} />
+                    </div>
+                </div>
+                <div className="login-form__password-box">
+                    <div className="login-form__password-box__inner">
+                        <InputBox type='password' value={passwordInputValue} setValue={setPasswordInputValue}/>
                     </div>
                 </div>
             </div>

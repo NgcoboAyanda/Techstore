@@ -13,6 +13,7 @@ IBM plex
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    outline: none;
 }
 
 :root{
@@ -39,10 +40,12 @@ IBM plex
     --font-color-normal: rgb(102,102,102);
     --font-color-mid: rgb(51,51,51);
 
+    /* font-family */
+    --font-family-default: 'IBM Plex Sans', sans-serif;
 }
 
 body{
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: var(--font-family-default);
 }
 
 .page{
@@ -50,12 +53,13 @@ body{
 }
 
 
-/* Modifiers */
+/* text styling classes */
 .heading-normal{
     font-size: var(--font-size-large);
     font-weight: var(--font-weight-thick);
 }
 
+/* Modifiers */
 .--fill-parent{
     /* the element completely fill the parent element */
     height: 100% !important;
@@ -64,4 +68,8 @@ body{
 
 .--transparent{
     background-color: transparent;
+}
+
+.--display-none{
+    display: none;
 }
