@@ -19,6 +19,8 @@ IBM plex
 :root{
     /* Theme colors */
     --color-primary: #CC0000;
+    --color-primary-mid:#AA0000;
+    --color-primary-dark: rgb(121, 0, 0);
 
     /* Colors that represent errors */
     --color-error: #b85300;
@@ -28,7 +30,7 @@ IBM plex
     --font-size-small: 13px;
     --font-size-normal: 16px;
     --font-size-mid: 21px;
-    --font-size-large: 23px;
+    --font-size-large: 25px;
 
     /* font-weight */
     --font-weight-tiny: 200;

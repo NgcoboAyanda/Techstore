@@ -1,0 +1,50 @@
+.button_submit{
+    width: 100%;
+    margin: 16px 0;
+    font-family: var(--font-family-default);
+}
+
+.button_filled{
+    background-color: var(--color-primary);
+    display: flex;
+}
+.button_filled:hover{
+    background-color: var(--color-primary-mid);
+}
+.button_filled:active{
+    background-color: var(--color-primary-dark);
+}
+.button_filled > .button__inner{
+    width: 100%;
+}
+.button_filled > .button__inner > button {   height: 57px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: var(--font-size-mid);
+    color: var(--font-color-lighter);
+    font-family: inherit;
+    font-weight: var(--font-weight-mid);
+}
+
+.button-bare{
+    background-color: transparent;
+}
+.button-bare > .button__inner{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+.button-bare > .button__inner> button{
+    border: none;
+    background-color: transparent;
+    font-size: var(--font-size-normal);
+    font-family: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+

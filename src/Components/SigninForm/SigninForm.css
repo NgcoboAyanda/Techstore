@@ -16,3 +16,16 @@
     display: inline-block;
     width: auto;
 }
+
+/*.login-form__email-box{
+
+}
+
+.login-form__password-box{
+
+}
+*/
+
+.login-form__checkbox{
+    margin: 20px 0;
+}
