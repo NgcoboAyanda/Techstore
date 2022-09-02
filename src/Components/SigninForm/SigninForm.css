@@ -1,44 +1,62 @@
-.login-form{
+.sign-in-form{
     width: 100%;
     color: var(--font-color-mid);
 }
 
-.login-form__inner{
+.sign-in-form__inner{
     display: flex;
     flex-direction: column;
 }
 
-.login-form__heading{
+.sign-in-form__heading{
     text-align: center;
     margin-bottom: 20px;
 }
-.login-form__heading__text{
+.sign-in-form__heading__text{
     display: inline-block;
     width: auto;
 }
 
-/*.login-form__email-box{
+/*.sign-in-form__email-box{
 
 }
 
-.login-form__password-box{
+.sign-in-form__password-box{
 
 }
 */
 
-.login-form__checkbox{
+.sign-in-form__checkbox{
     margin: 20px 0;
 }
 
-.login-form__sign-in-btn{
+.sign-in-form__sign-in-btn{
     margin: 16px 0;
 }
 
-.login-form__forgot-password-btn{
+.sign-in-form__forgot-password-btn{
     margin-bottom: 8px;
 
 }
 
-.login-form__sign-up-btn{
+.sign-in-form__sign-up-btn{
     margin: 16px 0;
+}
+
+.sign-in-form__terms{
+    margin: 32px 0;
+}
+.sign-in-form__terms__inner{
+    font-size: var(--font-size-small);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--font-color-light);
+}
+
+.sign-in-form__offer{
+    margin-top: 16px;
+    font-size: var(--font-size-small);
+    color: var(--font-color-light);
+    margin-bottom: 32px;
 }

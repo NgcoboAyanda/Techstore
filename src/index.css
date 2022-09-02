@@ -79,3 +79,18 @@ body{
 .--display-none{
     display: none;
 }
+
+.--link{
+    /* styles a non link element to look like a link */
+    color: #366cd9;
+    text-decoration: underline;
+    cursor: pointer;
+    line-height: 20px;
+}
+.--link:hover{
+    text-decoration: none;
+}
+
+.--bolded{
+    font-weight: var(--font-weight-thick);
+}

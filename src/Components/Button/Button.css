@@ -41,6 +41,7 @@
 }
 .button_bare > .button__inner> button{
     border: none;
+    color: var(--font-color-light);
     background-color: transparent;
     font-size: var(--font-size-normal);
     font-family: inherit;
