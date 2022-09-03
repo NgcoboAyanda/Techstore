@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import InputBox from '../InputBox/InputBox';
 import EmailInput from '../InputBoxes/EmailInput/EmailInput';
 import NameInput from '../InputBoxes/NameInput/NameInput';
+import PasswordInput from '../InputBoxes/PasswordInput/PasswordInput';
+import PhoneInput from '../InputBoxes/PhoneInput/PhoneInput';
 
 import './SignUpForm.css';
 
@@ -47,18 +48,28 @@ const SignUpForm = () =>{
                             value={lastName}
                             setValue={setLastName}
                             label="Last Name"
-                            placeholder="Surname"
+                            placeholder="Last Name"
                         />
                     </div>
                 </div>
                 <div className="sign-up-form__phone-box">
                     <div className="sign-up-form__phone-box__inner">
-                        <InputBox value={phoneNumber} setValue={setPhoneNumber} placeholder="Mobile phone number (optional)" label="Phone Number" optional={true}/>
+                        <PhoneInput
+                            value={phoneNumber} 
+                            setValue={setPhoneNumber} 
+                            placeholder="Mobile phone number (optional)" 
+                            label="Phone Number" 
+                            optional={true}
+                        />
                     </div>
                 </div>
                 <div className="sign-up-form__password-box">
                     <div className="sign-up-form__password-box__inner">
-                        <InputBox type="password" value={password} setValue={setPassword} placeholder="Create password" label="Password"/>
+                        <PasswordInput
+                            value={password}
+                            setValue={setPassword}
+                            placeholder="Create Password"
+                        />
                     </div>
                 </div>
                 <div className="sign-up-form__information">

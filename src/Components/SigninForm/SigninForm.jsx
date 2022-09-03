@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../Button/Button';
 import CheckBox from '../CheckBox/CheckBox';
-import InputBox from '../InputBox/InputBox';
 import EmailInput from '../InputBoxes/EmailInput/EmailInput';
 import PasswordInput from '../InputBoxes/PasswordInput/PasswordInput';
 

@@ -1,0 +1,85 @@
+.input-box{
+    font-weight: 400;
+    margin-bottom: 12px;
+    
+}
+.input-box_normal{
+    color: var(--font-color-light);
+}
+
+.input-box_error{
+    color: var(--color-error);
+}
+
+.input-box__inner{
+    position: relative;
+    color: inherit;
+    height: 47px;
+    border: 1px solid currentColor;
+} 
+.input-box__element__inner > input {
+    font-size: var(--font-size-normal);
+    padding: 9px 8px;
+    border: none;
+    color: var(--font-color-light);
+    font-weight: var(--font-weight-normal);
+    line-height: 23px;
+    font-family: var(--font-family-default);
+    position: relative;
+}
+
+.input-box__bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -3;
+    width: 100%;
+    height: 100%;
+}
+.input-box__bg_normal{
+    background-color: white;
+}
+.input-box__bg_error{
+    background-color: var(--colo-error-bg);
+}
+
+.input-box__label{
+    color: inherit;
+    position: absolute;
+}
+.input-box__label_normal{
+    z-index: -1;
+    padding: 9px 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.input-box__label_focused{
+    z-index: 1;
+    left: 2%;
+    top: -25%;
+    background-color: white;
+    font-size: var(--font-size-small);
+}
+
+.input-box__password-toggle-btn{
+    display: inline-block;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.button{
+    border: none;
+    cursor: pointer;
+}
+.button_password-toggle{
+    z-index: 2;
+    font-family: var(--font-family-default);
+    font-weight: var(--font-weight-normal);
+    font-size: var(--font-size-normal);
+}
+
+.input-box__error-msg{
+    font-size: var(--font-size-small);
+    color: var(--color-error);
+}

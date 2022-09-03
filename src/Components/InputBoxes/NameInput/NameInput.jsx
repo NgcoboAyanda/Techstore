@@ -23,7 +23,7 @@ const NameInput = ({ value='', setValue, placeholder='', label='', optional=fals
         //will validate the input box
         if(value.length < 3){
             //invalid name
-            setError(`Please enter a valid ${label}`);
+            setError(`Please enter a valid ${label.toLowerCase()}`);
         }
         else{
             clearError()
