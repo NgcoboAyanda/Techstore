@@ -4,7 +4,7 @@ import './InputBox.css';
 
 // Input box element
 // Takes 3 props, i.e type [string], value [string] and setValue [function] 
-const InputBox = ({ type='text', value='', setValue}) =>{
+const InputBox = ({ type='text', value='', setValue, placeholder='', label='', optional=false}) =>{
     const[focused, setFocused] = useState(false)
     const[showPassword, setShowPassword] = useState(false)
     const[error, setError] = useState('')
@@ -34,12 +34,44 @@ const InputBox = ({ type='text', value='', setValue}) =>{
         }
         else if(type === 'password'){
             //password validation simply checks for the password length
-            let passwordLength = value.length
+            let passwordLength = value.length;
             if(passwordLength < 6){
-                setError('Please enter a valid password.')
+                setError('Please enter a valid password.');
             }
             else if(passwordLength >= 6){
-                setError('')
+                setError('');
+            }
+        }
+        else if(type === 'text'){
+            let valueLength = value.length;
+            if(!optional){
+                //if the input field is NOT optional
+                if (valueLength < 3){
+                    setError(`Please enter a valid ${label.toLowerCase()}.`)
+                }
+                else{
+                    setError('')
+                }
+            }
+            else{
+                //if the input field is optional
+                if (valueLength > 0){
+                    //this means the user chose to fill this field
+                    //we must make sure it has valid info
+                    let minLength = 1
+                    if(label === 'Phone Number'){
+                        minLength = 10
+                    }
+                    if (valueLength < minLength){
+                        setError(`Please enter a valid ${label.toLowerCase()}.`)
+                    }
+                    else{
+                        setError('')
+                    }
+                }
+                else if(valueLength === 0){
+                    setError('')
+                }
             }
         }
     }
@@ -55,16 +87,6 @@ const InputBox = ({ type='text', value='', setValue}) =>{
         }
         else if (!focused){
             return 'input-box__label_normal';
-        }
-    }
-
-    const renderInputLabel = ()=>{
-        //rendering the correct input label
-        if(type === 'email'){
-            return 'Email Address';
-        }
-        else if (type === 'password'){
-            return 'Password';
         }
     }
 
@@ -158,7 +180,7 @@ const InputBox = ({ type='text', value='', setValue}) =>{
                 </div>
                 <div className={`input-box__label ${renderInputLabelClass()}`}>
                     <div className="input-box__label__inner">
-                        {renderInputLabel()}
+                        {placeholder||label}
                     </div>
                 </div>
                 {renderPasswordToggleBtn()}

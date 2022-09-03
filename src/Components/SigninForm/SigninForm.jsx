@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Button from '../Button/Button';
 import CheckBox from '../CheckBox/CheckBox';
 import InputBox from '../InputBox/InputBox';
+import EmailInput from '../InputBoxes/EmailInput/EmailInput';
+import PasswordInput from '../InputBoxes/PasswordInput/PasswordInput';
 
 import './SignInForm.css';
 
@@ -36,12 +38,19 @@ const SigninForm = ({setForm}) => {
                 </div>
                 <div className="sign-in-form__email-box">
                     <div className="sign-in-form__email-box__inner">
-                        <InputBox type='email' value={emailInputValue} setValue={setEmailInputValue} />
+                    <EmailInput 
+                            value={emailInputValue} 
+                            setValue={setEmailInputValue} placeholder="Email Address"
+                        />
                     </div>
                 </div>
                 <div className="sign-in-form__password-box">
                     <div className="sign-in-form__password-box__inner">
-                        <InputBox type='password' value={passwordInputValue} setValue={setPasswordInputValue}/>
+                        <PasswordInput
+                            value={passwordInputValue}
+                            setValue={setPasswordInputValue}
+                            placeholder="Password"
+                        />
                     </div>
                 </div>
                 <div className="sign-in-form__checkbox">

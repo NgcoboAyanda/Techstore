@@ -4,7 +4,7 @@
     
 }
 .input-box_normal{
-    color: var(--font-color-mid);
+    color: var(--font-color-light);
 }
 
 .input-box_error{
@@ -21,7 +21,7 @@
     font-size: var(--font-size-normal);
     padding: 9px 8px;
     border: none;
-    color: var(--font-color-mid);
+    color: var(--font-color-light);
     font-weight: var(--font-weight-normal);
     line-height: 23px;
     font-family: var(--font-family-default);

@@ -1,0 +1,30 @@
+.sign-up-form{
+    width: 100%;
+    color: var(--font-color-mid);
+}
+
+.sign-up-form__inner{
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-up-form__heading{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sign-up-form__heading__text{
+    display: inline-block;
+    width: auto;
+}
+
+.sign-up-form__information__inner{
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size-small);
+    color: var(--font-color-light);
+}
+.sign-up-form__information__row{
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+}
