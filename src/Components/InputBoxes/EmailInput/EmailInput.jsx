@@ -25,7 +25,7 @@ const EmailInput = ({ value='', setValue, placeholder='', optional=false})=>{
         let pattern = /\S+@\S+\.\S+/;
         let match = pattern.test(value)
         if(!match){
-            setError('Please enter a valid email address')
+            setError('Please enter a valid email address');
         }
         else{
              //if there's a match we clear the error
