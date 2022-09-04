@@ -1,0 +1,13 @@
+.captcha-box-container > div > div > div{
+    width: 100% !important;
+}
+
+.captcha-box-container > div > div > div > div > iframe{
+    width: 100%;
+    background-color: #F9F9F9;
+}
+
+#rc-anchor-container{
+    width: 100% !important;
+    background-color: black !important;
+}

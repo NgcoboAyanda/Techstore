@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CaptchaBox from '../CaptchaBox/CaptchaBox';
 import CheckBox from '../CheckBox/CheckBox';
 import EmailInput from '../InputBoxes/EmailInput/EmailInput';
 import NameInput from '../InputBoxes/NameInput/NameInput';
@@ -14,6 +15,7 @@ const SignUpForm = () =>{
     const[phoneNumber, setPhoneNumber] = useState('')
     const[password, setPassword] = useState('')
     const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
+    const[captchaValue, setCaptchaValue] = useState('')
 
     return(
         <div className="sign-up-form">
@@ -110,6 +112,14 @@ const SignUpForm = () =>{
                         <CheckBox
                             value={keepUserSignedIn}
                             setValue={setKeepUserSignedIn}
+                        />
+                    </div>
+                </div>
+                <div className="sign-up-form__captcha">
+                    <div className="sign-up-form__captcha__inner captcha-box-container">
+                        <CaptchaBox
+                            captchaValue={captchaValue}
+                            setCaptchaValue={setCaptchaValue}
                         />
                     </div>
                 </div>
