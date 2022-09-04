@@ -11,7 +11,7 @@ import './SignInForm.css';
 const SigninForm = ({setForm}) => {
     const[emailInputValue, setEmailInputValue] = useState('')
     const[passwordInputValue, setPasswordInputValue] = useState('')
-    const[checkboxValue, setCheckboxValue] = useState(false)
+    const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
 
     const submitForm = () =>{
         console.log('submitted boyeeee')
@@ -54,22 +54,38 @@ const SigninForm = ({setForm}) => {
                 </div>
                 <div className="sign-in-form__checkbox">
                     <div className="sign-in-form__checkbox__inner">
-                        <CheckBox value={checkboxValue} setValue={setCheckboxValue}/>
+                        <CheckBox 
+                            value={keepUserSignedIn} 
+                            setValue={setKeepUserSignedIn}
+                        />
                     </div>
                 </div>
                 <div className="sign-in-form__sign-in-btn">
                     <div className="sign-in-form__sign-in-btn__inner">
-                        <Button onClick={submitForm} className="button_filled" label="Sign in" submit={true}/>
+                        <Button 
+                            onClick={submitForm} 
+                            className="button_filled" 
+                            label="Sign in" 
+                            submit={true}
+                        />
                     </div>
                 </div>
                 <div className="sign-in-form__forgot-password-btn">
                     <div className="sign-in-form__forgot-password-btn__inner --fill-parent">
-                        <Button onClick={changeToForgotPasswordForm} className="button_bare --fill-parent" label="Forgot Password?" />
+                        <Button 
+                            onClick={changeToForgotPasswordForm} 
+                            className="button_bare --fill-parent" 
+                            label="Forgot Password?" 
+                            />
                     </div>
                 </div>
                 <div className="sign-in-form__sign-up-btn">
                     <div className="sign-in-form__sign-up-btn__inner">
-                        <Button onClick={changeToSignUpForm} className="button_bordered --fill-parent" label="Create your account"/>
+                        <Button 
+                            onClick={changeToSignUpForm} 
+                            className="button_bordered --fill-parent" 
+                            label="Create your account"
+                        />
                     </div>
                 </div>
                 <div className="sign-in-form__terms">

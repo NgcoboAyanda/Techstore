@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CheckBox from '../CheckBox/CheckBox';
 import EmailInput from '../InputBoxes/EmailInput/EmailInput';
 import NameInput from '../InputBoxes/NameInput/NameInput';
 import PasswordInput from '../InputBoxes/PasswordInput/PasswordInput';
@@ -12,6 +13,7 @@ const SignUpForm = () =>{
     const[lastName, setLastName] = useState('')
     const[phoneNumber, setPhoneNumber] = useState('')
     const[password, setPassword] = useState('')
+    const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
 
     return(
         <div className="sign-up-form">
@@ -84,7 +86,7 @@ const SignUpForm = () =>{
                         </div>
                         <div className="sign-up-form__information__row">
                             <span className="--bolded">
-                                Should contain in order to be considered a good password:
+                                A strong password contains: 
                             </span>
                             <span className="list">
                                 <span>
@@ -101,6 +103,14 @@ const SignUpForm = () =>{
                                 </span>
                             </span>
                         </div>
+                    </div>
+                </div>
+                <div className="sign-up-form__checkbox">
+                    <div className="sign-up-form__checkbox__inner">
+                        <CheckBox
+                            value={keepUserSignedIn}
+                            setValue={setKeepUserSignedIn}
+                        />
                     </div>
                 </div>
             </div>
