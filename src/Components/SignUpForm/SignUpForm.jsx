@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
+
 import Button from '../Button/Button';
 import CaptchaBox from '../CaptchaBox/CaptchaBox';
 import CheckBox from '../CheckBox/CheckBox';
@@ -17,6 +19,16 @@ const SignUpForm = () =>{
     const[password, setPassword] = useState('')
     const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
     const[captchaValue, setCaptchaValue] = useState('')
+
+    const navigate = useNavigate()
+
+    const submitForm =(data)=>{
+        console.log('shyteee')
+    }
+
+    const navigateToSignInPage = ()=>{
+        navigate('/auth/signin')
+    }
 
     return(
         <div className="sign-up-form">
@@ -131,22 +143,52 @@ const SignUpForm = () =>{
                         </span>
                     </div>
                 </div>
-                <div className="sign-up-form__terms-conditions-link">
-                    <div className="sign-up-form__terms-conditions-link">
+                <div className="sign-up-form__btn-link">
+                    <div className="sign-up-form__btn-link">
                         <Button
-                            onClick={console.log}
+                            onClick={null}
                             className="button_bare"
                             label="Terms & Conditions"
                         />
                     </div>
                 </div>
-                <div className="sign-up-form__terms-conditions-link">
-                    <div className="sign-up-form__terms-conditions-link">
+                <div className="sign-up-form__btn-link">
+                    <div className="sign-up-form__btn-link">
                         <Button
-                            onClick={console.log}
+                            onClick={null}
                             className="button_bare"
                             label="Privacy Policy"
                         />
+                    </div>
+                </div>
+                <div className="sign-up-form__sign-up-btn">
+                    <div className="sign-up-form__sign-up-btn__inner">
+                        <Button 
+                            onClick={submitForm} 
+                            className="button_filled" 
+                            label="Create Account" 
+                            submit={true}
+                        />
+                    </div>
+                </div>
+                <div className="sign-up-form__btn-link">
+                    <div className="sign-up-form__btn-link">
+                        <Button
+                            onClick={navigateToSignInPage}
+                            className="button_bare"
+                            label="or sign in"
+                            size='large'
+                        />
+                    </div>
+                </div>
+                <div className="sign-up-form__offer">
+                    <div className="sign-up-form__offer__inner">
+                        <span className="--bolded">
+                            *See offer details.
+                        </span>
+                        <span>
+                            Restrictions apply. Pricing, promotions and availability may vary by location and on our site.
+                        </span>
                     </div>
                 </div>
             </div>

@@ -55,6 +55,16 @@
     margin-bottom: 16px;
 }
 
-.sign-up-form__terms-conditions-link:first-child{
+.sign-up-form__btn-link:first-child{
     color: inherit;
+}
+
+.sign-up-form__sign-up-btn{
+    margin-top: 8px;
+}
+
+.sign-up-form__offer{
+    padding: 32px 0;
+    font-size: var(--font-size-small);
+    color: var(--font-color-light);
 }

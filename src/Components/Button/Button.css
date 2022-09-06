@@ -28,6 +28,10 @@
     font-weight: var(--font-weight-mid);
 }
 
+.button_large{
+    font-size: var(--font-size-big) !important;
+}
+
 .button_bare{
     background-color: transparent;
     padding: 16px 0;
@@ -47,6 +51,9 @@
     font-family: inherit;
     text-decoration: underline;
     cursor: pointer;
+}
+.button_bare > .button__inner> button:hover{
+    text-decoration: none;
 }
 
 .button_bordered{
