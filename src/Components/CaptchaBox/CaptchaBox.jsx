@@ -4,18 +4,18 @@ import { getCaptchaSecretKey } from "../../Features/Auth/AuthSlice";
 
 import './CaptchaBox.css';
 
-const CaptchaBox = ({captchaValue,setCaptchaValue})=>{
+const CaptchaBox = ({})=>{
     const captchaSecretKey = useSelector(state=> state.auth.captchaSecretKey)
     const dispatch = useDispatch()
+
+    let recaptchaInstance;
 
     const getSiteKey = ()=>{
         return process.env.REACT_APP_CAPTCHA_CLIENT_SITE_KEY
     }
 
     const onChange = value =>{
-        if(captchaValue !== value){
-            dispatch(getCaptchaSecretKey(value))
-        }
+        dispatch(getCaptchaSecretKey(value))
     }
 
     return(

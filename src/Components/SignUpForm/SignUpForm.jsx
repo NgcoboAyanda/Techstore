@@ -18,7 +18,6 @@ const SignUpForm = () =>{
     const[phoneNumber, setPhoneNumber] = useState('')
     const[password, setPassword] = useState('')
     const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
-    const[captchaValue, setCaptchaValue] = useState('')
 
     const navigate = useNavigate()
 
@@ -130,10 +129,7 @@ const SignUpForm = () =>{
                 </div>
                 <div className="sign-up-form__captcha">
                     <div className="sign-up-form__captcha__inner captcha-box-container">
-                        <CaptchaBox
-                            captchaValue={captchaValue}
-                            setCaptchaValue={setCaptchaValue}
-                        />
+                        <CaptchaBox/>
                     </div>
                 </div>
                 <div className="sign-up-form__terms">

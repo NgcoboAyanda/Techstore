@@ -30,6 +30,10 @@
     margin: 20px 0;
 }
 
+.sign-in-form__captcha{
+    margin: 8px 0;
+}
+
 .sign-in-form__sign-in-btn{
     margin: 16px 0;
 }

@@ -3,12 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     loggedIn: false,
     user: null,
-    captchaSecretKey: null
+    captchaSecretKey: null,
+    captchaVerified: false
 }
 
 const verifyCaptcha = async captchaSecretKey=>{
-    const response = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${captchaSecretKey}`,{method:'POST'});
-    let res = await response.json();
+    let res = 'verifying captcha';
     return res;
 }
 
@@ -32,7 +32,6 @@ export const authSlice = createSlice({
         logIn: (state, action) =>{
             const key = state.captchaSecretKey;
             let keyVerified = verifyCaptcha(key);
-            console.log(keyVerified)
         },
         //sends a forgot password request
         forgotPassword: (state, action) =>{

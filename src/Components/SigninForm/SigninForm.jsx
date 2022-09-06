@@ -12,6 +12,7 @@ import { logIn } from '../../Features/Auth/AuthSlice';
 
 //css
 import './SignInForm.css';
+import CaptchaBox from '../CaptchaBox/CaptchaBox';
 
 /* The Login form component */
 // Takes one prop, changeFormTo (function that changes the AuthPage form property)
@@ -71,6 +72,11 @@ const SigninForm = ({setForm}) => {
                             value={keepUserSignedIn} 
                             setValue={setKeepUserSignedIn}
                         />
+                    </div>
+                </div>
+                <div className="sign-in-form__captcha">
+                    <div className="sign-in-form__captcha__inner captcha-box-container">
+                        <CaptchaBox/>
                     </div>
                 </div>
                 <div className="sign-in-form__sign-in-btn">
