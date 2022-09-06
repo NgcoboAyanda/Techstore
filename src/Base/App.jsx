@@ -6,7 +6,9 @@ import { useSelector } from 'react-redux';
 //Pages
 import BasePage from '../Pages/Base/BasePage';
 import HomePage from '../Pages/Home/HomePage';
-import AuthPage from '../Pages/Auth/AuthPage';
+//Auth Pages
+import SignInPage from '../Pages/Auth/SignInPage/SignInPage';
+import SignUpPage from '../Pages/Auth/SignUpPage/SignUpPage';
 
 //components
 import Footer from '../Components/Footer/Footer';
@@ -21,9 +23,22 @@ const App = ()=>{
         <div className='app'>
             <Router>
                 <Routes>
-                    <Route path='/' element={<BasePage/>}/>
-                    <Route path='/home' element={<HomePage/>}/>
-                    <Route path='/auth' element={<AuthPage/>}/>
+                    <Route 
+                        path='/' 
+                        element={<BasePage/>}
+                    />
+                    <Route 
+                        path='/home' 
+                        element={<HomePage/>}
+                    />
+                    <Route 
+                        path='/auth/signin' 
+                        element={<SignInPage/>}
+                    />
+                    <Route 
+                        path='/auth/signup' 
+                        element={<SignUpPage/>}
+                    />
                 </Routes>
             </Router>
             <Footer/>

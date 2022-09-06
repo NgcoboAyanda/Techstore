@@ -16,7 +16,9 @@
     display: inline-block;
     width: auto;
 }
-
+.sign-up-form__information{
+    display: none !important;
+}
 .sign-up-form__information__inner{
     display: flex;
     flex-direction: column;
@@ -43,5 +45,16 @@
 }
 
 .sign-up-form__captcha{
-    margin-top: 32px;
+    margin-top: 16px;
+}
+
+.sign-up-form__terms{
+    margin-top: 16px;
+    color: var(--font-color-light);
+    font-size: var(--font-size-small);
+    margin-bottom: 16px;
+}
+
+.sign-up-form__terms-conditions-link:first-child{
+    color: inherit;
 }

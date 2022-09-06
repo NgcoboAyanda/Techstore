@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '../Button/Button';
 import CaptchaBox from '../CaptchaBox/CaptchaBox';
 import CheckBox from '../CheckBox/CheckBox';
 import EmailInput from '../InputBoxes/EmailInput/EmailInput';
@@ -120,6 +121,31 @@ const SignUpForm = () =>{
                         <CaptchaBox
                             captchaValue={captchaValue}
                             setCaptchaValue={setCaptchaValue}
+                        />
+                    </div>
+                </div>
+                <div className="sign-up-form__terms">
+                    <div className="sign-up-form__terms__inner">
+                        <span>
+                            By creating an account, you are agreeing to our terms & conditions and privacy policy, including receipt of exclusive email offers and promotions. To manage your marketing choices please access the Choice section of our privacy policy. Message and data rates may apply when including a phone number.
+                        </span>
+                    </div>
+                </div>
+                <div className="sign-up-form__terms-conditions-link">
+                    <div className="sign-up-form__terms-conditions-link">
+                        <Button
+                            onClick={console.log}
+                            className="button_bare"
+                            label="Terms & Conditions"
+                        />
+                    </div>
+                </div>
+                <div className="sign-up-form__terms-conditions-link">
+                    <div className="sign-up-form__terms-conditions-link">
+                        <Button
+                            onClick={console.log}
+                            className="button_bare"
+                            label="Privacy Policy"
                         />
                     </div>
                 </div>

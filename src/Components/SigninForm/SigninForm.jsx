@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux/es/exports';
+import {useNavigate} from 'react-router-dom';
+
 import Button from '../Button/Button';
 import CheckBox from '../CheckBox/CheckBox';
 import EmailInput from '../InputBoxes/EmailInput/EmailInput';
 import PasswordInput from '../InputBoxes/PasswordInput/PasswordInput';
 
+//actions
+import { logIn } from '../../Features/Auth/AuthSlice';
+
+//css
 import './SignInForm.css';
 
 /* The Login form component */
@@ -13,16 +20,22 @@ const SigninForm = ({setForm}) => {
     const[passwordInputValue, setPasswordInputValue] = useState('')
     const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
 
+    const navigate = useNavigate()
+    
+    //Redux
+    const dispatch = useDispatch();
+
     const submitForm = () =>{
-        console.log('submitted boyeeee')
+        console.log('submitted')
+        dispatch(logIn({'name': 'BABA'}))
     }
 
-    const changeToForgotPasswordForm = ()=>{
-        setForm('forgotPasswordForm')
+    const navigateToForgotPasswordPage = ()=>{
+        navigate('/auth/forgotpassword')
     }
 
-    const changeToSignUpForm = ()=>{
-        setForm('signUpForm')
+    const navigateToSignUpPage = ()=>{
+        navigate('/auth/signup')
     }
 
     return (
@@ -73,7 +86,7 @@ const SigninForm = ({setForm}) => {
                 <div className="sign-in-form__forgot-password-btn">
                     <div className="sign-in-form__forgot-password-btn__inner --fill-parent">
                         <Button 
-                            onClick={changeToForgotPasswordForm} 
+                            onClick={navigateToForgotPasswordPage} 
                             className="button_bare --fill-parent" 
                             label="Forgot Password?" 
                             />
@@ -82,7 +95,7 @@ const SigninForm = ({setForm}) => {
                 <div className="sign-in-form__sign-up-btn">
                     <div className="sign-in-form__sign-up-btn__inner">
                         <Button 
-                            onClick={changeToSignUpForm} 
+                            onClick={navigateToSignUpPage} 
                             className="button_bordered --fill-parent" 
                             label="Create your account"
                         />
