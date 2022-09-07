@@ -14,6 +14,7 @@ import SignUpPage from '../Pages/Auth/SignUpPage/SignUpPage';
 import Footer from '../Components/Footer/Footer';
 
 import './App.css'
+import ForgotPasswordPage from '../Pages/Auth/ForgotPasswordPage/ForgotPasswordPage';
 
 const App = ()=>{
     //Getting the auth{loggedIn:bool} state so that we can redirect the user
@@ -38,6 +39,10 @@ const App = ()=>{
                     <Route 
                         path='/auth/signup' 
                         element={<SignUpPage/>}
+                    />
+                    <Route
+                        path='/auth/forgot-password'
+                        element={<ForgotPasswordPage/>}
                     />
                 </Routes>
             </Router>

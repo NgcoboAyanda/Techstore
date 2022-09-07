@@ -32,7 +32,7 @@ const SigninForm = ({setForm}) => {
     }
 
     const navigateToForgotPasswordPage = ()=>{
-        navigate('/auth/forgotpassword')
+        navigate('/auth/forgot-password')
     }
 
     const navigateToSignUpPage = ()=>{

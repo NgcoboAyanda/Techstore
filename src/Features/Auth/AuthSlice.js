@@ -4,7 +4,7 @@ const initialState = {
     loggedIn: false,
     user: null,
     captchaSecretKey: null,
-    captchaVerified: false
+    captchaSolved: false
 }
 
 const verifyCaptcha = async captchaSecretKey=>{
