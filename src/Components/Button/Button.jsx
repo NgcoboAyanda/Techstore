@@ -21,14 +21,16 @@ const Button = ({onClick, className='button_filled', label='', submit=false, siz
         }
     }
 
+    const clickButton = ()=>{
+        if(typeof(onClick) === "function"){
+            onClick()
+        }
+    }
+
     return(
         <div className={`button button_submit ${className}`}>
             <div className="button__inner">
-                <button type={renderBtnType()} className={`${renderBtnSize()}`} onClick={()=>{
-                    if(onClick){
-                        onClick()
-                    }
-                }}>
+                <button type={renderBtnType()} className={`${renderBtnSize()}`} onClick={()=>clickButton()}>
                     {label}
                 </button>
             </div>

@@ -9,13 +9,20 @@ import './ForgotPasswordForm.css';
 
 const ForgotPasswordForm = ()=>{
     const [emailInputValue, setEmailInputValue] = useState('');
-    const [keepUserSignedIn, setKeepUserSignedIn] = useState(false)
+    const [radioBoxValue, setRadioBoxValue] = useState('password-reset')
+    const [keepUserSignedIn, setKeepUserSignedIn] = useState(false);
     const [step, setStep] = useState(1);
 
     const continueForm = ()=>{
-        if (emailInputValue){
-            setStep(2);
-        }
+        setStep(2);
+    }
+
+    const submitForm = ()=>{
+        console.log('forgot password form submitted!')
+    }
+
+    const returnToFirstStep = ()=>{
+        setStep(1)
     }
 
     const renderCorrectStep = ()=>{
@@ -68,6 +75,9 @@ const ForgotPasswordForm = ()=>{
                             <div className="forgot-password-form__step-2__radio-btn">
                                 <div className="forgot-password-form__step-2__radio-btn__inner">
                                     <RadioBox
+                                        value={radioBoxValue}
+                                        setValue={setRadioBoxValue}
+                                        label="What would you like to do?"
                                         options={[
                                             { 
                                                 id:'password-reset', 
@@ -90,6 +100,26 @@ const ForgotPasswordForm = ()=>{
                                     />
                                 </div>
                             </div>
+                            <div className="forgot-password-form__step-2__send-code-btn">
+                                <div className="forgot-password-form__step-2__send-code-btn__inner">
+                                    <Button
+                                        onClick={submitForm}
+                                        className="button_filled"
+                                        label="Send Code"
+                                        submit={true}
+
+                                    />
+                                </div>
+                            </div>
+                            <div className="forgot-password-form__step-2__prev-step-btn">
+                                <div className="forgot-password-form__step-2__prev-step-btn__inner">
+                                <Button
+                                        onClick={returnToFirstStep}
+                                        className="button_bordered"
+                                        label="Go Back"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,18 +128,20 @@ const ForgotPasswordForm = ()=>{
     }
 
     return(
-        <form className="forgot-password-form" onSubmit={e=>e.preventDefault()}>
-            <div className="forgot-password-form__inner">
-                <div className="forgot-password-form__heading">
-                    <div className="forgot-password-form__heading__inner">
-                        <div className="forgot-password-form__heading__text heading-normal">
-                            Forgot Password
+        <React.StrictMode>
+            <form className="forgot-password-form" onSubmit={e=>e.preventDefault()}>
+                <div className="forgot-password-form__inner">
+                    <div className="forgot-password-form__heading">
+                        <div className="forgot-password-form__heading__inner">
+                            <div className="forgot-password-form__heading__text heading-normal">
+                                Forgot Password
+                            </div>
                         </div>
                     </div>
+                    {renderCorrectStep()}
                 </div>
-                {renderCorrectStep()}
-            </div>
-        </form>
+            </form>
+        </React.StrictMode>
     )
 }
 
