@@ -95,3 +95,7 @@ body{
 .--bolded{
     font-weight: var(--font-weight-thick);
 }
+
+.--no-events{
+    pointer-events: none;
+}

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Button from '../Button/Button';
 import CheckBox from '../CheckBox/CheckBox';
 import EmailInput from '../InputBoxes/EmailInput/EmailInput';
+import RadioBox from '../RadioBox/RadioBox';
 
 import './ForgotPasswordForm.css';
 
@@ -66,7 +67,19 @@ const ForgotPasswordForm = ()=>{
                             </div>
                             <div className="forgot-password-form__step-2__radio-btn">
                                 <div className="forgot-password-form__step-2__radio-btn__inner">
-                                    this is the radio button
+                                    <RadioBox
+                                        options={[
+                                            { 
+                                                id:'password-reset', 
+                                                label:'Password reset' 
+                                            }
+                                            , 
+                                            { 
+                                                id: 'temporary-code', 
+                                                label:'Sign in with temporary code' 
+                                            }
+                                        ]}
+                                    />
                                 </div>
                             </div>
                             <div className="forgot-password-form__step-2__checkbox">
