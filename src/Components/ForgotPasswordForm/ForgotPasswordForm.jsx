@@ -83,11 +83,13 @@ const ForgotPasswordForm = ()=>{
                                                 id:'password-reset', 
                                                 label:'Password reset' 
                                             }
+                                            /*
+                                            For now we'll only have one option
                                             , 
                                             { 
                                                 id: 'temporary-code', 
                                                 label:'Sign in with temporary code' 
-                                            }
+                                            } */
                                         ]}
                                     />
                                 </div>
