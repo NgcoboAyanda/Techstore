@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 
 import Button from '../Button/Button';
 import CaptchaBox from '../CaptchaBox/CaptchaBox';
@@ -13,18 +13,24 @@ import PhoneInput from '../InputBoxes/PhoneInput/PhoneInput';
 import './SignUpForm.css';
 
 const SignUpForm = () =>{
-    const[email, setEmail] = useState('')
-    const[firstName, setFirstName] = useState('')
-    const[lastName, setLastName] = useState('')
-    const[phoneNumber, setPhoneNumber] = useState('')
-    const[password, setPassword] = useState('')
     const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
 
-    const { register, watch , handleSubmit, formState: { errors } } = useForm();
+    const { register, watch , handleSubmit, control, formState: { errors } } = useForm({
+        defaultValues: {
+            'Email': '',
+            'First Name': '',
+            'Last Name': '',
+            'Phone Number': '',
+            'Password': '',
+            'CaptchaKey': ''
+        }
+    });
     const navigate = useNavigate()
 
     const submitForm =(data)=>{
-        console.log(data)
+        if(data){
+            console.log(data)
+        }
     }
 
     const navigateToSignInPage = ()=>{
@@ -131,7 +137,23 @@ const SignUpForm = () =>{
                 </div>
                 <div className="sign-up-form__captcha">
                     <div className="sign-up-form__captcha__inner captcha-box-container">
-                        <CaptchaBox/>
+                        <Controller
+                            control={control}
+                            name="CaptchaKey"
+                            rules={ 
+                                {
+                                    required: true
+                                }
+                            }
+                            render={
+                                ({ field: {onChange} })=>(
+                                    <CaptchaBox
+                                        value={watch('CaptchaKey')}
+                                        onChange={onChange}
+                                    />
+                                )
+                            }
+                        />
                     </div>
                 </div>
                 <div className="sign-up-form__terms">

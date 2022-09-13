@@ -87,6 +87,15 @@ const PhoneInput = ({ value='', placeholder='', label='', optional=false, regist
         }
     }
 
+    const renderPhoneRequired = ()=>{
+        if(error){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+
     return (
         <div className={`input-box ${renderInputBoxClass()}`}>
             <div className="input-box__inner --fill-parent --bg-transparent">
@@ -95,7 +104,7 @@ const PhoneInput = ({ value='', placeholder='', label='', optional=false, regist
                         <input 
                             type='text' 
                             className="--fill-parent --bg-transparent" 
-                            {...register(label, {required: false, pattern: validationPattern })}
+                            {...register(label, {required: renderPhoneRequired(), pattern: validationPattern })}
                             onFocus={()=>onInputFocus()}  
                             onBlur={()=>onInputFocusLost()} 
                             />
