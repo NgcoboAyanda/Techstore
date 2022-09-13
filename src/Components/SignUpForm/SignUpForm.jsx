@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import Button from '../Button/Button';
 import CaptchaBox from '../CaptchaBox/CaptchaBox';
@@ -19,6 +20,7 @@ const SignUpForm = () =>{
     const[password, setPassword] = useState('')
     const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
 
+    const { register, watch , handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()
 
     const submitForm =(data)=>{
@@ -30,7 +32,7 @@ const SignUpForm = () =>{
     }
 
     return(
-        <div className="sign-up-form">
+        <form className="sign-up-form">
             <div className="sign-up-form__inner">
                 <div className="sign-up-form__heading">
                     <div className="sign-up-form__heading__inner">
@@ -42,9 +44,9 @@ const SignUpForm = () =>{
                 <div className="sign-up-form__email-box">
                     <div className="sign-up-form__email-box__inner">
                         <EmailInput
-                            value={email}
-                            setValue={setEmail}
+                            value={watch('Email')}
                             placeholder="Email Address"
+                            register={register}
                         />
                     </div>
                 </div>
@@ -82,9 +84,9 @@ const SignUpForm = () =>{
                 <div className="sign-up-form__password-box">
                     <div className="sign-up-form__password-box__inner">
                         <PasswordInput
-                            value={password}
-                            setValue={setPassword}
-                            placeholder="Create Password"
+                            value={watch('Password')}
+                            placeholder="Password"
+                            register={register}
                         />
                     </div>
                 </div>
@@ -188,7 +190,7 @@ const SignUpForm = () =>{
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     )
 }
 
