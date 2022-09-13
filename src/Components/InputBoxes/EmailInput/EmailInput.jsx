@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 
 import '../InputBoxes.css';
 
-const EmailInput = ({ value='', setValue, placeholder='', optional=false})=>{
+const EmailInput = ({ value='', placeholder='', optional=false, register})=>{
+    //register is a function from react-hook-form
     const[focused, setFocused] = useState(false)
     const[error, setError] = useState('')
 
@@ -82,7 +84,13 @@ const EmailInput = ({ value='', setValue, placeholder='', optional=false})=>{
             <div className="input-box__inner --fill-parent --bg-transparent">
                 <div className="input-box__element --fill-parent --bg-transparent">
                     <div className="input-box__element__inner --fill-parent --bg-transparent">
-                        <input type='email' onFocus={()=>onInputFocus()}  onBlur={()=>onInputFocusLost()} className="--fill-parent --bg-transparent" value={value} onChange={(e)=>setValue(e.target.value)}/>
+                        <input 
+                            type='email' 
+                            className="--fill-parent --bg-transparent" 
+                            {...register("Email", {required: true, pattern: /\S+@\S+\.\S+/})}
+                            onFocus={()=>onInputFocus()}  
+                            onBlur={()=>onInputFocusLost()} 
+                        />
                     </div>
                 </div>
                 <div className={`input-box__bg ${renderInputBgClass()}`}>

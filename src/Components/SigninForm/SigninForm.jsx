@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux/es/exports';
 import {useNavigate} from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import Button from '../Button/Button';
 import CheckBox from '../CheckBox/CheckBox';
@@ -21,14 +22,16 @@ const SigninForm = ({setForm}) => {
     const[passwordInputValue, setPasswordInputValue] = useState('')
     const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
 
+    const { register, watch , handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()
-    
+
     //Redux
     const dispatch = useDispatch();
 
-    const submitForm = () =>{
-        console.log('submitted')
-        dispatch(logIn({'name': 'BABA'}))
+    const submitForm = (data) =>{
+        if(data){
+            console.log(data)
+        }
     }
 
     const navigateToForgotPasswordPage = ()=>{
@@ -40,7 +43,9 @@ const SigninForm = ({setForm}) => {
     }
 
     return (
-        <form className="sign-in-form" onSubmit={e=>e.preventDefault()}>
+        <form className="sign-in-form" onSubmit={handleSubmit(data=>{
+            submitForm(data)
+        })}>
             <div className="sign-in-form__inner">
                 <div className="sign-in-form__heading">
                     <div className="sign-in-form__heading__inner">
@@ -52,17 +57,18 @@ const SigninForm = ({setForm}) => {
                 <div className="sign-in-form__email-box">
                     <div className="sign-in-form__email-box__inner">
                     <EmailInput 
-                            value={emailInputValue} 
-                            setValue={setEmailInputValue} placeholder="Email Address"
+                            value={watch('Email')}
+                            placeholder="Email Address"
+                            register={register}
                         />
                     </div>
                 </div>
                 <div className="sign-in-form__password-box">
                     <div className="sign-in-form__password-box__inner">
                         <PasswordInput
-                            value={passwordInputValue}
-                            setValue={setPasswordInputValue}
+                            value={watch('Password')}
                             placeholder="Password"
+                            register={register}
                         />
                     </div>
                 </div>

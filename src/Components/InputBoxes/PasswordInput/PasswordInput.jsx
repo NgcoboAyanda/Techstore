@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 
 import '../InputBoxes.css';
 
-const PasswordInput = ({value='', setValue, placeholder='', optional=false})=>{  
+const PasswordInput = ({value, placeholder='', optional=false, register, errors})=>{
+    //register is a function from react-hook-form  
     const[showPassword, setShowPassword] = useState(false);
     const[error, setError] = useState('');
     const[focused, setFocused] = useState(false);
@@ -22,12 +24,14 @@ const PasswordInput = ({value='', setValue, placeholder='', optional=false})=>{
 
     const validate = ()=>{
         //password validation simply checks for the password length
-        let passwordLength = value.length;
-        if(passwordLength <= 6){
-            setError('Please enter a valid password.');
+        let pattern = /.{8}/gm;
+        let match = pattern.test(value)
+        if(!match){
+            setError('Please enter a valid password');
         }
-        else if(passwordLength > 6){
-            clearError();
+        else{
+             //if there's a match we clear the error
+            clearError()
         }
     }
 
@@ -81,7 +85,7 @@ const PasswordInput = ({value='', setValue, placeholder='', optional=false})=>{
             return(
                 <div className="input-box__password-toggle-btn">
                     <div className="input-box__password-toggle-btn__inner">
-                        <button className="button button_password-toggle --bg-transparent" onClick={()=>togglePasswordBtn()}>
+                        <button className="button button_password-toggle --bg-transparent" type='button' onClick={()=>togglePasswordBtn()}>
                             show
                         </button>
                     </div>
@@ -93,7 +97,7 @@ const PasswordInput = ({value='', setValue, placeholder='', optional=false})=>{
             return(
                 <div className="input-box__password-toggle-btn">
                     <div className="input-box__password-toggle-btn__inner">
-                        <button className="button button_password-toggle --bg-transparent" onClick={()=>togglePasswordBtn()}>
+                        <button className="button button_password-toggle --bg-transparent" type='button' onClick={()=>togglePasswordBtn()}>
                             hide
                         </button>
                     </div>
@@ -120,7 +124,13 @@ const PasswordInput = ({value='', setValue, placeholder='', optional=false})=>{
             <div className="input-box__inner --fill-parent --bg-transparent">
                 <div className="input-box__element --fill-parent --bg-transparent">
                     <div className="input-box__element__inner --fill-parent --bg-transparent">
-                        <input type={renderInputType()} onFocus={()=>onInputFocus()}  onBlur={()=>onInputFocusLost()} className="--fill-parent --bg-transparent" value={value} onChange={(e)=>setValue(e.target.value)}/>
+                        <input 
+                            type={renderInputType()}
+                            className="--fill-parent --bg-transparent" 
+                            {...register( "Password", { required: true, pattern: /.{8}/gm , min: 7 } ) }
+                            onFocus={()=>onInputFocus()}
+                            onBlur={()=>onInputFocusLost()}
+                        />
                     </div>
                 </div>
                 <div className={`input-box__bg ${renderInputBgClass()}`}>
