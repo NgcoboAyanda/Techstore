@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 
 import '../InputBoxes.css';
 
-const PhoneInput = ({ value='', setValue, placeholder='', label='', optional=false})=>{
+const PhoneInput = ({ value='', placeholder='', label='', optional=false, register})=>{
+    //register is a function from react-hook-form
     const[focused, setFocused] = useState(false);
     const[error, setError] = useState('');
+
+    const validationPattern = /^\d{10}$/;
 
     const onInputFocus = ()=>{
         setFocused(true);
@@ -26,8 +29,7 @@ const PhoneInput = ({ value='', setValue, placeholder='', label='', optional=fal
                 clearError();
             }
             else if(value.length > 0){
-                let pattern = /^[0-9]{10}$/g;
-                let match = pattern.test(value)
+                let match = validationPattern.test(value)
                 if(!match){
                     setError('PLease enter a valid South African phone number');
                 }
@@ -90,7 +92,13 @@ const PhoneInput = ({ value='', setValue, placeholder='', label='', optional=fal
             <div className="input-box__inner --fill-parent --bg-transparent">
                 <div className="input-box__element --fill-parent --bg-transparent">
                     <div className="input-box__element__inner --fill-parent --bg-transparent">
-                        <input type='text' onFocus={()=>onInputFocus()}  onBlur={()=>onInputFocusLost()} className="--fill-parent --bg-transparent" value={value} onChange={(e)=>setValue(e.target.value)}/>
+                        <input 
+                            type='text' 
+                            className="--fill-parent --bg-transparent" 
+                            {...register(label, {required: false, pattern: validationPattern })}
+                            onFocus={()=>onInputFocus()}  
+                            onBlur={()=>onInputFocusLost()} 
+                            />
                     </div>
                 </div>
                 <div className={`input-box__bg ${renderInputBgClass()}`}>

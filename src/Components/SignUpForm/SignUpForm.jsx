@@ -24,7 +24,7 @@ const SignUpForm = () =>{
     const navigate = useNavigate()
 
     const submitForm =(data)=>{
-        console.log('shyteee')
+        console.log(data)
     }
 
     const navigateToSignInPage = ()=>{
@@ -32,7 +32,7 @@ const SignUpForm = () =>{
     }
 
     return(
-        <form className="sign-up-form">
+        <form className="sign-up-form" onSubmit={handleSubmit(data=>submitForm(data))}>
             <div className="sign-up-form__inner">
                 <div className="sign-up-form__heading">
                     <div className="sign-up-form__heading__inner">
@@ -73,11 +73,11 @@ const SignUpForm = () =>{
                 <div className="sign-up-form__phone-box">
                     <div className="sign-up-form__phone-box__inner">
                         <PhoneInput
-                            value={phoneNumber} 
-                            setValue={setPhoneNumber} 
-                            placeholder="Mobile phone number (optional)" 
-                            label="Phone Number" 
+                            value={watch("Phone Number")}
+                            label="Phone Number"
+                            placeholder="Mobile phone number (optional)"  
                             optional={true}
+                            register={register}
                         />
                     </div>
                 </div>
