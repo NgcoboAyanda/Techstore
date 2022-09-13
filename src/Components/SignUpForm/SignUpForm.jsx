@@ -140,6 +140,7 @@ const SignUpForm = () =>{
                         <Controller
                             control={control}
                             name="CaptchaKey"
+                            shouldUnregister={true}
                             rules={ 
                                 {
                                     required: true
