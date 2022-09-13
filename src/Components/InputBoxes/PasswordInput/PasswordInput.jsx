@@ -17,7 +17,6 @@ const PasswordInput = ({value='', placeholder='', optional=false, register, erro
 
     const onInputFocusLost = ()=>{
         setFocused(false)
-        console.log(value)
         validate()
     }
 
