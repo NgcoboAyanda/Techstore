@@ -53,20 +53,20 @@ const SignUpForm = () =>{
                 <div className="sign-up-form__first-name-box">
                     <div className="sign-up-form__first-name-box__inner">
                         <NameInput
-                            value={firstName}
-                            setValue={setFirstName}
+                            value={watch('First Name')}
                             label="First Name"
                             placeholder="First Name"
+                            register={register}
                         />
                     </div>
                 </div>
                 <div className="sign-up-form__last-name-box">
                     <div className="sign-up-form__last-name-box__inner">
                         <NameInput
-                            value={lastName}
-                            setValue={setLastName}
+                            value={watch('Last Name')}
                             label="Last Name"
                             placeholder="Last Name"
+                            register={register}
                         />
                     </div>
                 </div>

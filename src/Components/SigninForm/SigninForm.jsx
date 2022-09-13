@@ -80,11 +80,12 @@ const SigninForm = ({setForm}) => {
                         />
                     </div>
                 </div>
+                { /*
                 <div className="sign-in-form__captcha">
                     <div className="sign-in-form__captcha__inner captcha-box-container">
                         <CaptchaBox/>
                     </div>
-                </div>
+                </div> */}
                 <div className="sign-in-form__sign-in-btn">
                     <div className="sign-in-form__sign-in-btn__inner">
                         <Button 

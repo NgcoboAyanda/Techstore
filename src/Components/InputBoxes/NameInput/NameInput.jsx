@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 
 import '../InputBoxes.css';
 
-const NameInput = ({ value='', setValue, placeholder='', label='', optional=false})=>{
+const NameInput = ({ value='', placeholder='', label='', optional=false, register})=>{
+    //register is a function from react-hook-form  
     const[focused, setFocused] = useState(false);
     const[error, setError] = useState('');
+
+    const validationPattern = new RegExp('.{3}')
 
     const onInputFocus = ()=>{
         setFocused(true);
@@ -79,7 +82,13 @@ const NameInput = ({ value='', setValue, placeholder='', label='', optional=fals
             <div className="input-box__inner --fill-parent --bg-transparent">
                 <div className="input-box__element --fill-parent --bg-transparent">
                     <div className="input-box__element__inner --fill-parent --bg-transparent">
-                        <input type='text' onFocus={()=>onInputFocus()}  onBlur={()=>onInputFocusLost()} className="--fill-parent --bg-transparent" value={value} onChange={(e)=>setValue(e.target.value)}/>
+                        <input 
+                            type='text'
+                            {...register( label, { required: true, pattern: validationPattern , min: 8 } ) }
+                            onFocus={()=>onInputFocus()}  
+                            onBlur={()=>onInputFocusLost()} 
+                            className="--fill-parent --bg-transparent"
+                        />
                     </div>
                 </div>
                 <div className={`input-box__bg ${renderInputBgClass()}`}>

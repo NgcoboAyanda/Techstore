@@ -3,11 +3,13 @@ import { useEffect } from 'react';
 
 import '../InputBoxes.css';
 
-const PasswordInput = ({value, placeholder='', optional=false, register, errors})=>{
+const PasswordInput = ({value='', placeholder='', optional=false, register, errors})=>{
     //register is a function from react-hook-form  
     const[showPassword, setShowPassword] = useState(false);
     const[error, setError] = useState('');
     const[focused, setFocused] = useState(false);
+
+    const validationPattern = new RegExp('.{8}');
 
     const onInputFocus = ()=>{
         setFocused(true)
@@ -15,6 +17,7 @@ const PasswordInput = ({value, placeholder='', optional=false, register, errors}
 
     const onInputFocusLost = ()=>{
         setFocused(false)
+        console.log(value)
         validate()
     }
 
@@ -24,8 +27,7 @@ const PasswordInput = ({value, placeholder='', optional=false, register, errors}
 
     const validate = ()=>{
         //password validation simply checks for the password length
-        let pattern = /.{8}/gm;
-        let match = pattern.test(value)
+        let match = validationPattern.test(value)
         if(!match){
             setError('Please enter a valid password');
         }
@@ -127,7 +129,7 @@ const PasswordInput = ({value, placeholder='', optional=false, register, errors}
                         <input 
                             type={renderInputType()}
                             className="--fill-parent --bg-transparent" 
-                            {...register( "Password", { required: true, pattern: /.{8}/gm , min: 7 } ) }
+                            {...register( "Password", { required: true, pattern: validationPattern , min: 8 } ) }
                             onFocus={()=>onInputFocus()}
                             onBlur={()=>onInputFocusLost()}
                         />
