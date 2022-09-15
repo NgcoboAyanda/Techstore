@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+
 import Button from '../Button/Button';
 import CheckBox from '../CheckBox/CheckBox';
 import EmailInput from '../InputBoxes/EmailInput/EmailInput';
@@ -13,12 +15,19 @@ const ForgotPasswordForm = ()=>{
     const [keepUserSignedIn, setKeepUserSignedIn] = useState(false);
     const [step, setStep] = useState(1);
 
+    const { register, watch , handleSubmit, control, formState: { errors } } = useForm({
+        defaultValues: {
+            'Email': '',
+            'RadioBox': 'password-reset'
+        }
+    });
+
     const continueForm = ()=>{
         setStep(2);
     }
 
-    const submitForm = ()=>{
-        console.log('forgot password form submitted!')
+    const submitForm = (data)=>{
+        console.log(data);
     }
 
     const returnToFirstStep = ()=>{
@@ -41,16 +50,16 @@ const ForgotPasswordForm = ()=>{
                         <div className="forgot-password-form__step-1__email-box">
                             <div className="forgot-password-form__step-1__email-box__inner">
                                 <EmailInput
-                                    value={emailInputValue}
-                                    setValue={setEmailInputValue}
+                                    value={watch('Email')}
                                     placeholder="Email Address"
+                                    register={register}
                                 />
                             </div>
                         </div>
                         <div className="forgot-password-form__continue-btn">
                             <div className="forgot-password-form__continue-btn__inner">
                                 <Button
-                                    onClick={continueForm}
+                                    onClick={handleSubmit(()=>continueForm())}
                                     className="button_filled"
                                     label="Continue"
                                     submit={true}
@@ -69,29 +78,43 @@ const ForgotPasswordForm = ()=>{
                         <div className="forgot-password-form__step-2__text">
                             <div className="forgot-password-form__step-2__text__inner">
                                 <span>We will send a code to</span>
-                                <span className="--bolded"> {emailInputValue} </span>
+                                <span className="--bolded"> {watch('Email')} </span>
                                 <span>so that you can get back into your account</span>
                             </div>
                             <div className="forgot-password-form__step-2__radio-btn">
                                 <div className="forgot-password-form__step-2__radio-btn__inner">
-                                    <RadioBox
-                                        value={radioBoxValue}
-                                        setValue={setRadioBoxValue}
-                                        label="What would you like to do?"
-                                        options={[
-                                            { 
-                                                id:'password-reset', 
-                                                label:'Password reset' 
-                                            }
-                                            /*
-                                            For now we'll only have one option
-                                            , 
-                                            { 
-                                                id: 'temporary-code', 
-                                                label:'Sign in with temporary code' 
-                                            } */
-                                        ]}
-                                    />
+                                <Controller
+                                    control={control}
+                                    name="RadioBox"
+                                    shouldUnregister={false}
+                                    rules={ 
+                                        {
+                                            required: true
+                                        }
+                                    }
+                                    render={
+                                        ({ field: {onChange} })=>(
+                                            <RadioBox
+                                                value={watch('RadioBox')}
+                                                setValue={onChange}
+                                                label="What would you like to do?"
+                                                options={[
+                                                    { 
+                                                        id:'password-reset', 
+                                                        label:'Password reset' 
+                                                    }
+                                                    /*
+                                                    For now we'll only have one option
+                                                    , 
+                                                    { 
+                                                        id: 'temporary-code', 
+                                                        label:'Sign in with temporary code' 
+                                                    } */
+                                                ]}
+                                            />
+                                        )
+                                    }
+                                />
                                 </div>
                             </div>
                             <div className="forgot-password-form__step-2__checkbox">
@@ -105,7 +128,9 @@ const ForgotPasswordForm = ()=>{
                             <div className="forgot-password-form__step-2__send-code-btn">
                                 <div className="forgot-password-form__step-2__send-code-btn__inner">
                                     <Button
-                                        onClick={submitForm}
+                                        onClick={
+                                            handleSubmit(data=>submitForm(data))
+                                        }
                                         className="button_filled"
                                         label="Send Code"
                                         submit={true}

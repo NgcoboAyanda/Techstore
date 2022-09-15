@@ -5,7 +5,7 @@ import { getCaptchaSecretKey } from "../../Features/Auth/AuthSlice";
 
 import './CaptchaBox.css';
 
-const CaptchaBox = ({value, onChange})=>{
+const CaptchaBox = ({ value, onChange })=>{
 
     const getSiteKey = ()=>{
         return process.env.REACT_APP_CAPTCHA_CLIENT_SITE_KEY;
