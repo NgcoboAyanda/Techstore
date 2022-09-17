@@ -22,7 +22,12 @@ const SigninForm = ({setForm}) => {
     const[passwordInputValue, setPasswordInputValue] = useState('')
     const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
 
-    const { register, watch , handleSubmit, formState: { errors } } = useForm();
+    const { register, watch , handleSubmit, formState: { errors } } = useForm({
+        defaultValues: {
+            'Email': '',
+            'Password': ''
+        }
+    });
     const navigate = useNavigate()
 
     //Redux
@@ -35,11 +40,11 @@ const SigninForm = ({setForm}) => {
     }
 
     const navigateToForgotPasswordPage = ()=>{
-        navigate('/auth/forgot-password')
+        navigate('/accounts/forgot-password')
     }
 
     const navigateToSignUpPage = ()=>{
-        navigate('/auth/signup')
+        navigate('/accounts/signup')
     }
 
     return (

@@ -32,16 +32,18 @@ const App = ()=>{
                         path='/home' 
                         element={<HomePage/>}
                     />
+
+                    /* Accounts */
                     <Route 
-                        path='/auth/signin' 
+                        path='/accounts/signin' 
                         element={<SignInPage/>}
                     />
                     <Route 
-                        path='/auth/signup' 
+                        path='/accounts/signup' 
                         element={<SignUpPage/>}
                     />
                     <Route
-                        path='/auth/forgot-password'
+                        path='/accounts/forgot-password'
                         element={<ForgotPasswordPage/>}
                     />
                 </Routes>

@@ -18,7 +18,7 @@ const BasePage = ()=>{
         ()=>{
             setTimeout(
                 ()=>{
-                    navigate("/auth/signup")
+                    navigate("/accounts/signup")
                 },
                 3000
             )

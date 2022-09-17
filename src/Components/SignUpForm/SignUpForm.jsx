@@ -34,7 +34,7 @@ const SignUpForm = () =>{
     }
 
     const navigateToSignInPage = ()=>{
-        navigate('/auth/signin')
+        navigate('/accounts/signin')
     }
 
     return(
