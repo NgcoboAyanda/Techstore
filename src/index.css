@@ -24,7 +24,7 @@ IBM plex
 
     /* Colors that represent errors */
     --color-error: #b85300;
-    --colo-error-bg: #FFF5EB;
+    --colo-error-bg: FFF5EB#;
 
     /* Fonts */
     --font-size-small: 13px;
@@ -49,6 +49,10 @@ IBM plex
 
     /* font-family */
     --font-family-default: 'IBM Plex Sans', sans-serif;
+
+    /* margin */
+    --margin-normal: 16px;
+    --margin-small: 8px;
 }
 
 body{

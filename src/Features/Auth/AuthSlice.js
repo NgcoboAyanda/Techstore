@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import thunk from "redux-thunk";
 
 const apiBaseUrl = 'http://localhost:8000';
 
@@ -48,6 +47,25 @@ export const signUp = createAsyncThunk(
     }
 )
 
+export const sendPasswordResetLink = createAsyncThunk(
+    'auth/sendPasswordResetLink',
+    async (credentials)=>{
+        const response = await fetch(`${apiBaseUrl}/accounts/reset-password/?email=${credentials.email}`,{
+            ...requestConfig,
+            body: JSON.stringify(credentials)
+        })
+        if (response.status === 204){
+            //user sent password reset link
+            return null
+        }
+        else{
+            //there was an error
+            const error = await response.json()
+            return error
+        }
+    }
+)
+
 
 export const authSlice = createSlice({
     name: 'auth',
@@ -62,7 +80,7 @@ export const authSlice = createSlice({
         })
         .addCase(logIn.fulfilled, (state, action)=>{
             const {token, user} = action.payload
-            if(token && user){
+            if(token){
                 return {...state, user, token, loggedIn:true, status: 'idle'}
             }
             else{
@@ -77,6 +95,13 @@ export const authSlice = createSlice({
         })
         .addCase(signUp.fulfilled, (state, action)=>{
             return {...state, status: 'loading'}
+        })
+        //SENG PASSWORD RESET LINK
+        .addCase(sendPasswordResetLink.pending, (state, action)=>{
+            return {...state, status: 'loading'}
+        })
+        .addCase(sendPasswordResetLink.fulfilled, (state, action)=>{
+            return {...state, status: 'idle', error: action.payload}
         })
     }   
 })

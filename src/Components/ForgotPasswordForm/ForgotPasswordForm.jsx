@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { sendPasswordResetLink } from '../../Features/Auth/AuthSlice';
 
 import Button from '../Button/Button';
 import CheckBox from '../CheckBox/CheckBox';
@@ -22,12 +24,16 @@ const ForgotPasswordForm = ()=>{
         }
     });
 
+    const dispatch = useDispatch()
+
     const continueForm = ()=>{
         setStep(2);
     }
 
     const submitForm = (data)=>{
-        console.log(data);
+        if(data){
+            dispatch(sendPasswordResetLink(data))
+        }
     }
 
     const returnToFirstStep = ()=>{
@@ -77,7 +83,7 @@ const ForgotPasswordForm = ()=>{
                     <div className="forgot-password-form__step-2__inner">
                         <div className="forgot-password-form__step-2__text">
                             <div className="forgot-password-form__step-2__text__inner">
-                                <span>We will send a code to</span>
+                                <span>We will send a link to</span>
                                 <span className="--bolded"> {watch('email')} </span>
                                 <span>so that you can get back into your account</span>
                             </div>
@@ -132,7 +138,7 @@ const ForgotPasswordForm = ()=>{
                                             handleSubmit(data=>submitForm(data))
                                         }
                                         className="button_filled"
-                                        label="Send Code"
+                                        label="Send Link"
                                         submit={true}
 
                                     />

@@ -1,4 +1,7 @@
 import React from 'react';
+
+import Error from '../../Components/Error/Error';
+
 import Logo from '../../Components/Logo/Logo';
 
 import './AuthPage.css'
@@ -12,6 +15,11 @@ const AuthPage = ({formComponent})=>{
                 <div className="app__auth-page__logo">
                     <div className="app__auth-page__logo__inner">
                         <Logo/>
+                    </div>
+                </div>
+                <div className="app__auth-page__errors">
+                    <div className="app__auth-page__errors__inner">
+                        <Error/>
                     </div>
                 </div>
                 <div className="app__auth-page__form">

@@ -1,0 +1,8 @@
+.error{
+    color: var(--color-error);
+    border: 1px solid currentColor;
+    font-size: var(--font-size-small);
+    padding: var(--margin-normal) var(--margin-small);
+    border-radius: 2px;
+    background-color: var(--color-error-bg);
+}
