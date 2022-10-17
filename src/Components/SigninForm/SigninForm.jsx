@@ -35,7 +35,7 @@ const SigninForm = ({setForm}) => {
 
     const submitForm = (data) =>{
         if(data){
-            console.log(data)
+            dispatch(logIn(data))
         }
     }
 

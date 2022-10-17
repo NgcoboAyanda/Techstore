@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import { Controller, useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../Button/Button';
 import CaptchaBox from '../CaptchaBox/CaptchaBox';
@@ -12,29 +13,36 @@ import PhoneInput from '../InputBoxes/PhoneInput/PhoneInput';
 
 import './SignUpForm.css';
 
+import { signUp } from '../../Features/Auth/AuthSlice';
+
 const SignUpForm = () =>{
     const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
 
+
     const { register, watch , handleSubmit, control, formState: { errors } } = useForm({
         defaultValues: {
-            'Email': '',
-            'First Name': '',
-            'Last Name': '',
-            'Phone Number': '',
-            'Password': '',
-            'CaptchaKey': ''
+            'email': "ayandaaaa@zmail.com",
+            'first_name': "Ayanda",
+            'last_name': "Ngcobo",
+            'phone': "",
+            'password': "12345678",
+            'CaptchaKey': 'aaaaaaaaaaaaaa'
         }
     });
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const authStatus = useSelector(state=> state.auth.status);
+
+    //Redux
+    const dispatch = useDispatch();
 
     const submitForm =(data)=>{
         if(data){
-            console.log(data)
+            dispatch( signUp(data) );
         }
     }
 
     const navigateToSignInPage = ()=>{
-        navigate('/accounts/signin')
+        navigate('/accounts/signin');
     }
 
     return(
@@ -50,7 +58,7 @@ const SignUpForm = () =>{
                 <div className="sign-up-form__email-box">
                     <div className="sign-up-form__email-box__inner">
                         <EmailInput
-                            value={watch('Email')}
+                            value={watch('email')}
                             placeholder="Email Address"
                             register={register}
                         />
@@ -59,8 +67,8 @@ const SignUpForm = () =>{
                 <div className="sign-up-form__first-name-box">
                     <div className="sign-up-form__first-name-box__inner">
                         <NameInput
-                            value={watch('First Name')}
-                            label="First Name"
+                            value={watch('first_name')}
+                            label="first_name"
                             placeholder="First Name"
                             register={register}
                         />
@@ -69,8 +77,8 @@ const SignUpForm = () =>{
                 <div className="sign-up-form__last-name-box">
                     <div className="sign-up-form__last-name-box__inner">
                         <NameInput
-                            value={watch('Last Name')}
-                            label="Last Name"
+                            value={watch('last_name')}
+                            label="last_name"
                             placeholder="Last Name"
                             register={register}
                         />
@@ -79,8 +87,8 @@ const SignUpForm = () =>{
                 <div className="sign-up-form__phone-box">
                     <div className="sign-up-form__phone-box__inner">
                         <PhoneInput
-                            value={watch("Phone Number")}
-                            label="Phone Number"
+                            value={watch("phone")}
+                            label="phone"
                             placeholder="Mobile phone number (optional)"  
                             optional={true}
                             register={register}
@@ -90,7 +98,7 @@ const SignUpForm = () =>{
                 <div className="sign-up-form__password-box">
                     <div className="sign-up-form__password-box__inner">
                         <PasswordInput
-                            value={watch('Password')}
+                            value={watch('password')}
                             placeholder="Password"
                             register={register}
                         />

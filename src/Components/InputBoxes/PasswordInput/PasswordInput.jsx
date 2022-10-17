@@ -128,7 +128,7 @@ const PasswordInput = ({value='', placeholder='', optional=false, register, erro
                         <input 
                             type={renderInputType()}
                             className="--fill-parent --bg-transparent" 
-                            {...register( "Password", { required: true, pattern: validationPattern , min: 8 } ) }
+                            {...register( "password", { required: true, pattern: validationPattern , min: 8 } ) }
                             onFocus={()=>onInputFocus()}
                             onBlur={()=>onInputFocusLost()}
                         />

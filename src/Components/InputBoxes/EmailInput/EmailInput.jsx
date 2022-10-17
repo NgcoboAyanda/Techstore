@@ -87,7 +87,7 @@ const EmailInput = ({ value='', placeholder='', optional=false, register})=>{
                         <input 
                             type='email' 
                             className="--fill-parent --bg-transparent" 
-                            {...register("Email", {required: true, pattern: /\S+@\S+\.\S+/})}
+                            {...register("email", {required: true, pattern: /\S+@\S+\.\S+/})}
                             onFocus={()=>onInputFocus()}  
                             onBlur={()=>onInputFocusLost()} 
                         />
