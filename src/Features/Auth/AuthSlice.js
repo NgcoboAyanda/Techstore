@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import thunk from "redux-thunk";
 
 const apiBaseUrl = 'http://localhost:8000';
 
@@ -6,6 +7,7 @@ const initialState = {
     loggedIn: false,
     user: null,
     status: 'idle',
+    token: null,
     error: null
 }
 
@@ -19,27 +21,33 @@ const requestConfig = {
 
 export const logIn = createAsyncThunk(
     'auth/logIn',
-    async (credentials)=>{
+    async (credentials, thunkAPI)=>{
         const response = await fetch(`${apiBaseUrl}/accounts/login/`,{
             ...requestConfig,
-            body: credentials
+            body: JSON.stringify(credentials)
         })
         let res = await response.json();
         return res;
     }
 )
 
+
+
 export const signUp = createAsyncThunk(
     'auth/signUp',
-    async (formData)=>{
+    async (formData, thunkAPI)=>{
         const response = await fetch(`${apiBaseUrl}/accounts/signup/`,{
             ...requestConfig,
-            body: formData
+            body: JSON.stringify(formData)
         })
-        let res = await response.json();
-        return res;
+        if (response.status === 201){
+            //if user was successfully created then we wanna dispatch login to log the new user in
+            const {email, password} = formData;
+            thunkAPI.dispatch(logIn({email, password}))
+        }
     }
 )
+
 
 export const authSlice = createSlice({
     name: 'auth',
@@ -53,19 +61,24 @@ export const authSlice = createSlice({
             return {...state, status:'loading'}
         })
         .addCase(logIn.fulfilled, (state, action)=>{
-            if(action.payload.uid){
-                //if a valid object is returned
-                //meaning authentication was successful
-                return {...state, status:'idle', user: action.payload, loggedIn: true}
+            const {token, user} = action.payload
+            if(token && user){
+                return {...state, user, token, loggedIn:true, status: 'idle'}
             }
             else{
-                //there is no uid inside the payload
+                //there are no user and token properties inside the payload
                 //meaning this is an error object
-                return {...state, status:'idle', user: null, error: action.payload}
+                return {...state, status:'idle', error: action.payload}
             }
         })
         //SIGN UP
-    }
+        .addCase(signUp.pending, (state, action)=>{
+            return {...state, status: 'loading'}
+        })
+        .addCase(signUp.fulfilled, (state, action)=>{
+            return {...state, status: 'loading'}
+        })
+    }   
 })
 
 

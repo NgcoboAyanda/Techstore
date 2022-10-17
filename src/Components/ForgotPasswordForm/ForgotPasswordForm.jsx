@@ -50,7 +50,7 @@ const ForgotPasswordForm = ()=>{
                         <div className="forgot-password-form__step-1__email-box">
                             <div className="forgot-password-form__step-1__email-box__inner">
                                 <EmailInput
-                                    value={watch('Email')}
+                                    value={watch('email')}
                                     placeholder="Email Address"
                                     register={register}
                                 />
@@ -78,7 +78,7 @@ const ForgotPasswordForm = ()=>{
                         <div className="forgot-password-form__step-2__text">
                             <div className="forgot-password-form__step-2__text__inner">
                                 <span>We will send a code to</span>
-                                <span className="--bolded"> {watch('Email')} </span>
+                                <span className="--bolded"> {watch('email')} </span>
                                 <span>so that you can get back into your account</span>
                             </div>
                             <div className="forgot-password-form__step-2__radio-btn">

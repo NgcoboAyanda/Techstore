@@ -24,8 +24,8 @@ const SigninForm = ({setForm}) => {
 
     const { register, watch , handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
-            'Email': '',
-            'Password': ''
+            'email': '',
+            'password': ''
         }
     });
     const navigate = useNavigate()
@@ -62,7 +62,7 @@ const SigninForm = ({setForm}) => {
                 <div className="sign-in-form__email-box">
                     <div className="sign-in-form__email-box__inner">
                     <EmailInput 
-                            value={watch('Email')}
+                            value={watch('email')}
                             placeholder="Email Address"
                             register={register}
                         />
@@ -71,7 +71,7 @@ const SigninForm = ({setForm}) => {
                 <div className="sign-in-form__password-box">
                     <div className="sign-in-form__password-box__inner">
                         <PasswordInput
-                            value={watch('Password')}
+                            value={watch('password')}
                             placeholder="Password"
                             register={register}
                         />
