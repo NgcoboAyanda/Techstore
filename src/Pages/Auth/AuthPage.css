@@ -22,3 +22,7 @@
     align-items: center;
     justify-content: center;
 }
+
+.app__auth-page__errors{
+    margin: var(--margin-normal) 0;
+}

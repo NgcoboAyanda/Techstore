@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 import { Controller, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +13,7 @@ import PhoneInput from '../InputBoxes/PhoneInput/PhoneInput';
 
 import './SignUpForm.css';
 
-import { signUp } from '../../Features/Auth/AuthSlice';
+import { signUp, clearError } from '../../Features/Auth/AuthSlice';
 
 const SignUpForm = () =>{
     const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
@@ -34,6 +34,15 @@ const SignUpForm = () =>{
 
     //Redux
     const dispatch = useDispatch();
+
+    useEffect(
+        ()=>{
+            //when component mounts
+            //clear any validation errors
+            dispatch(clearError())
+        },
+        []
+    )
 
     const submitForm =(data)=>{
         if(data){

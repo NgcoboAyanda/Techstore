@@ -1,8 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { sendPasswordResetLink } from '../../Features/Auth/AuthSlice';
+import { sendPasswordResetLink, clearError } from '../../Features/Auth/AuthSlice';
 
 import Button from '../Button/Button';
 import CheckBox from '../CheckBox/CheckBox';
@@ -25,6 +25,15 @@ const ForgotPasswordForm = ()=>{
     });
 
     const dispatch = useDispatch()
+
+    useEffect(
+        ()=>{
+            //when component mounts
+            //clear any validation errors
+            dispatch(clearError())
+        },
+        []
+    )
 
     const continueForm = ()=>{
         setStep(2);

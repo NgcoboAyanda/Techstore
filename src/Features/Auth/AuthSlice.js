@@ -7,7 +7,7 @@ const initialState = {
     user: null,
     status: 'idle',
     token: null,
-    error: null
+    error: {}
 }
 
 const requestConfig = {
@@ -25,8 +25,19 @@ export const logIn = createAsyncThunk(
             ...requestConfig,
             body: JSON.stringify(credentials)
         })
-        let res = await response.json();
-        return res;
+        if(response.status === 200){
+            const res = await response.json();
+            const { user, token } = res;
+            const { setUser, setToken } = authSlice.actions;
+            thunkAPI.dispatch(setUser(user));
+            thunkAPI.dispatch(setToken(token));
+        }
+        else{
+            //There was an error
+            const error = await response.json();
+            const { setError } = authSlice.actions;
+            thunkAPI.dispatch(setError(error));
+        }
     }
 )
 
@@ -44,12 +55,18 @@ export const signUp = createAsyncThunk(
             const {email, password} = formData;
             thunkAPI.dispatch(logIn({email, password}))
         }
+        else{
+            //there was an error
+            const error = await response.json();
+            const {setError} = authSlice.actions;
+            thunkAPI.dispatch(setError(error));
+        }
     }
 )
 
 export const sendPasswordResetLink = createAsyncThunk(
     'auth/sendPasswordResetLink',
-    async (credentials)=>{
+    async (credentials, thunkAPI)=>{
         const response = await fetch(`${apiBaseUrl}/accounts/reset-password/?email=${credentials.email}`,{
             ...requestConfig,
             body: JSON.stringify(credentials)
@@ -61,7 +78,22 @@ export const sendPasswordResetLink = createAsyncThunk(
         else{
             //there was an error
             const error = await response.json()
-            return error
+            console.log(error)
+            const {setError} = authSlice.actions;
+            //the password reset endpoint returns a different error object 
+            /*  
+                {
+                    email: [
+                        "This is the error message which is also the first item inside this list."
+                    ]
+                }
+            */
+            //e.g ["We couldn't find a user associated.."]
+            //so in this case we create our own error object
+            let theError = {
+                detail: error.email[0]
+            }
+            thunkAPI.dispatch(setError(theError))
         }
     }
 )
@@ -71,23 +103,38 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-
+        //ERRORS
+        setError: (state, action)=>{
+            return {...state, error: action.payload};
+        },
+        clearError: (state, action)=>{
+            return {...state, error:{}};
+        }
+        ,
+        //TOKEN
+        setToken: (state, action)=>{
+            return {...state, token: action.payload};
+        },
+        clearToken: (state, action)=>{
+            return {...state, token: null};
+        }
+        ,
+        //USER
+        setUser: (state, action)=>{
+            return {...state, user: action.payload};
+        },
+        clearUser: (state, action)=>{
+            return {...state, user: null}
+        }
     },
     extraReducers: builder=>{
+        builder
         //LOG IN
-        builder.addCase(logIn.pending, (state, action)=>{
+        .addCase(logIn.pending, (state, action)=>{
             return {...state, status:'loading'}
         })
         .addCase(logIn.fulfilled, (state, action)=>{
-            const {token, user} = action.payload
-            if(token){
-                return {...state, user, token, loggedIn:true, status: 'idle'}
-            }
-            else{
-                //there are no user and token properties inside the payload
-                //meaning this is an error object
-                return {...state, status:'idle', error: action.payload}
-            }
+            return {...state, status: 'idle'}
         })
         //SIGN UP
         .addCase(signUp.pending, (state, action)=>{
@@ -96,15 +143,22 @@ export const authSlice = createSlice({
         .addCase(signUp.fulfilled, (state, action)=>{
             return {...state, status: 'loading'}
         })
+        .addCase(signUp.rejected, (state, action)=>{
+            return {...state, status: 'idle'}
+        })
         //SENG PASSWORD RESET LINK
         .addCase(sendPasswordResetLink.pending, (state, action)=>{
             return {...state, status: 'loading'}
         })
         .addCase(sendPasswordResetLink.fulfilled, (state, action)=>{
-            return {...state, status: 'idle', error: action.payload}
+            return {...state, status: 'idle'}
+        })
+        .addCase(sendPasswordResetLink.rejected, (state, action)=>{
+            return {...state, status: 'idle'}
         })
     }   
 })
 
+export const {clearError} = authSlice.actions;
 
 export default authSlice.reducer

@@ -9,11 +9,12 @@ import EmailInput from '../InputBoxes/EmailInput/EmailInput';
 import PasswordInput from '../InputBoxes/PasswordInput/PasswordInput';
 
 //actions
-import { logIn } from '../../Features/Auth/AuthSlice';
+import { clearError, logIn } from '../../Features/Auth/AuthSlice';
 
 //css
 import './SignInForm.css';
 import CaptchaBox from '../CaptchaBox/CaptchaBox';
+import { useEffect } from 'react';
 
 /* The Login form component */
 // Takes one prop, changeFormTo (function that changes the AuthPage form property)
@@ -32,6 +33,15 @@ const SigninForm = ({setForm}) => {
 
     //Redux
     const dispatch = useDispatch();
+
+    useEffect(
+        ()=>{
+            //when component mounts
+            //clear any validation errors
+            dispatch(clearError())
+        },
+        []
+    )
 
     const submitForm = (data) =>{
         if(data){
