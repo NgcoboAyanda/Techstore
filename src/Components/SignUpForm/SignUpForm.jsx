@@ -13,7 +13,7 @@ import PhoneInput from '../InputBoxes/PhoneInput/PhoneInput';
 
 import './SignUpForm.css';
 
-import { signUp, clearError } from '../../Features/Auth/AuthSlice';
+import { signUp, clearNotification } from '../../Features/Auth/AuthSlice';
 
 const SignUpForm = () =>{
     const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
@@ -39,7 +39,7 @@ const SignUpForm = () =>{
         ()=>{
             //when component mounts
             //clear any validation errors
-            dispatch(clearError())
+            dispatch(clearNotification())
         },
         []
     )

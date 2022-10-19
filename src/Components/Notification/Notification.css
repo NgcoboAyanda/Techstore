@@ -1,8 +1,16 @@
-.error{
-    color: var(--color-error);
+.notification{
     border: 1px solid currentColor;
     font-size: var(--font-size-small);
     padding: var(--margin-normal) var(--margin-small);
     border-radius: 2px;
+}
+
+.notification_error{
+    color: var(--color-error);
     background-color: var(--color-error-bg);
 }
+
+.notification_success{
+    color: green;
+    background-color: yellowgreen;
+}   

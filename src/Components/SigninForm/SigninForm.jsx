@@ -9,7 +9,7 @@ import EmailInput from '../InputBoxes/EmailInput/EmailInput';
 import PasswordInput from '../InputBoxes/PasswordInput/PasswordInput';
 
 //actions
-import { clearError, logIn } from '../../Features/Auth/AuthSlice';
+import { clearNotification, logIn } from '../../Features/Auth/AuthSlice';
 
 //css
 import './SignInForm.css';
@@ -38,7 +38,7 @@ const SigninForm = ({setForm}) => {
         ()=>{
             //when component mounts
             //clear any validation errors
-            dispatch(clearError())
+            dispatch(clearNotification())
         },
         []
     )

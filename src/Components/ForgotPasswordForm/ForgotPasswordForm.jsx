@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { sendPasswordResetLink, clearError } from '../../Features/Auth/AuthSlice';
+import { sendPasswordResetLink, clearNotification } from '../../Features/Auth/AuthSlice';
 
 import Button from '../Button/Button';
 import CheckBox from '../CheckBox/CheckBox';
@@ -30,7 +30,7 @@ const ForgotPasswordForm = ()=>{
         ()=>{
             //when component mounts
             //clear any validation errors
-            dispatch(clearError())
+            dispatch(clearNotification())
         },
         []
     )

@@ -1,14 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import Error from '../../Components/Error/Error';
+import Notification from '../../Components/Notification/Notification';
 
 import Logo from '../../Components/Logo/Logo';
+
 
 import './AuthPage.css'
 
 const AuthPage = ({formComponent})=>{
-    const error = useSelector(state => state.auth.error)
+    const notification = useSelector(state => state.auth.notification)
     //The base page for all auth pages
     //
     return(
@@ -21,8 +22,8 @@ const AuthPage = ({formComponent})=>{
                 </div>
                 <div className="app__auth-page__errors">
                     <div className="app__auth-page__errors__inner">
-                        <Error
-                            message={error}
+                        <Notification
+                            notification={notification}
                         />
                     </div>
                 </div>

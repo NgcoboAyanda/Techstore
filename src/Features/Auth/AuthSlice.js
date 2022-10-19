@@ -7,7 +7,21 @@ const initialState = {
     user: null,
     status: 'idle',
     token: null,
-    error: {}
+    notification:{}
+    /*
+            EXAMPLES OF BOTH TYPES OF NOTIFICATIONS
+            {
+                'error':{
+                    'detail': "Invalid email address"
+            }
+        }
+        OR
+            {
+                'success':{
+                    'detail': "You have now been logged in."
+                }
+            }
+    */
 }
 
 const requestConfig = {
@@ -35,8 +49,10 @@ export const logIn = createAsyncThunk(
         else{
             //There was an error
             const error = await response.json();
-            const { setError } = authSlice.actions;
-            thunkAPI.dispatch(setError(error));
+            const { addNotification } = authSlice.actions;
+            thunkAPI.dispatch(addNotification({
+                'error': error
+            }));
         }
     }
 )
@@ -58,8 +74,10 @@ export const signUp = createAsyncThunk(
         else{
             //there was an error
             const error = await response.json();
-            const {setError} = authSlice.actions;
-            thunkAPI.dispatch(setError(error));
+            const {addNotification} = authSlice.actions;
+            thunkAPI.dispatch(addNotification({
+                'error': error
+            }));
         }
     }
 )
@@ -79,7 +97,7 @@ export const sendPasswordResetLink = createAsyncThunk(
             //there was an error
             const error = await response.json()
             console.log(error)
-            const {setError} = authSlice.actions;
+            const {addNotification} = authSlice.actions;
             //the password reset endpoint returns a different error object 
             /*  
                 {
@@ -93,7 +111,9 @@ export const sendPasswordResetLink = createAsyncThunk(
             let theError = {
                 detail: error.email[0]
             }
-            thunkAPI.dispatch(setError(theError))
+            thunkAPI.dispatch(addNotification({
+                'error': theError
+            }));
         }
     }
 )
@@ -104,11 +124,11 @@ export const authSlice = createSlice({
     initialState,
     reducers: {
         //ERRORS
-        setError: (state, action)=>{
-            return {...state, error: action.payload};
+        addNotification: (state, action)=>{
+            return {...state, notification: action.payload};
         },
-        clearError: (state, action)=>{
-            return {...state, error:{}};
+        clearNotification: (state, action)=>{
+            return {...state, notification:{}};
         }
         ,
         //TOKEN
@@ -159,6 +179,6 @@ export const authSlice = createSlice({
     }   
 })
 
-export const {clearError} = authSlice.actions;
+export const {clearNotification} = authSlice.actions;
 
 export default authSlice.reducer
