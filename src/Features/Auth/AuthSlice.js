@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import thunk from "redux-thunk";
 
 const apiBaseUrl = 'http://localhost:8000';
 
@@ -42,7 +43,12 @@ export const logIn = createAsyncThunk(
         if(response.status === 200){
             const res = await response.json();
             const { user, token } = res;
-            const { setUser, setToken } = authSlice.actions;
+            const { setUser, setToken, addNotification } = authSlice.actions;
+            thunkAPI.dispatch(addNotification({
+                'success':{
+                    'detail': "User successfully logged in. You will be automatically redirected shortly."
+                }
+            }))
             thunkAPI.dispatch(setUser(user));
             thunkAPI.dispatch(setToken(token));
         }
@@ -68,6 +74,12 @@ export const signUp = createAsyncThunk(
         })
         if (response.status === 201){
             //if user was successfully created then we wanna dispatch login to log the new user in
+            const { addNotification } = authSlice.actions;
+            thunkAPI.dispatch(addNotification({
+                'success':{
+                    'detail': "Successfully created Techstore account. You will be logged in shortly."
+                }
+            }));
             const {email, password} = formData;
             thunkAPI.dispatch(logIn({email, password}))
         }
@@ -89,8 +101,14 @@ export const sendPasswordResetLink = createAsyncThunk(
             ...requestConfig,
             body: JSON.stringify(credentials)
         })
-        if (response.status === 204){
+        if (response.status === 200){
             //user sent password reset link
+            const { addNotification } = authSlice.actions;
+            thunkAPI.dispatch(addNotification({
+                'success': {
+                    'detail': "The password reset link was successfully sent to the given email address."
+                }
+            }))
             return null
         }
         else{
