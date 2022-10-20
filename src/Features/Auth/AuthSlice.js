@@ -159,10 +159,10 @@ export const authSlice = createSlice({
         ,
         //USER
         setUser: (state, action)=>{
-            return {...state, user: action.payload};
+            return {...state, loggedIn: true, user: action.payload};
         },
         clearUser: (state, action)=>{
-            return {...state, user: null}
+            return {...state, user: null, loggedIn: false};
         }
     },
     extraReducers: builder=>{

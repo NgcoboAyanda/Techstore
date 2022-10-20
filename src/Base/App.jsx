@@ -11,6 +11,7 @@ import SignInPage from '../Pages/Auth/SignInPage/SignInPage';
 import SignUpPage from '../Pages/Auth/SignUpPage/SignUpPage';
 
 //components
+import Header from '../Components/Header/Header';
 import Footer from '../Components/Footer/Footer';
 
 import './App.css'
@@ -22,33 +23,35 @@ const App = ()=>{
 
     return(
         <div className='app'>
-            <Router>
-                <Routes>
-                    <Route 
-                        path='/' 
-                        element={<BasePage/>}
-                    />
-                    <Route 
-                        path='/home' 
-                        element={<HomePage/>}
-                    />
+            <div className="app__inner">
+                <Router>
+                    <Routes>
+                        <Route 
+                            path='/' 
+                            element={<BasePage/>}
+                        />
+                        <Route 
+                            path='/home' 
+                            element={<HomePage/>}
+                        />
 
-                    /* Accounts */
-                    <Route 
-                        path='/accounts/signin' 
-                        element={<SignInPage/>}
-                    />
-                    <Route 
-                        path='/accounts/signup' 
-                        element={<SignUpPage/>}
-                    />
-                    <Route
-                        path='/accounts/forgot-password'
-                        element={<ForgotPasswordPage/>}
-                    />
-                </Routes>
-            </Router>
-            <Footer/>
+                        /* Accounts */
+                        <Route 
+                            path='/accounts/signin' 
+                            element={<SignInPage/>}
+                        />
+                        <Route 
+                            path='/accounts/signup' 
+                            element={<SignUpPage/>}
+                        />
+                        <Route
+                            path='/accounts/forgot-password'
+                            element={<ForgotPasswordPage/>}
+                        />
+                    </Routes>
+                </Router>
+                <Footer/>
+            </div>
         </div>
     )
 }

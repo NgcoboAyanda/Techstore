@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import {useNavigate} from 'react-router-dom';
 
 import Notification from '../../Components/Notification/Notification';
 
@@ -7,10 +8,30 @@ import Logo from '../../Components/Logo/Logo';
 
 
 import './AuthPage.css'
+import { useEffect } from 'react';
 
+//THE BASE PAGE FOR ALL AUTHENTICATION PAGES
 const AuthPage = ({formComponent})=>{
-    const notification = useSelector(state => state.auth.notification)
-    //The base page for all auth pages
+    const notification = useSelector(state => state.auth.notification);
+    const loggedIn = useSelector(state=> state.auth.loggedIn);
+    
+    const navigate = useNavigate()
+
+    useEffect(
+        ()=>{
+            if(loggedIn){
+                //redirect to the home page if user is logged in
+                setTimeout(
+                    ()=>{
+                        navigate('/home')
+                    },
+                    3000
+                )
+            }
+        },
+        [loggedIn]
+    )
+
     //
     return(
         <div className='app__auth-page page'>

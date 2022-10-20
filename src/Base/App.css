@@ -1,5 +1,9 @@
 .app{
+    color: inherit;
+}
+
+.app__inner{
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
