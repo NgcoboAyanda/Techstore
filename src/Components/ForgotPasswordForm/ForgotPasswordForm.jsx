@@ -30,7 +30,7 @@ const ForgotPasswordForm = ()=>{
         ()=>{
             //when component mounts
             //clear any validation errors
-            dispatch(clearNotification())
+            dispatch(clearNotification());
         },
         []
     )
@@ -41,12 +41,13 @@ const ForgotPasswordForm = ()=>{
 
     const submitForm = (data)=>{
         if(data){
-            dispatch(sendPasswordResetLink(data))
+            dispatch(sendPasswordResetLink(data));
         }
     }
 
     const returnToFirstStep = ()=>{
-        setStep(1)
+        dispatch(clearNotification);
+        setStep(1);
     }
 
     const renderCorrectStep = ()=>{

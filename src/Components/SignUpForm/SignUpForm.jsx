@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
-import { Controller, useForm } from 'react-hook-form';
+import { /* Controller, */ useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../Button/Button';
-import CaptchaBox from '../CaptchaBox/CaptchaBox';
+//import CaptchaBox from '../CaptchaBox/CaptchaBox';
 import CheckBox from '../CheckBox/CheckBox';
 import EmailInput from '../InputBoxes/EmailInput/EmailInput';
 import NameInput from '../InputBoxes/NameInput/NameInput';
@@ -19,14 +19,14 @@ const SignUpForm = () =>{
     const[keepUserSignedIn, setKeepUserSignedIn] = useState(false)
 
 
-    const { register, watch , handleSubmit, control, formState: { errors } } = useForm({
+    const { register, watch , handleSubmit, /* control,  formState: { errors } */ } = useForm({
         defaultValues: {
             'email': "ayandaaaa@zmail.com",
             'first_name': "Ayanda",
             'last_name': "Ngcobo",
             'phone': "",
             'password': "12345678",
-            'CaptchaKey': 'aaaaaaaaaaaaaa'
+            /* 'CaptchaKey': 'aaaaaaaaaaaaaa' */
         }
     });
     const navigate = useNavigate();
@@ -152,28 +152,33 @@ const SignUpForm = () =>{
                         />
                     </div>
                 </div>
-                <div className="sign-up-form__captcha">
-                    <div className="sign-up-form__captcha__inner captcha-box-container">
-                        <Controller
-                            control={control}
-                            name="CaptchaKey"
-                            shouldUnregister={true}
-                            rules={ 
-                                {
-                                    required: true
-                                }
-                            }
-                            render={
-                                ({ field: {onChange} })=>(
-                                    <CaptchaBox
-                                        value={watch('CaptchaKey')}
-                                        onChange={onChange}
-                                    />
-                                )
-                            }
-                        />
-                    </div>
-                </div>
+                {
+                    /*
+                        THE CAPTCHA BOX IS REMOVED FOR NOW
+                        <div className="sign-up-form__captcha">
+                            <div className="sign-up-form__captcha__inner captcha-box-container">
+                                <Controller
+                                    control={control}
+                                    name="CaptchaKey"
+                                    shouldUnregister={true}
+                                    rules={ 
+                                        {
+                                            required: true
+                                        }
+                                    }
+                                    render={
+                                        ({ field: {onChange} })=>(
+                                            <CaptchaBox
+                                                value={watch('CaptchaKey')}
+                                                onChange={onChange}
+                                            />
+                                        )
+                                    }
+                                />
+                            </div>
+                        </div>
+                    */
+                }
                 <div className="sign-up-form__terms">
                     <div className="sign-up-form__terms__inner">
                         <span>
