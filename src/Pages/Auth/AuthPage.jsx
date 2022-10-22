@@ -20,10 +20,11 @@ const AuthPage = ({formComponent})=>{
     useEffect(
         ()=>{
             if(loggedIn){
-                //redirect to the home page if user is logged in
+                //if user is logged in
+                //redirect to home page
                 setTimeout(
                     ()=>{
-                        navigate('/home')
+                        navigate('/home');
                     },
                     3000
                 )
@@ -32,27 +33,49 @@ const AuthPage = ({formComponent})=>{
         [loggedIn]
     )
 
+    const renderAuthPage = ()=>{
+        if(!loggedIn){
+            return(
+                <>
+                    <div className="app__auth-page__logo">
+                        <div className="app__auth-page__logo__inner">
+                            <Logo/>
+                        </div>
+                    </div>
+                    <div className="app__auth-page__errors">
+                        <div className="app__auth-page__errors__inner">
+                            <Notification
+                                notification={notification}
+                            />
+                        </div>
+                    </div>
+                    <div className="app__auth-page__form">
+                        <div className="app__auth-page__form__inner">
+                            {formComponent}
+                        </div>
+                    </div>
+                </>
+            )
+        }
+        else{
+            //when user is logged in
+            return (
+                <>
+                    <div className="app__auth-page__message">
+                        <div className="app__auth-page__message">
+                            You are logged in. You will be redirected shortly.
+                        </div>
+                    </div>
+                </>
+            )
+        }
+    }
+
     //
     return(
         <div className='app__auth-page page'>
             <div className="app__auth-page__inner">
-                <div className="app__auth-page__logo">
-                    <div className="app__auth-page__logo__inner">
-                        <Logo/>
-                    </div>
-                </div>
-                <div className="app__auth-page__errors">
-                    <div className="app__auth-page__errors__inner">
-                        <Notification
-                            notification={notification}
-                        />
-                    </div>
-                </div>
-                <div className="app__auth-page__form">
-                    <div className="app__auth-page__form__inner">
-                        {formComponent}
-                    </div>
-                </div>
+                {renderAuthPage()}
             </div>
         </div>
     )

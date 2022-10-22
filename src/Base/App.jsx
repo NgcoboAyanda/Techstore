@@ -18,34 +18,32 @@ import './App.css'
 import ForgotPasswordPage from '../Pages/Auth/ForgotPasswordPage/ForgotPasswordPage';
 
 const App = ()=>{
-    //Getting the auth{loggedIn:bool} state so that we can redirect the user
-    const loggedIn = useSelector(state=> state.auth.loggedIn)
 
     return(
         <div className='app'>
             <div className="app__inner">
-                <Router>
+                <Router basename={process.env.PUBLIC_URL}>
                     <Routes>
                         <Route 
-                            path='/' 
+                            exact path='/' 
                             element={<BasePage/>}
                         />
                         <Route 
-                            path='/home' 
+                            exact path='/home'
                             element={<HomePage/>}
                         />
 
                         /* Accounts */
                         <Route 
-                            path='/accounts/signin' 
+                            exact path='/accounts/signin' 
                             element={<SignInPage/>}
                         />
                         <Route 
-                            path='/accounts/signup' 
+                            exact path='/accounts/signup' 
                             element={<SignUpPage/>}
                         />
                         <Route
-                            path='/accounts/forgot-password'
+                            exact path='/accounts/forgot-password'
                             element={<ForgotPasswordPage/>}
                         />
                     </Routes>
