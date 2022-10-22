@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Techstore/static/css/main.97fbfb81.css",
+    "main.js": "/Techstore/static/js/main.ccc5ff36.js",
+    "static/media/Logo.svg": "/Techstore/static/media/Logo.95d02c823245ab180efdb43d3710dedc.svg",
+    "static/media/loader-icon.svg": "/Techstore/static/media/loader-icon.1097f42cdc7758c645457d2adc8fc4e4.svg",
+    "index.html": "/Techstore/index.html",
+    "main.97fbfb81.css.map": "/Techstore/static/css/main.97fbfb81.css.map",
+    "main.ccc5ff36.js.map": "/Techstore/static/js/main.ccc5ff36.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97fbfb81.css",
+    "static/js/main.ccc5ff36.js"
+  ]
+}
