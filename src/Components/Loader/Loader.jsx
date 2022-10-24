@@ -3,13 +3,15 @@ import loaderIcon from './loader-icon.svg'
 
 import './Loader.css';
 
-const Loader = ()=>{
+const Loader = ( {color="dark"})=>{
 
     return(
         <div className='spinner'>
-            <img className='spinner__icon' src={loaderIcon} alt="#"/>
-            <div className="spinner__label">
-                Loading
+            <div className="spinner__inner">
+                <img className='spinner__icon' src={loaderIcon} alt="#"/>
+                <div className={`spinner__label spinner__label_${color}`}>
+                    Loading
+                </div>
             </div>
         </div>
     )

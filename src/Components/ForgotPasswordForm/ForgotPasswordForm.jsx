@@ -46,7 +46,7 @@ const ForgotPasswordForm = ()=>{
     }
 
     const returnToFirstStep = ()=>{
-        dispatch(clearNotification);
+        dispatch(clearNotification());
         setStep(1);
     }
 

@@ -1,0 +1,26 @@
+.spinner{
+    height: inherit;
+    width: inherit;
+}
+
+.spinner__inner{
+    height: inherit;
+    width: inherit;
+}
+
+.spinner__icon{
+    height: inherit;
+    width: inherit;
+}
+
+.spinner__label{
+    text-align: center;
+}
+
+.spinner__label_light{
+    color: var(--font-color-lighter);
+}
+
+.spinner__label_dark{
+    color: var(--font-color-normal);
+}

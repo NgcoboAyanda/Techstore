@@ -9,12 +9,14 @@ import Logo from '../../Components/Logo/Logo';
 
 import './AuthPage.css'
 import { useEffect } from 'react';
+import Loader from '../../Components/Loader/Loader';
 
 //THE BASE PAGE FOR ALL AUTHENTICATION PAGES
 const AuthPage = ({formComponent})=>{
     const notification = useSelector(state => state.auth.notification);
     const loggedIn = useSelector(state=> state.auth.loggedIn);
-    
+    const status = useSelector(state=> state.auth.status);
+
     const navigate = useNavigate()
 
     useEffect(
@@ -71,10 +73,26 @@ const AuthPage = ({formComponent})=>{
         }
     }
 
+    const renderLoadingAnimation = ()=>{
+        if(status === 'loading'){
+            //only renders when we are loading
+            return(
+                <div className="app__auth-page__loader">
+                    <div className="app__auth-page__loader__inner">
+                        <Loader 
+                            color="light"
+                        />
+                    </div>
+                </div>
+            )
+        }
+    }
+
     //
     return(
         <div className='app__auth-page page'>
             <div className="app__auth-page__inner">
+                {renderLoadingAnimation()}
                 {renderAuthPage()}
             </div>
         </div>

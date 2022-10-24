@@ -2,21 +2,47 @@
     padding: 24px 16px;
     display: flex;
     justify-content: center;
+    overflow: visible;
 }
 
 .app__auth-page__inner{
     max-width: 500px;
     width: 100%;
+    position: relative;
+    overflow: visible;
 }
+
 .app__auth-page__inner > * {
     width: 100% !important;
 }
+
+.app__auth-page__loader{
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0 ;
+    background-color: rgba(0, 0, 0, 0.856);
+    width: 100vw !important;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.app__auth-page__loader__inner{
+    position: relative;
+    top: 20%;
+    display: flex;
+    height: 100px;
+    width: 100px;
+}
+
 .app__auth-page__logo{
     height: 48px;
     display: flex;
     justify-content: center;
     margin-bottom: 8px;
 }
+
 .app__auth-page__logo__inner{
     display: flex;
     align-items: center;
