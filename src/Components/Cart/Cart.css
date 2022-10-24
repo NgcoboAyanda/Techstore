@@ -1,0 +1,25 @@
+.cart{
+    height: inherit;
+    width: inherit;
+}
+
+.cart__inner{
+    height: inherit;
+}
+
+.cart__icon{
+    height: inherit;
+}
+
+.cart__icon__inner{
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart__icon__inner > svg {
+    fill: var(--font-color-mid);
+    height: 75%;
+    width: 75%;
+}

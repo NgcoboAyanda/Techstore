@@ -1,0 +1,31 @@
+.hamburger__menu{
+    height: inherit;
+}
+
+.hamburger__menu__inner{
+    height: inherit;
+}
+
+.hamburger__menu__btn{
+    height: inherit;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-radius: 6px;
+}
+
+.hamburger__menu__btn:hover{
+    background-color: rgb(247, 247, 247);
+}
+
+.hamburger__menu__btn__inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.hamburger__menu__btn__icon{
+    fill: var(--font-color-mid);
+    height: inherit;
+}

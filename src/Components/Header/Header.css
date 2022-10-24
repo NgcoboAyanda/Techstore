@@ -2,31 +2,10 @@
 i.e 750px (medium) & 1200px (large)
 */
 .header{
-    background-color: red;
+    background-color: white;
 }
 
 .header__inner{
     padding: 0 var(--margin-normal);
 }
 
-
-.header__nav, .header__search-box{
-    height: 64px;
-}
-
-.header__nav__inner{
-    background-color: yellow;
-    padding: var(--margin-small) 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.header__search-box{
-    border-top: 1px solid black;
-}
-
-.header__search-box__inner{
-    padding: var(--margin-small) 0;
-}

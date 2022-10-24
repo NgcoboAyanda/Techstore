@@ -1,36 +1,23 @@
 import React from 'react';
+import {useForm} from 'react-hook-form';
+
+import Cart from '../Cart/Cart';
+import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
+import Logo from '../Logo/Logo';
 
 import './Header.css';
 
 const Header = ()=>{
+    const { register, watch , handleSubmit, control, formState: { errors } } = useForm({
+        defaultValues: {
+            'search-box': ''
+        }
+    });
+
 
     return (
         <div class="header">
             <div className="header__inner">
-                <div className="header__nav">
-                    <div className="header__nav__inner">
-                        <div className="header__nav__hamburger">
-                            <div className="header__nav__hamburger__inner">
-                                HAMBURGER
-                            </div>
-                        </div>
-                        <div className="header__nav__logo">
-                            <div className="header__nav__logo__inner">
-                                LOGO
-                            </div>
-                        </div>
-                        <div className="header__nav__shopping-cart">
-                            <div className="header__nav__shopping-cart__inner">
-                                CART
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="header__search-box">
-                    <div className="header__search-box__inner">
-                        header searchbox
-                    </div>
-                </div>
             </div>
         </div>
     )
