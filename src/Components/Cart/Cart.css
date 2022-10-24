@@ -1,6 +1,7 @@
 .cart{
     height: inherit;
     width: inherit;
+
 }
 
 .cart__inner{
@@ -9,6 +10,7 @@
 
 .cart__icon{
     height: inherit;
+    cursor: pointer;
 }
 
 .cart__icon__inner{

@@ -51,6 +51,7 @@ IBM plex
     --font-family-default: 'IBM Plex Sans', sans-serif;
 
     /* margin */
+    --margin-mid: 24px;
     --margin-normal: 16px;
     --margin-small: 8px;
 }

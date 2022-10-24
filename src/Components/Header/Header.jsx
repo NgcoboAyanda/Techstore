@@ -12,7 +12,9 @@ import './Header.css';
 const Header = ()=>{
     const { register, watch , handleSubmit, control, formState: { errors } } = useForm({
         defaultValues: {
-            'search-box': ''
+            'top-search-box': ''
+            ,
+            'bottom-search-box': ''
         }
     });
 
@@ -20,6 +22,26 @@ const Header = ()=>{
     return (
         <div class="header">
             <div className="header__inner">
+                <div className="header__top">
+                    <div className="header__top__inner">
+                        <div className="header__top__links">
+                            <ul className="header__top__links__inner">
+                                <div className="header__top__links__item">
+                                    Registry
+                                </div>
+                                <div className="header__top__links__item">
+                                    Weekly Ad
+                                </div>
+                                <div className="header__top__links__item">
+                                    Techstore Card
+                                </div>
+                                <div className="header__top__links__item">
+                                    Find Stores
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div className="header__nav">
                     <div className="header__nav__inner">
                         <div className="header__nav__menu-btn">
@@ -30,6 +52,30 @@ const Header = ()=>{
                         <div className="header__nav__logo">
                             <div className="header__nav__logo__inner">
                                 <Logo/>
+                            </div>
+                        </div>
+                        <div className="header__nav__categories">
+                            <ul className="header__nav__categories__inner">
+                                <li className="header__nav__categories__item">
+                                    Categories
+                                </li>
+                                <li className="header__nav__categories__item">
+                                    Deals
+                                </li>
+                                <li className="header__nav__categories__item">
+                                    What's New
+                                </li>
+                                <li className="header__nav__categories__item">
+                                    Pickup & Delivery
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="header__nav__search-box">
+                            <div className="header__nav__search-box__inner">
+                                <SearchInput
+                                    register={register}
+                                    label = {'top-search-box'}
+                                />
                             </div>
                         </div>
                         <div className="header__nav__links">
@@ -47,7 +93,7 @@ const Header = ()=>{
                     <div className="header__search-bar__inner">
                         <SearchInput
                             register={register}
-                            label = {'search-box'}
+                            label = {'bottom-search-box'}
                         />
                     </div>
                 </form>

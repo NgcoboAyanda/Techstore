@@ -12,6 +12,7 @@
     background-color: transparent;
     border: none;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 .hamburger__menu__btn:hover{
@@ -22,6 +23,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
+    padding: 0;
     color: var(--font-color-mid);
 }
