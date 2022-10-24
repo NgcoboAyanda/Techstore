@@ -3,9 +3,45 @@ i.e 750px (medium) & 1200px (large)
 */
 .header{
     background-color: white;
+    width: 100%;
+    min-width: 0 !important;
+    box-shadow: 0 0 5px 5px rgb(228, 228, 228);
 }
 
 .header__inner{
     padding: 0 var(--margin-normal);
 }
 
+.header__nav{
+    /*border: 1px solid black;*/
+    height: 70px;
+    padding: var(--margin-small) 0;
+    display: flex;
+    align-items: center;
+}
+
+.header__nav__inner{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__nav__menu-btn{
+    display: flex;
+    align-items: center;
+}
+
+.header__nav__logo__inner{
+    height: 40px;
+}
+
+.header__search-bar{
+    height: 60px;
+}
+
+@media screen and (min-width: 750px) {
+
+    .header__search-bar{
+        display: none;
+    }
+}

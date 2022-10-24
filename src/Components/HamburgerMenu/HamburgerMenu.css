@@ -23,9 +23,5 @@
     align-items: center;
     justify-content: center;
     padding: 5px;
-}
-
-.hamburger__menu__btn__icon{
-    fill: var(--font-color-mid);
-    height: inherit;
+    color: var(--font-color-mid);
 }

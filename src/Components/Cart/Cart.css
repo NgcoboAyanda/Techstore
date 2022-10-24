@@ -12,14 +12,9 @@
 }
 
 .cart__icon__inner{
-    height: inherit;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.cart__icon__inner > svg {
-    fill: var(--font-color-mid);
-    height: 75%;
-    width: 75%;
+    color: var(--font-color-mid);
 }
