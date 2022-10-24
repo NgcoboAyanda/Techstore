@@ -24,6 +24,12 @@ i.e 750px (medium) & 1200px (large)
     justify-content: flex-end;
 }
 
+.header__top__inner{
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 1400px;
+}
+
 .header__top__links{
     display: flex;
     justify-content: flex-end;
@@ -43,11 +49,14 @@ i.e 750px (medium) & 1200px (large)
     height: 70px;
     padding: var(--margin-small) var(--margin-normal);
     display: flex;
+    justify-content: center;
     align-items: center;
+
 }
 
 .header__nav__inner{
     width: 100%;
+    max-width: 1360px;
     display: flex;
     justify-content: space-between;
 }
