@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { useSelector } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux'; 
 
 //Pages
 import BasePage from '../Pages/Base/BasePage';
@@ -16,12 +16,24 @@ import Footer from '../Components/Footer/Footer';
 
 import './App.css'
 import ForgotPasswordPage from '../Pages/Auth/ForgotPasswordPage/ForgotPasswordPage';
+import MobileMenu from '../Components/MobileMenu/MobileMenu';
+import { toggleMobileMenu } from '../Features/Ui/UiSlice';
 
 const App = ()=>{
+    const mobileMenuIsOpen = useSelector(state=> state.ui.mobileMenuIsOpen) 
+    const dispatch = useDispatch();
 
     return(
         <div className='app'>
             <div className="app__inner">
+                <div className="app__mobile-menu">
+                    <div className="app__mobile-menu__inner">
+                        <MobileMenu
+                            isOpen={mobileMenuIsOpen}
+                            toggle={()=>dispatch(toggleMobileMenu())}
+                        />
+                    </div>
+                </div>
                 <Router>
                     <Routes>
                         <Route 

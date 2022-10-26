@@ -1,12 +1,13 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import thunk from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
 
 //Reducers
 import authReducer from '../Features/Auth/AuthSlice';
+import uiReducer from '../Features/Ui/UiSlice';
 
 export default configureStore({
     reducer: {
-        auth: authReducer
+        auth: authReducer,
+        ui: uiReducer
     },
     // Store has all of the default middleware added, _plus_ redux-thunk middleware middleware
 })

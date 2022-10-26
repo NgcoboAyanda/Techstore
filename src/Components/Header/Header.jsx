@@ -1,6 +1,8 @@
 import React from 'react';
 import {useForm} from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
+import { toggleMobileMenu } from '../../Features/Ui/UiSlice';
 
 import Cart from '../Cart/Cart';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
@@ -18,9 +20,15 @@ const Header = ()=>{
         }
     });
 
+    const dispatch = useDispatch();
+
+    const openMobileMenu = ()=>{
+        dispatch(toggleMobileMenu());
+    }
+
 
     return (
-        <div class="header">
+        <div className="header">
             <div className="header__inner">
                 <div className="header__top">
                     <div className="header__top__inner">
@@ -46,7 +54,9 @@ const Header = ()=>{
                     <div className="header__nav__inner">
                         <div className="header__nav__menu-btn">
                             <div className="header__nav__menu-btn__inner">
-                                <HamburgerMenu/>
+                                <HamburgerMenu
+                                    onClick={ openMobileMenu }
+                                />
                             </div>
                         </div>
                         <div className="header__nav__logo">
