@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 const apiBaseUrl = 'http://localhost:8000';
 
 const initialState = {
-    loggedIn: false,
+    userIsLoggedIn: false,
     user: null,
     status: 'idle',
     token: null,
@@ -159,10 +159,10 @@ export const authSlice = createSlice({
         ,
         //USER
         setUser: (state, action)=>{
-            return {...state, loggedIn: true, user: action.payload};
+            return {...state, userIsLoggedIn: true, user: action.payload};
         },
         clearUser: (state, action)=>{
-            return {...state, user: null, loggedIn: false};
+            return {...state, user: null, userIsLoggedIn: false};
         }
     },
     extraReducers: builder=>{

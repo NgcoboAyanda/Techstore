@@ -44,6 +44,15 @@ i.e 750px (medium) & 1200px (large)
     margin-left: var(--margin-normal);
 }
 
+.header__top__links__item__inner > a {
+    text-decoration: none;
+    color: var(--font-color-lighter);
+}
+
+.header__top__links__item__inner > a:hover{
+    text-decoration: underline;
+}
+
 .header__nav{
     /*border: 1px solid black;*/
     height: 70px;
@@ -75,6 +84,49 @@ i.e 750px (medium) & 1200px (large)
 
 .header__nav__search-box{
     display: none;
+}
+
+.header__nav__links__inner{
+    display: flex;
+    align-items: center;
+}
+
+.header__nav__links__inner > *{
+    margin-left: var(--margin-mid);
+}
+
+.headers__nav__links__item__inner > a{
+    display: flex;
+    color: var(--font-color-mid);
+    text-decoration: none;
+    font-weight: var(--font-weight-mid);
+}
+
+.headers__nav__links__item__inner > a > .icon{
+    display: block;
+    height: 24px;
+    width: 24px;
+}
+
+.headers__nav__links__item__inner > a > .icon > svg{
+    height: 100%;
+    fill: currentColor;
+}
+
+.headers__nav__links__item__inner > a > .label{
+    display: none;
+    align-items: flex-end;
+    color: inherit;
+}
+
+.headers__nav__links__item__inner > a > .label {
+    padding-left: 8px;
+    color: inherit;
+    
+}
+
+.headers__nav__links__item__inner > a:hover{
+    color: var(--font-color-light);
 }
 
 .header__nav__categories{
@@ -125,6 +177,10 @@ i.e 750px (medium) & 1200px (large)
 
     .header__search-bar{
         display: none;
+    }
+
+    .headers__nav__links__item__inner > a > .label{
+        display: flex;
     }
 }
 

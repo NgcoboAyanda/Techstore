@@ -20,7 +20,8 @@ import MobileMenu from '../Components/MobileMenu/MobileMenu';
 import { toggleMobileMenu } from '../Features/Ui/UiSlice';
 
 const App = ()=>{
-    const mobileMenuIsOpen = useSelector(state=> state.ui.mobileMenuIsOpen) 
+    const mobileMenuIsOpen = useSelector(state=> state.ui.mobileMenuIsOpen); 
+    const userIsLoggedIn = useSelector(state=> state.auth.userIsLoggedIn);
     const dispatch = useDispatch();
 
     return(
@@ -32,6 +33,7 @@ const App = ()=>{
                             <MobileMenu
                                 isOpen={mobileMenuIsOpen}
                                 toggle={()=>dispatch(toggleMobileMenu())}
+                                userIsLoggedIn={userIsLoggedIn}
                             />
                         </div>
                     </div>

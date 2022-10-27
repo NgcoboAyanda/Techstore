@@ -14,14 +14,14 @@ import Loader from '../../Components/Loader/Loader';
 //THE BASE PAGE FOR ALL AUTHENTICATION PAGES
 const AuthPage = ({formComponent})=>{
     const notification = useSelector(state => state.auth.notification);
-    const loggedIn = useSelector(state=> state.auth.loggedIn);
+    const userIsLoggedIn = useSelector(state=> state.auth.userIsLoggedIn);
     const status = useSelector(state=> state.auth.status);
 
     const navigate = useNavigate()
 
     useEffect(
         ()=>{
-            if(loggedIn){
+            if(userIsLoggedIn){
                 //if user is logged in
                 //redirect to home page
                 setTimeout(
@@ -32,11 +32,11 @@ const AuthPage = ({formComponent})=>{
                 )
             }
         },
-        [loggedIn]
+        [userIsLoggedIn]
     )
 
     const renderAuthPage = ()=>{
-        if(!loggedIn){
+        if(!userIsLoggedIn){
             return(
                 <>
                     <div className="app__auth-page__logo">
