@@ -4,8 +4,6 @@
     background-color: rgba(0, 0, 0, 0.678);
     width: 100%;
     height: 100%;
-    --heading-big: var(--font-size-large);
-    --heading-normal: var(--font-size-mid);
     --padding-normal: 16px 24px;
     --font-color: rgb(51,51,51);
     --icon-color: rgb(153, 153, 153);
@@ -68,6 +66,6 @@
 }
 
 .mobile-menu__new-arrivals__heading{
-    font-size: var(--heading-normal);
+    font-size: var(--font-size-mid);
     font-weight: 500;
 }
