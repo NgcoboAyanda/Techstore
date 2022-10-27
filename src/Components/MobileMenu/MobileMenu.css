@@ -1,14 +1,29 @@
 .mobile-menu{
-    background-color: white;
-    color: rgb(51,51,51);
+    position: absolute;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.678);
+    width: 100%;
+    height: 100%;
+    --heading-big: var(--font-size-large);
+    --heading-normal: var(--font-size-mid);
+    --padding-normal: 16px 24px;
+    --font-color: rgb(51,51,51);
+    --icon-color: rgb(153, 153, 153);
+    --btn-normal-bg: rgb(243, 243, 243);
+    --btn-hover-bg: rgb(228, 228, 228); 
+}
+
+.mobile-menu__inner{
     width: 100%;
     max-width: 400px;
-    min-height: 100vh;
+    min-height: 100%;
+    background-color: white;
 }
 
 .mobile-menu__top{
     font-size: var(--font-size-large);
-    padding: 16px 24px;
+    padding: var(--padding-normal);
+    border-bottom: 1px solid rgb(223, 223, 223);
 }
 
 .mobile-menu__top__label__inner > .label{
@@ -29,7 +44,7 @@
 }
 
 .mobile-menu__top__close-btn__inner > .btn {
-    background-color: transparent;
+    background-color: var(--btn-normal-bg);
     border: none;
     width: 30px;
     height: 30px;
@@ -39,11 +54,20 @@
 }
 
 .mobile-menu__top__close-btn__inner > .btn_icon:hover{
-    background-color: red;
+    background-color: var(--btn-hover-bg);
 }
 
 .mobile-menu__top__close-btn__inner > .btn > svg{
-    fill: rgb(95, 95, 95);
+    fill: var(--icon-color);
     height: 100%;
     width: 100%;
+}
+
+.mobile-menu__new-arrivals{
+    padding: var(--padding-normal);
+}
+
+.mobile-menu__new-arrivals__heading{
+    font-size: var(--heading-normal);
+    font-weight: 500;
 }
