@@ -26,15 +26,15 @@ const App = ()=>{
     return(
         <div className='app'>
             <div className="app__inner">
-                <div className="app__mobile-menu">
-                    <div className="app__mobile-menu__inner">
-                        <MobileMenu
-                            isOpen={mobileMenuIsOpen}
-                            toggle={()=>dispatch(toggleMobileMenu())}
-                        />
-                    </div>
-                </div>
                 <Router>
+                    <div className="app__mobile-menu">
+                        <div className="app__mobile-menu__inner">
+                            <MobileMenu
+                                isOpen={mobileMenuIsOpen}
+                                toggle={()=>dispatch(toggleMobileMenu())}
+                            />
+                        </div>
+                    </div>
                     <Routes>
                         <Route 
                             exact path='/' 
@@ -59,8 +59,8 @@ const App = ()=>{
                             element={<ForgotPasswordPage/>}
                         />
                     </Routes>
+                    <Footer/>
                 </Router>
-                <Footer/>
             </div>
         </div>
     )
