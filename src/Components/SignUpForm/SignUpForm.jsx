@@ -21,11 +21,11 @@ const SignUpForm = () =>{
 
     const { register, watch , handleSubmit, /* control,  formState: { errors } */ } = useForm({
         defaultValues: {
-            'email': "ayandaaaa@zmail.com",
-            'first_name': "Ayanda",
-            'last_name': "Ngcobo",
+            'email': "",
+            'first_name': "",
+            'last_name': "",
             'phone': "",
-            'password': "12345678",
+            'password': "",
             /* 'CaptchaKey': 'aaaaaaaaaaaaaa' */
         }
     });
