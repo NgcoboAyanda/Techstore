@@ -13,6 +13,7 @@ import Logo from '../Logo/Logo';
 import './Header.css';
 
 const Header = ()=>{
+    //Form
     const { register, watch , handleSubmit, control, formState: { errors } } = useForm({
         defaultValues: {
             'top-search-box': ''
@@ -20,9 +21,12 @@ const Header = ()=>{
             'bottom-search-box': ''
         }
     });
-    const userIsLoggedIn = useSelector(state => state.auth.userIsLoggedIn);
-
+    //Links
+    const telegramContactLink = "https://t.me/kiingcxld";
+    const projectGithubLink = "https://github.com/NgcoboAyanda/Techstore-Frontend";
+    //Redux/State
     const dispatch = useDispatch();
+    const userIsLoggedIn = useSelector(state => state.auth.userIsLoggedIn);
 
     const openMobileMenu = ()=>{
         dispatch(toggleMobileMenu());
@@ -76,14 +80,14 @@ const Header = ()=>{
                             <ul className="header__top__links__inner">
                                 <div className="header__top__links__item">
                                     <div className="header__top__links__item__inner">
-                                        <a href="https://github.com/NgcoboAyanda/Techstore-Frontend" target="_blank">
+                                        <a href={projectGithubLink} target="_blank">
                                             Project Github Repo
                                         </a>
                                     </div>
                                 </div>
                                 <div className="header__top__links__item">
                                     <div className="header__top__links__item__inner">
-                                        <a href="https://t.me/kiingcxld" target="_blank">
+                                        <a href={telegramContactLink} target="_blank" >
                                             Contact Me On Telegram
                                         </a>
                                     </div>
