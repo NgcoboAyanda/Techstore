@@ -1,20 +1,20 @@
 import React from 'react';
 import {useForm} from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Route } from 'react-router-dom';
-import { sig, signOut } from '../../Features/Auth/AuthSlice';
+import { Link } from 'react-router-dom';
+import { signOut } from '../../Features/Auth/AuthSlice';
 import { toggleMobileMenu } from '../../Features/Ui/UiSlice';
 
 import Cart from '../Cart/Cart';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import SearchInput from '../InputBoxes/SearchInput/SearchInput';
-import Logo from '../Logo/Logo';
+import Logo from '../Logo/Logo'; 
 
 import './Header.css';
 
 const Header = ()=>{
     //Form
-    const { register, watch , handleSubmit, control, formState: { errors } } = useForm({
+    const { register /*, watch , handleSubmit, control, formState: { errors } */} = useForm({
         defaultValues: {
             'top-search-box': ''
             ,
@@ -80,14 +80,22 @@ const Header = ()=>{
                             <ul className="header__top__links__inner">
                                 <div className="header__top__links__item">
                                     <div className="header__top__links__item__inner">
-                                        <a href={projectGithubLink} target="_blank">
+                                        <a 
+                                            href={projectGithubLink} 
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            >
                                             Project Github Repo
                                         </a>
                                     </div>
                                 </div>
                                 <div className="header__top__links__item">
                                     <div className="header__top__links__item__inner">
-                                        <a href={telegramContactLink} target="_blank" >
+                                        <a 
+                                            href={telegramContactLink} 
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            >
                                             Contact Me On Telegram
                                         </a>
                                     </div>

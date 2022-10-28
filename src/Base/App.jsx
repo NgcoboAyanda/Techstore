@@ -11,7 +11,6 @@ import SignInPage from '../Pages/Auth/SignInPage/SignInPage';
 import SignUpPage from '../Pages/Auth/SignUpPage/SignUpPage';
 
 //components
-import Header from '../Components/Header/Header';
 import Footer from '../Components/Footer/Footer';
 
 import './App.css'
@@ -49,7 +48,7 @@ const App = ()=>{
                             element={<HomePage/>}
                         />
 
-                        /* Accounts */
+                        {/* Accounts */}
                         <Route 
                             exact path='/accounts/signin' 
                             element={<SignInPage/>}

@@ -242,7 +242,8 @@ const MobileMenu = ({isOpen, toggle, userIsLoggedIn, signOut})=>{
                                             <div className="mobile-menu__other__links__item__inner">
                                                 <a  
                                                     className="mobile-menu-link" 
-                                                    href={projectGithubLink} target="_blank">
+                                                    href={projectGithubLink} target="_blank" 
+                                                    rel="noreferrer">
                                                         Github Repository
                                                 </a>
                                             </div>
@@ -252,7 +253,9 @@ const MobileMenu = ({isOpen, toggle, userIsLoggedIn, signOut})=>{
                                                 <a 
                                                     className="mobile-menu-link" 
                                                     href={telegramContactLink} 
-                                                    target="_blank">
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    >
                                                         Get In Touch (Telegram)
                                                 </a>
                                             </div>
@@ -275,7 +278,11 @@ const MobileMenu = ({isOpen, toggle, userIsLoggedIn, signOut})=>{
                                         by
                                     </span>
                                     <span className="github-link">
-                                        <a href="https://github.com/NgcoboAyanda" target="_blank">
+                                        <a 
+                                            href="https://github.com/NgcoboAyanda" 
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            >
                                             Ayanda
                                         </a>
                                     </span>
