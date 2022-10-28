@@ -102,6 +102,7 @@ i.e 750px (medium) & 1200px (large)
     height: 30px;
     background-color: transparent;
     border: none;
+    color: var(--font-color-mid);
     cursor: pointer;
 }
 
@@ -117,14 +118,12 @@ i.e 750px (medium) & 1200px (large)
 }
 
 .headers__nav__links__sign-out__inner > button > .label{
-    display: none;
+    display: flex;
     align-items: flex-end;
     color: inherit;
-}
-
-.headers__nav__links__sign-out__inner > button > .label {
-    padding-left: 8px;
+    padding-left: 4px;
     color: inherit;
+    font-weight: var(--font-weight-mid);
 }
 
 .headers__nav__links__sign-in__inner > a{
@@ -146,13 +145,13 @@ i.e 750px (medium) & 1200px (large)
 }
 
 .headers__nav__links__sign-in__inner > a > .label{
-    display: none;
+    display: flex;
     align-items: flex-end;
     color: inherit;
 }
 
 .headers__nav__links__sign-in__inner > a > .label {
-    padding-left: 8px;
+    padding-left: 4px;
     color: inherit;
     
 }
@@ -211,12 +210,12 @@ i.e 750px (medium) & 1200px (large)
         display: none;
     }
 
-    .headers__nav__links__sign-in__inner > a > .label{
-        display: flex;
+    .headers__nav__links__sign-out__inner > button > .label{
+        padding-left: 8px;
     }
 
-    .headers__nav__links__sign-out__inner > button > .label{
-        display: flex;
+    .headers__nav__links__sign-in__inner > a > .label {
+        padding-left: 8px;
     }
 }
 
