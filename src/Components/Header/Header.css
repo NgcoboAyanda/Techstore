@@ -89,43 +89,75 @@ i.e 750px (medium) & 1200px (large)
 .header__nav__links__inner{
     display: flex;
     align-items: center;
+    max-height: 45px;
 }
 
 .header__nav__links__inner > *{
     margin-left: var(--margin-mid);
 }
 
-.headers__nav__links__item__inner > a{
+.headers__nav__links__sign-out__inner > button {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.headers__nav__links__sign-out__inner > button > .icon{
+    display: block;
+    height: 24px;
+    width: 24px;
+}
+
+.headers__nav__links__sign-out__inner > button > .icon > svg{
+    height: 100%;
+    fill: currentColor;
+}
+
+.headers__nav__links__sign-out__inner > button > .label{
+    display: none;
+    align-items: flex-end;
+    color: inherit;
+}
+
+.headers__nav__links__sign-out__inner > button > .label {
+    padding-left: 8px;
+    color: inherit;
+}
+
+.headers__nav__links__sign-in__inner > a{
     display: flex;
     color: var(--font-color-mid);
     text-decoration: none;
     font-weight: var(--font-weight-mid);
 }
 
-.headers__nav__links__item__inner > a > .icon{
+.headers__nav__links__sign-in__inner > a > .icon{
     display: block;
     height: 24px;
     width: 24px;
 }
 
-.headers__nav__links__item__inner > a > .icon > svg{
+.headers__nav__links__sign-in__inner > a > .icon > svg{
     height: 100%;
     fill: currentColor;
 }
 
-.headers__nav__links__item__inner > a > .label{
+.headers__nav__links__sign-in__inner > a > .label{
     display: none;
     align-items: flex-end;
     color: inherit;
 }
 
-.headers__nav__links__item__inner > a > .label {
+.headers__nav__links__sign-in__inner > a > .label {
     padding-left: 8px;
     color: inherit;
     
 }
 
-.headers__nav__links__item__inner > a:hover{
+.headers__nav__links__sign-in__inner > a:hover{
     color: var(--font-color-light);
 }
 
@@ -179,7 +211,11 @@ i.e 750px (medium) & 1200px (large)
         display: none;
     }
 
-    .headers__nav__links__item__inner > a > .label{
+    .headers__nav__links__sign-in__inner > a > .label{
+        display: flex;
+    }
+
+    .headers__nav__links__sign-out__inner > button > .label{
         display: flex;
     }
 }

@@ -18,6 +18,7 @@ import './App.css'
 import ForgotPasswordPage from '../Pages/Auth/ForgotPasswordPage/ForgotPasswordPage';
 import MobileMenu from '../Components/MobileMenu/MobileMenu';
 import { toggleMobileMenu } from '../Features/Ui/UiSlice';
+import { signOut } from '../Features/Auth/AuthSlice';
 
 const App = ()=>{
     const mobileMenuIsOpen = useSelector(state=> state.ui.mobileMenuIsOpen); 
@@ -34,6 +35,7 @@ const App = ()=>{
                                 isOpen={mobileMenuIsOpen}
                                 toggle={()=>dispatch(toggleMobileMenu())}
                                 userIsLoggedIn={userIsLoggedIn}
+                                signOut={()=>dispatch(signOut())}
                             />
                         </div>
                     </div>

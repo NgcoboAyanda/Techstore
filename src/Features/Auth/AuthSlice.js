@@ -164,6 +164,12 @@ export const authSlice = createSlice({
         clearUser: (state, action)=>{
             return {...state, user: null, userIsLoggedIn: false};
         }
+        ,
+        //SIGN OUT USER
+        signOut: (state, action)=>{
+            return initialState;
+        }
+
     },
     extraReducers: builder=>{
         builder
@@ -197,6 +203,6 @@ export const authSlice = createSlice({
     }   
 })
 
-export const {clearNotification} = authSlice.actions;
+export const {clearNotification, signOut} = authSlice.actions;
 
 export default authSlice.reducer;

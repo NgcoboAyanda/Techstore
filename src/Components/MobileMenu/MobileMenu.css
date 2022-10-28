@@ -25,6 +25,8 @@
     height: 100%;
     background-color: white;
     overflow-y: scroll;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
 .mobile-menu__top{
@@ -52,6 +54,9 @@
 
 .mobile-menu__top__close-btn__inner > .btn {
     background-color: var(--btn-normal-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     width: 30px;
     height: 30px;
@@ -153,6 +158,7 @@
 
 .mobile-menu__account{
     padding: var(--padding-normal);
+    margin-bottom: 64px;
 }
 
 .mobile-menu__account__heading{
@@ -183,17 +189,24 @@
 .mobile-menu__account__links__item__inner > .svg-container{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .mobile-menu__account__links__item__inner > .svg-container > svg{
     height: 12px;
+    width: 15px;
 }
 
-.mobile-menu__account__links__item__inner > a{
+.mobile-menu__account__links__item__inner > a, button{
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: transparent;
     padding-left: 8px;
     color: inherit;
     text-decoration: none;
     font-weight: var(--normal-font-weight);
+    cursor: pointer;
 }
 
 .mobile-menu__watermark{
