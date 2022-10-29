@@ -20,14 +20,14 @@ import { toggleMobileMenu } from '../Features/Ui/UiSlice';
 import { signOut } from '../Features/Auth/AuthSlice';
 
 const App = ()=>{
-    const mobileMenuIsOpen = useSelector(state=> state.ui.mobileMenuIsOpen); 
-    const userIsLoggedIn = useSelector(state=> state.auth.userIsLoggedIn);
+    const mobileMenuIsOpen = useSelector( state=> state.ui.mobileMenuIsOpen ); 
+    const userIsLoggedIn = useSelector( state=> state.auth.userIsLoggedIn );
     const dispatch = useDispatch();
 
     return(
         <div className='app'>
             <div className="app__inner">
-                <Router>
+                <Router basename={ process.env.PUBLIC_URL }>
                     <div className="app__mobile-menu">
                         <div className="app__mobile-menu__inner">
                             <MobileMenu
