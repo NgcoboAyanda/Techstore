@@ -21,7 +21,7 @@ i.e 750px (medium) & 1200px (large)
     height: 50px;
     display: none;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .header__top__inner{
@@ -34,6 +34,7 @@ i.e 750px (medium) & 1200px (large)
     display: flex;
     justify-content: flex-end;
     padding: 0 var(--margin-small);
+    font-size: var(--font-size-small);
 }
 
 .header__top__links__inner{
