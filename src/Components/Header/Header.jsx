@@ -1,7 +1,8 @@
 import React from 'react';
+import { useEffect } from 'react';
 import {useForm} from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signOut } from '../../Features/Auth/AuthSlice';
 import { toggleMobileMenu } from '../../Features/Ui/UiSlice';
 
@@ -14,13 +15,38 @@ import './Header.css';
 
 const Header = ()=>{
     //Form
-    const { register /*, watch , handleSubmit, control, formState: { errors } */} = useForm({
+    const { register, handleSubmit, watch, setValue, getValues/*, control, formState: { errors } */} = useForm({
         defaultValues: {
-            'top-search-box': ''
-            ,
-            'bottom-search-box': ''
+            'topSearchBox':"",
+            'bottomSearchBox':""
         }
     });
+    const topSearchBoxValue = watch('topSearchBox');
+    const bottomSearchBoxValue = watch('bottomSearchBox');
+
+    useEffect(
+        //When we change the top searchbox, the one on the bottom one has to be cleared
+        ()=>{
+            if(bottomSearchBoxValue){
+                setValue("bottomSearchBox", "");
+            }
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [topSearchBoxValue]
+    )
+
+    useEffect(
+        //When we change the bottom searchbox, the one on the top one has to be cleared
+        ()=>{
+            if(topSearchBoxValue){
+                setValue("topSearchBox", "");
+            }
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [bottomSearchBoxValue]
+    )
+
+
     //Links
     const telegramContactLink = "https://t.me/kiingcxld";
     const projectGithubLink = "https://github.com/NgcoboAyanda/Techstore-Frontend";
@@ -31,6 +57,8 @@ const Header = ()=>{
     //Redux/State
     const dispatch = useDispatch();
     const userIsLoggedIn = useSelector(state => state.auth.userIsLoggedIn);
+    //React-router
+    const navigate = useNavigate()
 
     const openMobileMenu = ()=>{
         dispatch(toggleMobileMenu());
@@ -40,10 +68,22 @@ const Header = ()=>{
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
+    const submitSearch = formData=>{
+        if(formData){
+            const {topSearchBox, bottomSearchBox} = formData;
+            if(topSearchBox && !bottomSearchBox){
+                navigate(`/search?q=${topSearchBox}`);
+            }
+            else if(bottomSearchBox && !topSearchBox){
+                navigate(`/search?q=${bottomSearchBox}`);
+            }
+        }
+    }
+
     const renderCategories = ()=>{
         return categories.map(category=>{
             return(
-                <li className="header__nav__categories__item">
+                <li className="header__nav__categories__item" key={`c-${category}`}>
                     <div className="header__nav__categories__item__inner">
                         <Link to={`/c/${category}`}>
                             { capitalize(category) }
@@ -159,14 +199,14 @@ const Header = ()=>{
                                 {renderCategories()}
                             </ul>
                         </div>
-                        <div className="header__nav__search-box">
+                        <form className="header__nav__search-box" onSubmit={handleSubmit(data=>submitSearch(data))}>
                             <div className="header__nav__search-box__inner">
                                 <SearchInput
                                     register={register}
-                                    label = {'top-search-box'}
+                                    label = {'topSearchBox'}
                                 />
                             </div>
-                        </div>
+                        </form>
                         <div className="header__nav__links">
                             <div className="header__nav__links__inner">
                                 {renderSignInSignOutLink()}
@@ -179,11 +219,11 @@ const Header = ()=>{
                         </div>
                     </div>
                 </div>
-                <form className="header__search-bar">
+                <form className="header__search-bar" onSubmit={handleSubmit(data=>submitSearch(data))}>
                     <div className="header__search-bar__inner">
                         <SearchInput
                             register={register}
-                            label = {'bottom-search-box'}
+                            label = {'bottomSearchBox'}
                         />
                     </div>
                 </form>
