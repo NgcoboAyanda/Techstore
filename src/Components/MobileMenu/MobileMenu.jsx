@@ -1,13 +1,28 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './MobileMenu.css';
 
-const MobileMenu = ({isOpen, toggle, userIsLoggedIn, signOut})=>{
+const MobileMenu = ({isOpen, toggle, userIsLoggedIn=false, signOut})=>{
 
     const categories = [
         "laptops", "desktops", "phones", "tablets", "accessories"
     ]
+
+
+
+    useEffect(
+        ()=>{
+            if(isOpen){
+                document.body.style.overflow = 'hidden';
+            }
+            else{
+                document.body.style.overflow = 'unset';
+            }
+        },
+        [isOpen]
+    )
 
     //Links
     const telegramContactLink = "https://t.me/kiingcxld";
@@ -22,7 +37,11 @@ const MobileMenu = ({isOpen, toggle, userIsLoggedIn, signOut})=>{
             return(
                 <li className="mobile-menu__categories__list__item" key={`c-${category}`}>
                     <div className="mobile-menu__categories__list__item__inner">
-                        <Link className="mobile-menu-link" onClick={()=>toggle()} to={`/c/${category}`}>
+                        <Link 
+                                className="mobile-menu-link" 
+                                onClick={()=>toggle()} 
+                                to={`/c/${category}`}
+                            >
                             {capitalize(category)}    
                         </Link> 
                     </div>

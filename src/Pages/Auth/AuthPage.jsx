@@ -63,8 +63,8 @@ const AuthPage = ({formComponent})=>{
             //when user is logged in
             return (
                 <>
-                    <div className="app__auth-page__message">
-                        <div className="app__auth-page__message">
+                    <div className="app__auth-page__message app__page">
+                        <div className="app__auth-page__message app__page__inner">
                             You are logged in. You will be redirected shortly.
                         </div>
                     </div>

@@ -1,5 +1,7 @@
 .hamburger__menu{
     height: inherit;
+    display: flex;
+    justify-content: center;
 }
 
 .hamburger__menu__inner{
@@ -13,6 +15,8 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    margin: 0 !important;
+    padding: 0 10px;
 }
 
 .hamburger__menu__btn:hover{

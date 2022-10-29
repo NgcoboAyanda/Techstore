@@ -1,0 +1,39 @@
+.app__home-page__main{
+    flex: 1;
+    padding: var(--margin-normal) var(--margin-mid);
+}
+
+.app__home-page__heading{
+    font-size: var(--font-size-mid);
+    color: var(--font-color-mid);
+    text-align: center;
+}
+
+.app__home-page__heading__sub-text{
+    margin-top: var(--margin-small);
+    font-size: var(--font-size-normal);
+    color: var(--font-color-light);
+}
+
+.app__home-page__heading__sub-text__inner > .slash{
+    margin: 0 var(--margin-small);
+}
+
+.app__home-page__main__categories{
+    background-color: red;
+    margin-top: var(--margin-mid);
+}
+
+.app__home-page__main__categories__inner{
+    
+}
+
+
+@media screen and (min-width: 750px){
+
+}
+
+
+@media screen and (min-width: 1100px){
+
+}

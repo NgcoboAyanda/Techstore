@@ -1,5 +1,5 @@
 /* Project uses min-width media query and there are 2 breakpoints:
-i.e 750px (medium) & 1200px (large)
+i.e 750px (medium) & 1100px (large)
 */
 .header{
     background-color: white;
@@ -71,6 +71,14 @@ i.e 750px (medium) & 1200px (large)
     justify-content: space-between;
 }
 
+.header__nav__logo__inner{
+    height: 40px;
+}
+
+.header__nav__categories{
+    display: none;
+}
+
 .header__nav__menu-btn{
     display: flex;
     align-items: center;
@@ -99,7 +107,7 @@ i.e 750px (medium) & 1200px (large)
 }
 
 .header__nav__links__inner > *:not(:first-child){
-    margin-left: var(--margin-mid);
+    margin-left: var(--margin-small);
 }
 
 .header__nav__links__sign-out{
@@ -121,6 +129,11 @@ i.e 750px (medium) & 1200px (large)
     );
 }
 
+.header__nav__links__item__element > .icon{
+    display: flex;
+    align-items: center;
+}
+
 .header__nav__links__item__element > .icon > svg {
     fill: currentColor;
     height: 24px;
@@ -130,15 +143,14 @@ i.e 750px (medium) & 1200px (large)
 .header__nav__links__item__element > .label {
     display: none;
     padding-left: 4px;
+    font-weight: var(--font-weight-mid);
 }
 
-.header__nav__categories{
-    display: none;
+.header__nav__links__cart{
+    margin-left: 12px !important;
 }
 
-.header__nav__logo__inner{
-    height: 40px;
-}
+
 
 .header__search-bar{
     height: 60px;
@@ -180,10 +192,6 @@ i.e 750px (medium) & 1200px (large)
 
     .header__search-bar{
         display: none;
-    }
-
-    .header__nav__links{
-        padding-left: var(--margin-mid);
     }
 
     .header__nav__links__item__element > .label{
