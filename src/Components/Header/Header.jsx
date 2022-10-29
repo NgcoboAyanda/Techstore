@@ -24,12 +24,34 @@ const Header = ()=>{
     //Links
     const telegramContactLink = "https://t.me/kiingcxld";
     const projectGithubLink = "https://github.com/NgcoboAyanda/Techstore-Frontend";
+    //site categories
+    const categories = [
+        "laptops", "desktops", "phones", "tablets", "accessories"
+    ]
     //Redux/State
     const dispatch = useDispatch();
     const userIsLoggedIn = useSelector(state => state.auth.userIsLoggedIn);
 
     const openMobileMenu = ()=>{
         dispatch(toggleMobileMenu());
+    }
+
+    const capitalize = string => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    const renderCategories = ()=>{
+        return categories.map(category=>{
+            return(
+                <li className="header__nav__categories__item">
+                    <div className="header__nav__categories__item__inner">
+                        <Link to={`/c/${category}`}>
+                            { capitalize(category) }
+                        </Link>
+                    </div>
+                </li>
+            )
+        })
     }
 
     const renderSignInSignOutLink = ()=>{
@@ -134,18 +156,7 @@ const Header = ()=>{
                         </div>
                         <div className="header__nav__categories">
                             <ul className="header__nav__categories__inner">
-                                <li className="header__nav__categories__item">
-                                    Categories
-                                </li>
-                                <li className="header__nav__categories__item">
-                                    Deals
-                                </li>
-                                <li className="header__nav__categories__item">
-                                    What's New
-                                </li>
-                                <li className="header__nav__categories__item">
-                                    Pickup & Delivery
-                                </li>
+                                {renderCategories()}
                             </ul>
                         </div>
                         <div className="header__nav__search-box">

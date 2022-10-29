@@ -112,6 +112,7 @@ i.e 750px (medium) & 1200px (large)
     align-items: center;
     color: var(--font-color-mid);
     text-decoration: none;
+    font-weight: var(--font-weight-mid);
 }
 
 .header__nav__links__item__element:hover{
@@ -128,7 +129,6 @@ i.e 750px (medium) & 1200px (large)
 .header__nav__links__item__element > .label {
     display: none;
     padding-left: 4px;
-    font-weight: var(--font-weight-mid);
 }
 
 .header__nav__categories{
@@ -206,9 +206,19 @@ i.e 750px (medium) & 1200px (large)
         list-style-type: none;
         font-size: var(--font-size-normal);
     }
-    
+
     .header__nav__categories__inner > *:not(:first-child){
         margin-left: var(--margin-normal);
+    }
+
+    .header__nav__categories__item__inner > a{
+        color: var(--font-color-mid);
+        text-decoration: none;
+        font-weight: var(--font-weight-mid);
+    }
+
+    .header__nav__categories__item__inner > a:hover{
+        color: var(--font-color-light);
     }
 
     .header__nav__links__sign-out{
