@@ -81,7 +81,7 @@ const CategoryRow = ({ name='all', products=[
                     <div className="category-row__heading__inner">
                         <div className="category-row__heading__text">
                             <div className="category-row__heading__text__inner">
-                                <h2 className="heading heading_mid">
+                                <h2 className="heading heading_extreme">
                                     {name}
                                 </h2>
                             </div>

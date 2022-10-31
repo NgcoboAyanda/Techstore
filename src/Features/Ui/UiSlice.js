@@ -5,23 +5,23 @@ const initialState = {
     categories: [ 
         { 
             'name': "laptops",
-            'image': "https://consumer.huawei.com/content/dam/huawei-cbg-site/me-africa/za/mkt/pdp/pc/matebook-x-pro-2021/matebook-x-pro.png" 
+            'image': "https://www.lenovo.com/medias/lenovo-laptops-v-series-v15-gen2-15inch-amd-series.png?context=bWFzdGVyfHJvb3R8NTY1NDF8aW1hZ2UvcG5nfGg3Ny9oZjQvMTQxOTE1MTc4NTk4NzAucG5nfDk4N2Y2Y2M2ZTcxNDdkNTY3NWVlYTkyMTJmMjNiOTFhNjJiNTA1OTFlZWZhN2IxNTllMTU5NjQ0Y2IwMmY3NTU" 
         }, 
         { 
             'name': "desktops",
-            'image': "https://i.dell.com/is/image/DellContent/content/dam/images/products/desktops-and-all-in-ones/xps/8950/xs8950-xsy-11023rf-bk.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=355&qlt=100,1&resMode=sharp2&size=355,402&chrss=full"  
+            'image': "https://www.lenovo.com/medias/ThinkCentre-hero-splitter.png?context=bWFzdGVyfHJvb3R8NzEwOTN8aW1hZ2UvcG5nfGhlOS9oMTUvMTA4MDQ0OTE1NTA3NTAucG5nfGE5Mzc1YTI4OGE2NGQ3NGNjNDYxZTZlMjkzODNlZTBiYzdiZGRmZDRhMDRjODQ3NDEyZTY5Y2ZjNDVkYzZkYWE&w=1920"  
         }, 
         { 
             'name': "phones",
-            'image': "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/plp/phones/new-phones/model-banner/img-0904/mate-xs2.png"  
+            'image': "https://images.samsung.com/is/image/samsung/p6pim/za/feature/163965752/za-feature-simple--yet-absolute-531579324"  
         }, 
         { 
             'name': "tablets",
-            'image': "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/plp/phones/new-phones/more-products/matepad-t8.png"  
+            'image': "https://www.lenovo.com/medias/lenovo%E2%80%90tablet%E2%80%90lenovo-tab-p12%E2%80%90pro-series-front.png?context=bWFzdGVyfHJvb3R8MTAzMTU5fGltYWdlL3BuZ3xoYTgvaGM1LzEyNjgwMzcyMDI3NDIyLnBuZ3w0ZDlmNWEyNTMyNDRlMjk4NDlkMmFjODA3MjI4Y2QxYmUyZGQ4YjE2NTZkYzI2MjA2MTA2Y2ZhMjg4OWQ3ZDc3"  
         }, 
         { 
             'name': "accessories",
-            'image': "https://consumer.huawei.com/content/dam/huawei-cbg-site/me-africa/za/mkt/plp/headphones/img.png"  
+            'image': "https://static.lenovo.com/ww/img/accessories/thinkpad-x1-anc-headphones/gallery/lenovo-accessory-thinkpad-x1-anc-headphones-gallery-3.jpg"  
         } 
     ]
 }
