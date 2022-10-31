@@ -6,14 +6,14 @@ import './CategoryCard.css';
 const CategoryCard = ({ name, image, link})=> {
 
     return (
-        <Link className="category"  to={link} key={name}>
-            <div className="category__image">
-                <div className="category__image__inner">
+        <Link className="link  category-card"  to={link} key={name}>
+            <div className="category-card__image">
+                <div className="category-card__image__inner">
                     <img src={image} alt="" srcset="" />
                 </div>
             </div>
-            <div className="category__label">
-                <div className="category__label__inner">
+            <div className="category-card__label">
+                <div className="category-card__label__inner">
                     <div>
                         { name }
                     </div>

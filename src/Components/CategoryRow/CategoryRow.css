@@ -1,0 +1,16 @@
+.category-row{
+    margin-top: var(--margin-mid);
+}
+
+.category-row__heading__inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category-row__products__inner{
+    padding: var(--margin-normal);
+    display: flex;
+    padding-left: var(--margin-mid);
+    overflow-x: scroll;
+}

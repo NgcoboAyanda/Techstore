@@ -19,16 +19,26 @@
     margin: 0 var(--margin-small);
 }
 
-.app__home-page__main__categories{
+.app__home-page__main__categories-cards{
     margin-top: var(--margin-mid);
 }
 
-.app__home-page__main__categories__inner{
+.app__home-page__main__categories-cards__inner{
+    margin-top: var(--margin-mid);
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
+.app__home-page__main__categories-rows{
+    margin-top: var(--margin-mid);
+    min-height: 800px;
+}
+
+.app__home-page__main__categories-rows__inner{
+    display: flex;
+    flex-direction: column;
+}
 
 @media screen and (min-width: 750px){
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import CategoryCard from '../../Components/CategoryCard/CategoryCard';
+import CategoryRow from '../../Components/CategoryRow/CategoryRow';
 import Header from '../../Components/Header/Header';
 
 //css
@@ -29,6 +30,22 @@ const HomePage = ()=>{
                         <CategoryCard
                             name={ capitalize(category.name) }
                             image={ category.image }
+                            link={ `/c/${category.name}` }
+                        />
+                    </div>
+                </div>
+            )
+        })
+    }
+
+    const renderCategoryRows = () => {
+        return categories.map( category=> {
+            console.log(category.name)
+            return (
+                <div className="app__home-page__main__categories-rows__item" key={`cr-${category.name}`}>
+                    <div className="app__home-page__main__categories-rows__item__inner">
+                        <CategoryRow
+                            name={ capitalize(category.name) }
                             link={ `/c/${category.name}` }
                         />
                     </div>
@@ -71,11 +88,16 @@ const HomePage = ()=>{
                                 </div>
                             </div>
                         </div>
-                        <div className="app__home-page__main__categories">
-                            <div className="app__home-page__main__categories__inner">
+                        <section className="app__home-page__main__categories-cards">
+                            <div className="app__home-page__main__categories-cards__inner">
                                 {renderCategoryCards()}
                             </div>
-                        </div>
+                        </section>
+                        <section className="app__home-page__main__categories-rows">
+                            <div className="app__home-page__main__categories-rows__inner">
+                                {renderCategoryRows()}
+                            </div>
+                        </section>
                     </div>
                 </main>
             </div>

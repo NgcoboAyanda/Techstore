@@ -64,17 +64,38 @@ body{
 
 /* text styling classes */
 .heading{
-    color: inherit;
+    font-weight: var(--font-weight-thickest);
 }
 
 .heading_normal{
     font-size: var(--font-size-mid);
-    font-weight: var(--font-weight-thickest);
+}
+
+.heading_mid{
+    font-size: var(--font-size-large);
 }
 
 .heading_extreme{
     font-size: var(--font-size-extreme);
-    font-weight: var(--font-weight-thickest);
+}
+
+.link{
+    text-decoration: none;
+    font-size: var(--font-size-normal);
+    font-weight: var(--font-weight-mid);
+    color: var(--font-color-mid);
+}
+
+.link:hover{
+    text-decoration: underline;
+}
+
+.link_underlined{
+    text-decoration: underline;
+}
+
+.link_underlined:hover{
+    text-decoration: none;
 }
 
 /* Modifiers */
