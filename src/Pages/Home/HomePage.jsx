@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import CategoryCard from '../../Components/CategoryCard/CategoryCard';
 import Header from '../../Components/Header/Header';
 
@@ -14,18 +14,25 @@ const HomePage = ()=>{
         niche: "Electronics"
     }
 
-    const categories = [
-        "laptops", "desktops", "phones", "TVs", "tablets", "accessories"
-    ]
+    const capitalize = string => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+
+    const categories = useSelector(state=> state.ui.categories);
 
     const renderCategoryCards = () =>{
         return categories.map( category => {
             return (
-                <>
-                    <CategoryCard
-                        name={category}
-                    />
-                </>
+                <div className="app__home-page__main__categories__item" key={`c-${category.name}`}>
+                    <div className="app__home-page__main__categories__item__inner">
+                        <CategoryCard
+                            name={ capitalize(category.name) }
+                            image={ category.image }
+                            link={ `/c/${category.name}` }
+                        />
+                    </div>
+                </div>
             )
         })
     }
@@ -66,8 +73,7 @@ const HomePage = ()=>{
                         </div>
                         <div className="app__home-page__main__categories">
                             <div className="app__home-page__main__categories__inner">
-                                <div className="app__home-page__main__categories__item">
-                                </div>
+                                {renderCategoryCards()}
                             </div>
                         </div>
                     </div>

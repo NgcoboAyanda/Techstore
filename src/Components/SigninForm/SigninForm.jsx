@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux/es/exports';
+import { useDispatch } from 'react-redux/es/exports';
 import {useNavigate} from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 

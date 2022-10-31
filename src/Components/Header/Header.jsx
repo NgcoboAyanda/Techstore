@@ -10,8 +10,8 @@ import Cart from '../Cart/Cart';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import SearchInput from '../InputBoxes/SearchInput/SearchInput';
 import Logo from '../Logo/Logo'; 
-import MyAccountLink from '../MobileMenu/MyAccountLink/MyAccountLink';
-import SignInLink from '../MobileMenu/SignInLink/SignInLink';
+import MyAccountLink from './MyAccountLink/MyAccountLink';
+import SignInLink from './SignInLink/SignInLink';
 import SignOutButton from './SignOutButton/SignOutButton';
 
 import './Header.css';

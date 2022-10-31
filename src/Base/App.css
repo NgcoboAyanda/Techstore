@@ -18,6 +18,8 @@
 .app__page__inner{
     flex: 1;
     min-height: 150vh;
+    width: 100vw;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;

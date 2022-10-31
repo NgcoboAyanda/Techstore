@@ -27,7 +27,7 @@ const App = ()=>{
     return(
         <div className='app'>
             <div className="app__inner">
-                <Router basename={ process.env.PUBLIC_URL }>
+                <Router /* basename={ process.env.PUBLIC_URL } */ >
                     <div className="app__mobile-menu">
                         <div className="app__mobile-menu__inner">
                             <MobileMenu

@@ -20,12 +20,13 @@
 }
 
 .app__home-page__main__categories{
-    background-color: red;
     margin-top: var(--margin-mid);
 }
 
 .app__home-page__main__categories__inner{
-    
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
 
