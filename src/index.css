@@ -52,9 +52,38 @@ IBM plex
     --font-family-default: 'IBM Plex Sans', sans-serif;
 
     /* margin */
+    --margin-big: 32px;
     --margin-mid: 24px;
     --margin-normal: 16px;
     --margin-small: 8px;
+
+    /* scroll-bar */
+    --scroll-bar-width: thin;
+    --scrollbar-width-size: 10px;
+    --scrollbar-color-primary: rgb(199, 199, 199);
+    --scrollbar-color-secondary: rgb(238, 238, 238);
+    --scrollbar-color: var(--scrollbar-color-primary) var(--scrollbar-color-secondary);
+}
+
+/* Works on Firefox */
+* {
+    scrollbar-width: var(--scroll-bar-width);
+    scrollbar-color: var(--scrollbar-color);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: var(--scrollbar-width-size);
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--scrollbar-color-secondary);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color-primary);
+    border-radius: 100px;
+    border: 3px solid var(--scrollbar-color-secondary);
 }
 
 body{
@@ -65,6 +94,7 @@ body{
 /* text styling classes */
 .heading{
     font-weight: var(--font-weight-thickest);
+    color: inherit;
 }
 
 .heading_normal{
@@ -96,6 +126,17 @@ body{
 
 .link_underlined:hover{
     text-decoration: none;
+}
+
+.link_btn{
+    display: inline-block;
+    border: 1px solid currentColor;
+    padding: var(--font-size-normal);
+}
+
+.link_btn:hover{
+    text-decoration: none;
+    color: var(--font-color-light);
 }
 
 /* Modifiers */

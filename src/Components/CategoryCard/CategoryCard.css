@@ -7,7 +7,7 @@
 }
 
 .category-card__image__inner > img {
-    height: 90px;
+    height: 60px;
 }
 
 .category-card__label{
@@ -17,13 +17,13 @@
 
 @media screen and (min-width: 750px){
     .category-card__image__inner > img {
-        height: 120px;
+        height: 90px;
     }   
 }
 
 
 @media screen and (min-width: 1100px){
     .category-card__image__inner > img {
-        height: 150px;
+        height: 100px;
     }  
 }

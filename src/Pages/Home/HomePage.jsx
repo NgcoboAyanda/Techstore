@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import CategoryCard from '../../Components/CategoryCard/CategoryCard';
 import CategoryRow from '../../Components/CategoryRow/CategoryRow';
 import Header from '../../Components/Header/Header';
@@ -90,7 +91,18 @@ const HomePage = ()=>{
                         </div>
                         <section className="app__home-page__main__categories-cards">
                             <div className="app__home-page__main__categories-cards__inner">
-                                {renderCategoryCards()}
+                                <div className="category-card-container">
+                                    <div className="category-card-container__inner">
+                                        {renderCategoryCards()}
+                                    </div>
+                                </div>
+                                <div className="category-card-link">
+                                    <div className="category-card-link__inner">
+                                        <Link className="link link_btn" to="/c/all">
+                                            Shop All Categories
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
                         </section>
                         <section className="app__home-page__main__categories-rows">

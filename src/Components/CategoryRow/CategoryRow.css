@@ -1,5 +1,5 @@
 .category-row{
-    margin-top: var(--margin-mid);
+    color: var(--font-color-mid);
 }
 
 .category-row__heading__inner{

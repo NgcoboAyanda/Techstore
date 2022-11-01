@@ -1,6 +1,6 @@
 .app__home-page__main{
     flex: 1;
-    padding: var(--margin-normal) var(--margin-mid);
+    padding: var(--margin-normal) var(--margin-small);
 }
 
 .app__home-page__heading{
@@ -10,7 +10,6 @@
 }
 
 .app__home-page__heading__sub-text{
-    margin-top: var(--margin-small);
     font-size: var(--font-size-normal);
     color: var(--font-color-light);
 }
@@ -24,14 +23,30 @@
 }
 
 .app__home-page__main__categories-cards__inner{
-    margin-top: var(--margin-mid);
+}
+
+.app__home-page__main__categories-cards__inner > .category-card-container{
+    display: flex;
+    align-items: center;
+}
+
+.app__home-page__main__categories-cards__inner > .category-card-container > .category-card-container__inner{
+    padding: var(--margin-small) 0;
+    width: 100%;
     display: grid;
+    grid-row-gap: var(--margin-big);
+    grid-column-gap: var(--margin-small);
     justify-items: center;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
+.app__home-page__main__categories-cards__inner > .category-card-link{
+    text-align: center;
+    margin-top: var(--margin-big);
+}
+
 .app__home-page__main__categories-rows{
-    margin-top: var(--margin-mid);
+    margin-top: var(--margin-big);
     min-height: 800px;
 }
 
@@ -40,11 +55,36 @@
     flex-direction: column;
 }
 
-@media screen and (min-width: 750px){
+.app__home-page__main__categories-rows__inner > *:not(:first-child){
+    margin-top: var(--margin-big);
+}
 
+@media screen and (min-width: 750px){
+    .app__home-page__main{
+        padding: var(--margin-normal) var(--margin-mid);
+    }
+
+    .app__home-page__heading{
+        margin-top: var(--margin-normal);
+    }
+
+    .app__home-page__main__categories-cards__inner{
+        padding-top: var(--margin-normal);
+    }
+
+    .app__home-page__heading__sub-text{
+        margin-top: var(--margin-small);
+    }    
+    
 }
 
 
 @media screen and (min-width: 1100px){
+    .app__home-page__heading{
+        margin-top: var(--margin-mid);
+    }
 
+    .app__home-page__main__categories-cards__inner{
+        padding-top: var(--margin-mid);
+    }
 }
