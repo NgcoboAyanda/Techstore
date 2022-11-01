@@ -21,7 +21,7 @@
 
 .product-card__name{
     margin-top: var(--margin-mid);
-    font-size: var(--font-size-mid);
+    font-size: var(--font-size-normal);
 }
 
 .product-card__price{

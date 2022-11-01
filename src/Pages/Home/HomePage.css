@@ -37,7 +37,7 @@
     grid-row-gap: var(--margin-big);
     grid-column-gap: var(--margin-small);
     justify-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 }
 
 .app__home-page__main__categories-cards__inner > .category-card-link{
@@ -70,6 +70,10 @@
 
     .app__home-page__main__categories-cards__inner{
         padding-top: var(--margin-normal);
+    }
+
+    .app__home-page__main__categories-cards__inner > .category-card-container > .category-card-container__inner{
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     }
 
     .app__home-page__heading__sub-text{

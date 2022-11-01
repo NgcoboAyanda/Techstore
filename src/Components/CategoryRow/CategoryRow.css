@@ -8,6 +8,10 @@
     justify-content: space-between;
 }
 
+.category-row__heading__link{
+    font-size: var(--font-size-mid);
+}
+
 .category-row__products__inner{
     padding: var(--margin-normal);
     display: flex;

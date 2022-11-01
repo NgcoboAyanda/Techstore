@@ -111,7 +111,7 @@ body{
 
 .link{
     text-decoration: none;
-    font-size: var(--font-size-normal);
+    font-size: inherit;
     font-weight: var(--font-weight-mid);
     color: var(--font-color-mid);
 }
