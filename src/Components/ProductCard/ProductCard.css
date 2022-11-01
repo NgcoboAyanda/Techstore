@@ -28,7 +28,12 @@
     margin-top: var(--margin-normal);
     font-weight: var(--font-weight-thickest);
     font-size: var(--font-size-big);
+}
 
+.product-card__action{
+    margin-top: var(--margin-mid);
+    display: flex;
+    justify-content: flex-end;
 }
 
 .product-card__image{

@@ -18,6 +18,7 @@ IBM plex
 
 :root{
     /* Theme colors */
+    --color-primary-light: #eb0000;
     --color-primary: #CC0000;
     --color-primary-mid:#AA0000;
     --color-primary-dark: rgb(121, 0, 0);
@@ -137,6 +138,35 @@ body{
 .link_btn:hover{
     text-decoration: none;
     color: var(--font-color-light);
+}
+
+/* buttons */
+.btn {
+    font-size: inherit;
+    border: none;
+    transition: transform 0.01s linear ;
+}
+
+.btn:active{
+    transform: scale(0.95);
+}
+
+.btn_small{
+    font-size: var(--font-size-small);
+    padding: var(--margin-small);
+}
+
+.btn_filled{
+    background-color: var(--color-primary);
+    border-radius: 3px;
+    display: flex;
+    color: var(--font-color-lighter);
+    font-weight: var(--font-weight-thickest);
+    padding: var(--);
+}
+
+.btn_filled:hover{
+    background-color: var(--color-primary-light);
 }
 
 /* Modifiers */

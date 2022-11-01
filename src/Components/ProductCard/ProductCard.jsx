@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './ProductCard.css';
 
-const ProductCard = ( { name, price, image, link } ) => {
+const ProductCard = ( { name, price, image, id, link, addToCart } ) => {
 
     return (
         <div className="product-card">
@@ -25,6 +25,13 @@ const ProductCard = ( { name, price, image, link } ) => {
                         <div>
                             {price}
                         </div>
+                    </div>
+                </div>
+                <div className="product-card__action">
+                    <div className="product-card__action__inner">
+                        <button className="btn btn_small btn_filled">
+                            Add To Cart
+                        </button>
                     </div>
                 </div>
             </div>
