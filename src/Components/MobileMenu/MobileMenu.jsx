@@ -4,13 +4,7 @@ import { Link } from 'react-router-dom';
 
 import './MobileMenu.css';
 
-const MobileMenu = ({isOpen, toggle, userIsLoggedIn=false, signOut})=>{
-
-    const categories = [
-        "laptops", "desktops", "phones", "tablets", "accessories"
-    ]
-
-
+const MobileMenu = ({isOpen, toggle, userIsLoggedIn=false, signOut, categories=[]})=>{
 
     useEffect(
         ()=>{
@@ -32,17 +26,41 @@ const MobileMenu = ({isOpen, toggle, userIsLoggedIn=false, signOut})=>{
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
+    const renderNewArrivalsItems = ()=>{
+        return categories.map(category=>{
+            return(
+                <li className="mobile-menu__new-arrivals__content__item">
+                    <div className="mobile-menu__new-arrivals__content__item__image">
+                        <div className="mobile-menu__new-arrivals__content__item__image__inner">
+                            <img 
+                                src={category.image} 
+                                alt={category.name} 
+                            />
+                        </div>
+                    </div>
+                    <div className="mobile-menu__new-arrivals__content__item__label">
+                        <div className="mobile-menu__new-arrivals__content__item__label__inner">
+                            <div>
+                                {capitalize(category.name)} New Arrivals
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            )
+        } )
+    }
+
     const renderCategories = ()=>{
         return categories.map(category=>{
             return(
-                <li className="mobile-menu__categories__list__item" key={`c-${category}`}>
+                <li className="mobile-menu__categories__list__item" key={`c-${category.name}`}>
                     <div className="mobile-menu__categories__list__item__inner">
                         <Link 
                                 className="mobile-menu-link" 
                                 onClick={()=>toggle()} 
-                                to={`/c/${category}`}
+                                to={`/c/${category.name}`}
                             >
-                            {capitalize(category)}    
+                            {capitalize(category.name)}    
                         </Link> 
                     </div>
                 </li>
@@ -143,74 +161,7 @@ const MobileMenu = ({isOpen, toggle, userIsLoggedIn=false, signOut})=>{
                                 </div>
                                 <div className="mobile-menu__new-arrivals__content">
                                     <ul className="mobile-menu__new-arrivals__content__inner">
-                                        <li className="mobile-menu__new-arrivals__content__item">
-                                            <div className="mobile-menu__new-arrivals__content__item__image">
-                                                <div className="mobile-menu__new-arrivals__content__item__image__inner">
-                                                    <img 
-                                                        src="https://consumer.huawei.com/content/dam/huawei-cbg-site/me-africa/za/mkt/pdp/pc/matebook-x-pro-2021/matebook-x-pro.png" 
-                                                        alt="laptop" 
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="mobile-menu__new-arrivals__content__item__label">
-                                                <div className="mobile-menu__new-arrivals__content__item__label__inner">
-                                                    <div>
-                                                        Laptop New Arrivals
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="mobile-menu__new-arrivals__content__item">
-                                            <div className="mobile-menu__new-arrivals__content__item__image">
-                                                <div className="mobile-menu__new-arrivals__content__item__image__inner">
-                                                    <img 
-                                                        src="https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/plp/phones/new-phones/model-banner/img-0904/mate-xs2.png" 
-                                                        alt="earbuds" 
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="mobile-menu__new-arrivals__content__item__label">
-                                                <div className="mobile-menu__new-arrivals__content__item__label__inner">
-                                                    <div>
-                                                        Phones New Arrivals
-                                                    </div>
-                                                </div>
-                                            </div> 
-                                        </li> 
-                                        <li className="mobile-menu__new-arrivals__content__item">
-                                            <div className="mobile-menu__new-arrivals__content__item__image">
-                                                <div className="mobile-menu__new-arrivals__content__item__image__inner">
-                                                    <img 
-                                                        src="https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/plp/phones/new-phones/more-products/matepad-t8.png" 
-                                                        alt="tablet" 
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="mobile-menu__new-arrivals__content__item__label">
-                                                <div className="mobile-menu__new-arrivals__content__item__label__inner">
-                                                    <div>
-                                                        Tablets New Arrivals
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="mobile-menu__new-arrivals__content__item">
-                                            <div className="mobile-menu__new-arrivals__content__item__image">
-                                                <div className="mobile-menu__new-arrivals__content__item__image__inner">
-                                                    <img 
-                                                        src="https://consumer.huawei.com/content/dam/huawei-cbg-site/me-africa/za/mkt/plp/headphones/img.png" 
-                                                        alt="earbuds" 
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="mobile-menu__new-arrivals__content__item__label">
-                                                <div className="mobile-menu__new-arrivals__content__item__label__inner">
-                                                    <div>
-                                                        Accessories New Arrivals
-                                                    </div>
-                                                </div>
-                                            </div> 
-                                        </li>
+                                        {renderNewArrivalsItems()}
                                     </ul>
                                 </div>
                             </div>

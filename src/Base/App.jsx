@@ -22,7 +22,8 @@ import { signOut } from '../Features/Auth/AuthSlice';
 const App = ()=>{
     const mobileMenuIsOpen = useSelector( state=> state.ui.mobileMenuIsOpen ); 
     const userIsLoggedIn = useSelector( state=> state.auth.userIsLoggedIn );
-    
+    const categories = useSelector(state=> state.data.categories);
+
     const dispatch = useDispatch();
 
     return(
@@ -35,6 +36,7 @@ const App = ()=>{
                                 isOpen={mobileMenuIsOpen}
                                 toggle={()=>dispatch(toggleMobileMenu())}
                                 userIsLoggedIn={userIsLoggedIn}
+                                categories={categories}
                                 signOut={()=>dispatch(signOut())}
                             />
                         </div>
