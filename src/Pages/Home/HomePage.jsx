@@ -21,7 +21,7 @@ const HomePage = ()=>{
     }
 
 
-    const categories = useSelector(state=> state.ui.categories);
+    const categories = useSelector(state=> state.data.categories);
 
     const renderCategoryCards = () =>{
         return categories.map( category => {

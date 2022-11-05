@@ -22,6 +22,7 @@ import { signOut } from '../Features/Auth/AuthSlice';
 const App = ()=>{
     const mobileMenuIsOpen = useSelector( state=> state.ui.mobileMenuIsOpen ); 
     const userIsLoggedIn = useSelector( state=> state.auth.userIsLoggedIn );
+    
     const dispatch = useDispatch();
 
     return(
