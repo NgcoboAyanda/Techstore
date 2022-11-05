@@ -17,7 +17,7 @@ const BasePage = ()=>{
         ()=>{
             setTimeout(
                 ()=>{
-                    navigate("/home")
+                    navigate("/home");
                 },
                 3000
             )
@@ -26,10 +26,12 @@ const BasePage = ()=>{
     )
 
     return(
-        <div className="app__base-page page">
-            <div className="app__base-page__animation">
-                <div className="app__base-page__animation__inner">
-                    <Loader/>
+        <div className="app__base-page app__page">
+            <div className="app__base-page__inner  app__page__inner">
+                <div className="app__base-page__animation">
+                    <div className="app__base-page__animation__inner">
+                        <Loader/>
+                    </div>
                 </div>
             </div>
         </div>

@@ -5,6 +5,12 @@
     justify-content: center;
 }
 
+.app__base-page__inner{
+    flex: unset !important;
+    justify-content: center;
+    height: 500px !important;
+}
+
 .app__base-page__animation{
     display: inline-block;
 }
