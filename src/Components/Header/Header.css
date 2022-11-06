@@ -109,6 +109,10 @@ i.e 750px (medium) & 1100px (large)
     margin-left: var(--margin-small);
 }
 
+.header__nav__links__cart{
+    margin-left: var(--margin-normal) !important;
+}
+
 .header__nav__links__sign-out{
     display: none;
 }
@@ -144,12 +148,6 @@ i.e 750px (medium) & 1100px (large)
     padding-left: 4px;
     font-weight: var(--font-weight-mid);
 }
-
-.header__nav__links__cart{
-    margin-left: 12px !important;
-}
-
-
 
 .header__search-bar{
     height: 60px;
