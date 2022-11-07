@@ -59,6 +59,15 @@
     margin-top: var(--margin-big);
 }
 
+.app__home-page__main__benefits{
+    margin: var(--margin-big) 0;
+    margin-bottom: var(--margin-big);
+}
+
+.app__home-page__main__benefits__heading{
+    text-align: center;
+}
+
 @media screen and (min-width: 750px){
     .app__home-page__main{
         padding: var(--margin-normal) var(--margin-mid);

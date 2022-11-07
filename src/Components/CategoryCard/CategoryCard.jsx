@@ -9,7 +9,7 @@ const CategoryCard = ({ name, image, link})=> {
         <Link className="link  category-card"  to={link}>
             <div className="category-card__image">
                 <div className="category-card__image__inner">
-                    <img src={image} alt="" srcset="" />
+                    <img src={image} alt=""/>
                 </div>
             </div>
             <div className="category-card__label">

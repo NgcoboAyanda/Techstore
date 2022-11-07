@@ -3,10 +3,13 @@ import { useEffect } from 'react';
 import {useForm} from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+
+//Actions
 import { signOut } from '../../Features/Auth/AuthSlice';
 import { toggleMobileMenu } from '../../Features/Ui/UiSlice';
 
-import Cart from '../Cart/Cart';
+//Components
+import CartBtn from '../CartBtn/CartBtn';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import SearchInput from '../InputBoxes/SearchInput/SearchInput';
 import Logo from '../Logo/Logo'; 
@@ -16,9 +19,12 @@ import SignOutButton from './SignOutButton/SignOutButton';
 
 import './Header.css';
 
+
 const Header = ()=>{
+    const cart = useSelector(state=> state.ui.cart);
+
     //Form
-    const { register, handleSubmit, watch, setValue, getValues/*, control, formState: { errors } */} = useForm({
+    const { register, handleSubmit, watch, setValue /*, getValues, control, formState: { errors } */} = useForm({
         defaultValues: {
             'topSearchBox':"",
             'bottomSearchBox':""
@@ -193,7 +199,9 @@ const Header = ()=>{
                                 {renderSignInSignOut()}
                                 <div className="header__nav__links__item  header__nav__links__cart">
                                     <div className="header__nav__links__item__inner  header__nav__links__cart__inner">
-                                        <Cart/>
+                                        <CartBtn
+                                            cartCounter={ cart.length }
+                                        />
                                     </div>
                                 </div>
                             </div>

@@ -1,5 +1,9 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { addToCart } from '../../Features/Ui/UiSlice';
+
 import ProductCard from '../ProductCard/ProductCard';
 
 import './CategoryRow.css';
@@ -60,16 +64,23 @@ const CategoryRow = ({ name='all', products=[
         'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
     },
 ], link }) => {
+    
+    const dispatch = useDispatch();
 
     const renderProducts = () => {
+        let id = 0;
         return products.map( product=>{
+            id++;
             return(
-                <ProductCard
-                    name={ product.name }
-                    price={ product.price }
-                    image={ product.image }
-                    link={ `/p/${product.id}` }
-                />
+                <React.Fragment key={`p-${id}`}>
+                    <ProductCard
+                        name={ product.name }
+                        price={ product.price }
+                        image={ product.image }
+                        link={ `/p/${product.id}` }
+                        addToCart={()=>dispatch(addToCart(product)) }
+                    />
+                </React.Fragment>
             )
         })
     }
