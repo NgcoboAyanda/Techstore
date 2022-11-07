@@ -110,17 +110,6 @@ const HomePage = ()=>{
                                 {renderCategoryRows()}
                             </div>
                         </section>
-                        <div className="app__home-page__main__benefits">
-                            <div className="app__home-page__main__benefits__inner">
-                                <div className="app__home-page__main__benefits__heading">
-                                    <div className="app__home-page__main__benefits__heading__inner">
-                                        <h2 className="heading heading_extreme">
-                                            Benefits Of Shopping With Us
-                                        </h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </main>
             </div>

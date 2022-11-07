@@ -18,6 +18,7 @@ import ForgotPasswordPage from '../Pages/Auth/ForgotPasswordPage/ForgotPasswordP
 import MobileMenu from '../Components/MobileMenu/MobileMenu';
 import { toggleMobileMenu } from '../Features/Ui/UiSlice';
 import { signOut } from '../Features/Auth/AuthSlice';
+import CategoryPage from '../Pages/Category/CategoryPage';
 
 const App = ()=>{
     const mobileMenuIsOpen = useSelector( state=> state.ui.mobileMenuIsOpen ); 
@@ -63,6 +64,12 @@ const App = ()=>{
                         <Route
                             exact path='/accounts/forgot-password'
                             element={<ForgotPasswordPage/>}
+                        />
+
+                        {/* Categories */}
+                        <Route
+                            exact path='/c/:categoryName'
+                            element={<CategoryPage/>}
                         />
                     </Routes>
                     <Footer/>

@@ -25,7 +25,7 @@ const CartBtn = ( { toggleCart, cartCounter=0 } )=>{
             <div className="cart__inner">
                 <div className="cart__icon">
                     <div className="cart__icon__inner">
-                        <img src={CartIcon} alt="" srcset="" />
+                        <img src={CartIcon} />
                     </div>
                 </div>
                 { renderCartCounter() }

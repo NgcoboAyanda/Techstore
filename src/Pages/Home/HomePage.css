@@ -59,13 +59,8 @@
     margin-top: var(--margin-big);
 }
 
-.app__home-page__main__benefits{
-    margin: var(--margin-big) 0;
-    margin-bottom: var(--margin-big);
-}
-
-.app__home-page__main__benefits__heading{
-    text-align: center;
+.app__home-page__main__categories-rows__inner > *:last-child{
+    margin-bottom: 100px;
 }
 
 @media screen and (min-width: 750px){
@@ -88,7 +83,10 @@
     .app__home-page__heading__sub-text{
         margin-top: var(--margin-small);
     }    
-    
+ 
+    .app__home-page__main__categories-rows__inner > *:last-child{
+        margin-bottom: 150px;
+    }
 }
 
 
