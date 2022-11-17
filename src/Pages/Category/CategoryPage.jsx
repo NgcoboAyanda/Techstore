@@ -4,7 +4,9 @@ import Header from '../../Components/Header/Header';
 import './CategoryPage.css';
 
 //Base page for every category
-const CategoryPage = ()=> {
+const CategoryPage = ( props )=> {
+
+    
 
     return (
         <div className="app__category__page app__page">
