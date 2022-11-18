@@ -1,6 +1,5 @@
 .app__home-page__main{
     flex: 1;
-    padding: var(--margin-normal) var(--margin-small);
 }
 
 .app__home-page__main__categories-cards__inner{
