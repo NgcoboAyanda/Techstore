@@ -5,6 +5,7 @@
 }
 
 .app__page__main__heading__sub-text{
+    margin-top: 3px;
     font-size: var(--font-size-normal);
     color: var(--font-color-light);
 }
