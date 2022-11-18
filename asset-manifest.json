@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/Techstore-Frontend/static/css/main.671ef022.css",
-    "main.js": "/Techstore-Frontend/static/js/main.78171e88.js",
+    "main.css": "/Techstore-Frontend/static/css/main.c902c725.css",
+    "main.js": "/Techstore-Frontend/static/js/main.77e3f2d9.js",
     "static/media/Logo.svg": "/Techstore-Frontend/static/media/Logo.44fb06dfdd416eabae774bfd16a7b5c9.svg",
-    "static/media/loader-icon.svg": "/Techstore-Frontend/static/media/loader-icon.1097f42cdc7758c645457d2adc8fc4e4.svg",
+    "static/media/CartIcon.svg": "/Techstore-Frontend/static/media/CartIcon.5ce14c932e99ef109d107eb13a41d670.svg",
+    "static/media/loader-icon.svg": "/Techstore-Frontend/static/media/loader-icon.bc21964c14b995469c2cbe6623dbb845.svg",
     "index.html": "/Techstore-Frontend/index.html",
-    "main.671ef022.css.map": "/Techstore-Frontend/static/css/main.671ef022.css.map",
-    "main.78171e88.js.map": "/Techstore-Frontend/static/js/main.78171e88.js.map"
+    "main.c902c725.css.map": "/Techstore-Frontend/static/css/main.c902c725.css.map",
+    "main.77e3f2d9.js.map": "/Techstore-Frontend/static/js/main.77e3f2d9.js.map"
   },
   "entrypoints": [
-    "static/css/main.671ef022.css",
-    "static/js/main.78171e88.js"
+    "static/css/main.c902c725.css",
+    "static/js/main.77e3f2d9.js"
   ]
 }
