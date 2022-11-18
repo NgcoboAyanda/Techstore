@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import CategoryCard from '../../Components/CategoryCard/CategoryCard';
 import CategoryRow from '../../Components/CategoryRow/CategoryRow';
 import Header from '../../Components/Header/Header';
+import PageHeading from '../../Components/PageHeading/PageHeading';
 
 //css
 import './HomePage.css'
@@ -64,30 +65,11 @@ const HomePage = ()=>{
                 </header>
                 <main className="app__home-page__main  app__page__main">
                     <div className="app__home-page__main__inner">
-                        <div className="app__page__main__heading">
-                            <div className="app__page__main__heading__inner">
-                                <div className="app__page__main__heading__title">
-                                    <div className="app__page__main__heading__title__inner">
-                                        <h1 className="heading  heading_extreme">
-                                            Home
-                                        </h1>
-                                    </div>
-                                </div>
-                                <div className="app__page__main__heading__sub-text">
-                                    <div className="app__page__main__heading__sub-text__inner">
-                                        <span className="site-name">
-                                            {site.name}
-                                        </span>
-                                        <span className="slash">
-                                            /
-                                        </span>
-                                        <span className="site-niche">
-                                            {site.niche}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <PageHeading
+                            siteName={ site.name }
+                            heading="Home"
+                            pageContent="Electronics"
+                        />
                         <section className="app__home-page__main__categories-cards">
                             <div className="app__home-page__main__categories-cards__inner">
                                 <div className="category-card-container">

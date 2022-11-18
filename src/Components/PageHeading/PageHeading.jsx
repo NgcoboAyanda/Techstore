@@ -1,6 +1,8 @@
 import React from 'react';
 
-const PageHeading = ( { heading, siteName, pageContent, divider="/" } )=>{
+import './PageHeading.css';
+
+const PageHeading = ( { heading, siteName, pageContent="", divider="/" } )=>{
 
     const capitalize = string => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -25,7 +27,7 @@ const PageHeading = ( { heading, siteName, pageContent, divider="/" } )=>{
                             {`${divider}`}
                         </span>
                         <span className="site-niche">
-                            { capitalize(heading) }
+                            { pageContent || capitalize(heading) }
                         </span>
                     </div>
                 </div>

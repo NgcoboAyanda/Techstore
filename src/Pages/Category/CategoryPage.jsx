@@ -22,7 +22,6 @@ const CategoryPage = ( )=> {
                         <PageHeading
                             heading={ categoryName }
                             siteName= "Techstore"
-                            pageContent= "Electronics"
                             divider= ">"
                         />
                     </div>

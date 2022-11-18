@@ -39,21 +39,6 @@
     padding: var(--margin-normal) var(--margin-small);
 }
 
-.app__page__main__heading{
-    font-size: var(--font-size-mid);
-    color: var(--font-color-mid);
-    text-align: center;
-}
-
-.app__page__main__heading__sub-text{
-    font-size: var(--font-size-normal);
-    color: var(--font-color-light);
-}
-
-.app__page__main__heading__sub-text__inner > .slash{
-    margin: 0 var(--margin-small);
-}
-
 .app__home-page__main__categories-cards{
     margin-top: var(--margin-mid);
 }
