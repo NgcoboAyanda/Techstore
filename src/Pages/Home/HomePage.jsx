@@ -41,7 +41,6 @@ const HomePage = ()=>{
 
     const renderCategoryRows = () => {
         return categories.map( category=> {
-            console.log(category.name)
             return (
                 <div className="app__home-page__main__categories-rows__item" key={`cr-${category.name}`}>
                     <div className="app__home-page__main__categories-rows__item__inner">
@@ -65,17 +64,17 @@ const HomePage = ()=>{
                 </header>
                 <main className="app__home-page__main  app__page__main">
                     <div className="app__home-page__main__inner">
-                        <div className="app__home-page__heading">
-                            <div className="app__home-page__heading__inner">
-                                <div className="app__home-page__heading__title">
-                                    <div className="app__home-page__heading__title__inner">
+                        <div className="app__page__main__heading">
+                            <div className="app__page__main__heading__inner">
+                                <div className="app__page__main__heading__title">
+                                    <div className="app__page__main__heading__title__inner">
                                         <h1 className="heading  heading_extreme">
                                             Home
                                         </h1>
                                     </div>
                                 </div>
-                                <div className="app__home-page__heading__sub-text">
-                                    <div className="app__home-page__heading__sub-text__inner">
+                                <div className="app__page__main__heading__sub-text">
+                                    <div className="app__page__main__heading__sub-text__inner">
                                         <span className="site-name">
                                             {site.name}
                                         </span>

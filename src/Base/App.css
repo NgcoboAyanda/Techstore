@@ -36,3 +36,23 @@
     width: 100%;
     max-width: var(--max-page-width);
 }
+
+.app__page__main__heading{
+    font-size: var(--font-size-mid);
+    color: var(--font-color-mid);
+    text-align: center;
+    background-color: red;
+}
+
+.app__page__main__heading__sub-text{
+    font-size: var(--font-size-normal);
+    color: var(--font-color-light);
+}
+
+.app__page__main__heading__sub-text__inner > .slash{
+    margin: 0 var(--margin-small);
+}
+
+.app__home-page__main__categories-cards{
+    margin-top: var(--margin-mid);
+}
