@@ -10,6 +10,10 @@ import './CategoryPage.css';
 const CategoryPage = ( )=> {
     let { categoryName } = useParams()
 
+    const renderProducts = ()=> {
+        
+    }
+
     return (
         <div className="app__category__page app__page">
             <div className="app__category__page__inner app__page__inner">
@@ -28,6 +32,31 @@ const CategoryPage = ( )=> {
                         <div className="app__category-page__main__filter">
                             <div className="app__category-page__main__filter__inner">
                                 <Filter/>
+                            </div>
+                        </div>
+                        <div className="app__category-page__main__products">
+                            <div className="app__category-page__main__products__inner">
+                                <div className="app__category-page__main__products__count">
+                                    <div className="app__category-page__main__products__count__inner">
+                                        <div>
+                                            103 Products
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="app__category-page__main__products__results">
+                                    <div className="app__category-page__main__products__results__inner">
+                                        <div className="app__category-page__main__products__results__content">
+                                            <div className="app__category-page__main__products__results__content__inner">
+                                                
+                                            </div>
+                                        </div>
+                                        <div className="app__category-page__main__products__results__sidebar">
+                                            <div className="app__category-page__main__products__results__sidebar__inner">
+                                                sidebar
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

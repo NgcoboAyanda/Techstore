@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import './FilterOption.css';
 
-const FilterOption = ( { name, value, onChange, setValue, toggle, filterOptionValues=[] } )=>{
+const FilterOption = ( { name, value, setValue, toggle, filterOptionValues=[] } )=>{
     let elementIsOpen = useSelector(state=> state.ui.filter[name].open);
     //This is a drop down select menu
 
