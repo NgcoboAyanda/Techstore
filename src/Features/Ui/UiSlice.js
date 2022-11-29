@@ -2,7 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     mobileMenuIsOpen: false,
-    cart: []
+    cart: [],
+    filter: {
+        sort: {
+            open: false,
+            value: "Low-to-High"
+        }
+    }
 }
 
 
@@ -29,10 +35,18 @@ export const uiSlice = createSlice({
         },
         clearCart: (state, action)=>{
             return {...state, cart: []};
+        },
+        //Filter elements
+        setFilterValue: (state, action)=>{
+            const {filterProperty, filterPropertyValue} = action.payload;
+            state.filter[filterProperty].value = filterPropertyValue;
+        },
+        toggleFilter: (state, action)=>{
+            
         }
     }
 })
 
-export const { toggleMobileMenu, addToCart } = uiSlice.actions;
+export const { toggleMobileMenu, addToCart, setFilterValue } = uiSlice.actions;
 
 export default uiSlice.reducer;
