@@ -45,6 +45,10 @@
 }
 
 .filter-option__options__item__inner{
+    cursor: pointer;
+}
+
+.filter-option__options__item__inner{
     color: var(--color-dark);
     padding: 16px 0;
     padding-left: 16px;

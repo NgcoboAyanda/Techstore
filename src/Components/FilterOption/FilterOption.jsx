@@ -12,10 +12,11 @@ const FilterOption = ( { name, value, onChange, setValue, toggle, filterOptionVa
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    console.log(elementIsOpen)
-
-    const selectOption = ()=>{
-
+    const selectOption = (option)=>{
+        let filterProperty = name;
+        let filterPropertyValue = option;
+        setValue(filterProperty, filterPropertyValue);
+        toggle(filterProperty);
     }
 
     const toggleOptions = ()=>{
@@ -26,7 +27,7 @@ const FilterOption = ( { name, value, onChange, setValue, toggle, filterOptionVa
         return filterOptionValues.map( option=> {
             return (
                 <div className="filter-option__options__item">
-                    <div className="filter-option__options__item__inner">
+                    <div className="filter-option__options__item__inner" onClick={()=>selectOption(option)}>
                         <span>
                             {option}
                         </span>
