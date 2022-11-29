@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Filter from '../../Components/Filter/Filter';
 import Header from '../../Components/Header/Header';
 import PageHeading from '../../Components/PageHeading/PageHeading';
 
@@ -24,6 +25,11 @@ const CategoryPage = ( )=> {
                             siteName= "Techstore"
                             divider= ">"
                         />
+                        <div className="app__category-page__main__filter">
+                            <div className="app__category-page__main__filter__inner">
+                                <Filter/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
