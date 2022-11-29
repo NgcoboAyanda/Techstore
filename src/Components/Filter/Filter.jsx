@@ -1,7 +1,7 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilterValue } from "../../Features/Ui/UiSlice";
+import { setFilterValue, toggleFilter } from "../../Features/Ui/UiSlice";
 import FilterOption from "../FilterOption/FilterOption";
 
 import './Filter.css';
@@ -10,8 +10,12 @@ const Filter = ()=> {
     const sortState = useSelector(state=> state.ui.filter.sort)
     const dispatch = useDispatch()
 
-    const setFilterValue = (filterProperty, newFilterPropertyValue) =>{
-        dispatch(setFilterValue({filterProperty, newFilterPropertyValue}))
+    const changeFilterValue = (filterProperty, newFilterPropertyValue) =>{
+        dispatch(setFilterValue({filterProperty, newFilterPropertyValue}));
+    }
+
+    const toggleFilterVisibility = (filterProperty)=>{
+        dispatch(toggleFilter({filterProperty}));
     }
 
     const { register, setValue, watch, handleSubmit, control } = useForm({
@@ -34,7 +38,9 @@ const Filter = ()=> {
                         <FilterOption
                             name="sort"
                             value={sortState.value}
-                            setValue={setFilterValue}
+                            setValue={changeFilterValue}
+                            toggle={toggleFilterVisibility}
+                            filterOptionValues={['Price Ascending', 'Price Descending']}
                         />
                     </div>
                 </div>

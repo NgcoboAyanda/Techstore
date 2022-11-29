@@ -6,7 +6,7 @@ const initialState = {
     filter: {
         sort: {
             open: false,
-            value: "Low-to-High"
+            value: "Price Ascending"
         }
     }
 }
@@ -42,11 +42,13 @@ export const uiSlice = createSlice({
             state.filter[filterProperty].value = filterPropertyValue;
         },
         toggleFilter: (state, action)=>{
-            
+            const {filterProperty} = action.payload;
+            let filterPropertyOpen = state.filter[filterProperty].open
+            state.filter[filterProperty].open = !filterPropertyOpen 
         }
     }
 })
 
-export const { toggleMobileMenu, addToCart, setFilterValue } = uiSlice.actions;
+export const { toggleMobileMenu, addToCart, setFilterValue, toggleFilter } = uiSlice.actions;
 
 export default uiSlice.reducer;

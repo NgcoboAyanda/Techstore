@@ -1,31 +1,51 @@
 .filter-option{
     display: inline-flex;
     justify-content: center;
-    --color-light: rgb(135, 135, 135);
+    --color-light: rgb(153, 153, 153);
     --color-dark: rgb(62, 62, 62);
 }
 
-.filter-option-btn__element{
+.filter-option__inner{
+    position: relative;
+}
+
+.filter-option__btn__element{
+    font-size: var(--font-size-normal);
     padding-left: 0;
-    padding: 12px 10px;
+    padding: 16px 12px;
     color: var(--color-light);
     border: 1px solid currentColor;
-    border-radius: 100px;
+    border-radius: 50px;
+    font-family: var(--font-family-defaul);
 }
 
-.filter-option-btn__element:hover{
-    color: var(--color-primary);
+.filter-option__btn__element:hover{
+    color: var(--color-primary-dark);
 }
 
-.filter-option-btn__element__label{
+.filter-option__btn__element__label{
     color: currentColor;
-    font-weight: 500;
 }
 
-.filter-option-btn__element__label__name{
-    font-weight: 500;
-}
-
-.filter-option-btn__element__label__value{
+.filter-option__btn__element__label__value{
     padding-left: 5px;
+}
+
+.filter-option__options{
+    top: 90%;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid var(--color-light);
+}
+
+.filter-option__options__item{
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.filter-option__options__item__inner{
+    color: var(--color-dark);
+    padding: 16px 0;
+    padding-left: 16px;
 }
