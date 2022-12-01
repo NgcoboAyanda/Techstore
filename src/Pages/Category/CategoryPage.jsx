@@ -1,18 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Filter from '../../Components/Filter/Filter';
 import Header from '../../Components/Header/Header';
 import PageHeading from '../../Components/PageHeading/PageHeading';
+import ProductGrid from '../../Components/ProductGrid/ProductGrid';
 
 import './CategoryPage.css';
 
 //Base page for every category
 const CategoryPage = ( )=> {
-    let { categoryName } = useParams()
-
-    const renderProducts = ()=> {
-        
-    }
+    const { categoryName } = useParams()
+    const categories = useSelector(state=>state.data.categories)
+    const products = categories.filter(cat=>cat.name===categoryName)[0].products
+    const productsCount = products.length
 
     return (
         <div className="app__category__page app__page">
@@ -29,17 +30,12 @@ const CategoryPage = ( )=> {
                             siteName= "Techstore"
                             divider= ">"
                         />
-                        <div className="app__category-page__main__filter">
-                            <div className="app__category-page__main__filter__inner">
-                                <Filter/>
-                            </div>
-                        </div>
                         <div className="app__category-page__main__products">
                             <div className="app__category-page__main__products__inner">
                                 <div className="app__category-page__main__products__count">
                                     <div className="app__category-page__main__products__count__inner">
                                         <div>
-                                            103 Products
+                                            {productsCount} Products
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +43,9 @@ const CategoryPage = ( )=> {
                                     <div className="app__category-page__main__products__results__inner">
                                         <div className="app__category-page__main__products__results__content">
                                             <div className="app__category-page__main__products__results__content__inner">
-                                                
+                                                <ProductGrid
+                                                    products={products}
+                                                />
                                             </div>
                                         </div>
                                         <div className="app__category-page__main__products__results__sidebar">
