@@ -107,7 +107,7 @@ const CategoryPage = ( )=> {
                                         </div>
                                         <div className="app__category-page__main__products__results__sidebar">
                                             <div className="app__category-page__main__products__results__sidebar__inner">
-                                                sidebar
+                                                
                                             </div>
                                         </div>
                                     </div>

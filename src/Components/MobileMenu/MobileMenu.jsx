@@ -28,25 +28,27 @@ const MobileMenu = ({isOpen, toggle, userIsLoggedIn=false, signOut, categories=[
 
     const renderNewArrivalsItems = ()=>{
         return categories.map(category=>{
-            return(
-                <li className="mobile-menu__new-arrivals__content__item">
-                    <div className="mobile-menu__new-arrivals__content__item__image">
-                        <div className="mobile-menu__new-arrivals__content__item__image__inner">
-                            <img 
-                                src={category.image} 
-                                alt={category.name} 
-                            />
-                        </div>
-                    </div>
-                    <div className="mobile-menu__new-arrivals__content__item__label">
-                        <div className="mobile-menu__new-arrivals__content__item__label__inner">
-                            <div>
-                                {capitalize(category.name)} New Arrivals
+            if(category.name !== "all"){
+                return(
+                    <li className="mobile-menu__new-arrivals__content__item">
+                        <div className="mobile-menu__new-arrivals__content__item__image">
+                            <div className="mobile-menu__new-arrivals__content__item__image__inner">
+                                <img 
+                                    src={category.image} 
+                                    alt={category.name} 
+                                />
                             </div>
                         </div>
-                    </div>
-                </li>
-            )
+                        <div className="mobile-menu__new-arrivals__content__item__label">
+                            <div className="mobile-menu__new-arrivals__content__item__label__inner">
+                                <div>
+                                    {capitalize(category.name)} New Arrivals
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                )
+            }
         } )
     }
 
