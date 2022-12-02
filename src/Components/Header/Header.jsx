@@ -178,7 +178,9 @@ const Header = ()=>{
                         </div>
                         <div className="header__nav__logo">
                             <div className="header__nav__logo__inner">
-                                <Logo/>
+                                <Logo
+                                    isALink={true}
+                                />
                             </div>
                         </div>
                         <div className="header__nav__categories">
