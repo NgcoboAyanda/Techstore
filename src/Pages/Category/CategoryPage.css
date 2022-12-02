@@ -14,12 +14,12 @@
 }
 
 .app__category-page__main__products__count{
-    font-size: var(--font-size-mid);
+    font-size: var(--font-size-large);
     font-weight: var(--font-weight-thick);
 }
 
 .app__category-page__main__products__results{
-    margin-top: var(--margin-normal);
+    margin-top: var(--margin-small);
 }
 
 .app__category-page__main__products__results__inner{
@@ -33,7 +33,7 @@
 
 @media screen and (min-width: 750px) {
     .app__category-page__main__products__count{
-        font-size: var(--font-size-large);
+        margin-top: var(--margin-normal);
     }
     
     .app__category-page__main__products{

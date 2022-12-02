@@ -79,6 +79,7 @@ const CategoryRow = ({ name='all', products=[
                         image={ product.image }
                         link={ `/p/${product.id}` }
                         addToCart={()=>dispatch(addToCart(product)) }
+                        size="thin"
                     />
                 </React.Fragment>
             )

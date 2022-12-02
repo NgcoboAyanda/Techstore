@@ -12,7 +12,63 @@ import './CategoryPage.css';
 const CategoryPage = ( )=> {
     const { categoryName } = useParams()
     const categories = useSelector(state=>state.data.categories)
-    const products = categories.filter(cat=>cat.name===categoryName)[0].products
+    //const products = categories.filter(cat=>cat.name===categoryName)[0].products
+    const products = [
+        {
+            'name': "Polaroid 16MP Waterproof Digital Camera",
+            'id': "1",
+            'price': "49.99",
+            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
+        },
+        {
+            'name': "Polaroid 16MP Waterproof Digital Camera",
+            'id': "2",
+            'price': "49.99",
+            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
+        },
+        {
+            'name': "Polaroid 16MP Waterproof Digital Camera",
+            'id': "3",
+            'price': "49.99",
+            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
+        },
+        {
+            'name': "Polaroid 16MP Waterproof Digital Camera",
+            'id': "4",
+            'price': "49.99",
+            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
+        },
+        {
+            'name': "Polaroid 16MP Waterproof Digital Camera",
+            'id': "5",
+            'price': "49.99",
+            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
+        },
+        {
+            'name': "Polaroid 16MP Waterproof Digital Camera",
+            'id': "6",
+            'price': "49.99",
+            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
+        },
+        {
+            'name': "Polaroid 16MP Waterproof Digital Camera",
+            'id': "7",
+            'price': "49.99",
+            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
+        },
+        {
+            'name': "Polaroid 16MP Waterproof Digital Camera",
+            'id': "8",
+            'price': "49.99",
+            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
+        },
+        {
+            'name': "Polaroid 16MP Waterproof Digital Camera",
+            'id': "9",
+            'price': "49.99",
+            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
+        },
+    ]
     const productsCount = products.length
 
     return (
@@ -45,6 +101,7 @@ const CategoryPage = ( )=> {
                                             <div className="app__category-page__main__products__results__content__inner">
                                                 <ProductGrid
                                                     products={products}
+                                                    size="wide"
                                                 />
                                             </div>
                                         </div>

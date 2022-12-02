@@ -26,17 +26,19 @@ const HomePage = ()=>{
 
     const renderCategoryCards = () =>{
         return categories.map( category => {
-            return (
-                <div className="app__home-page__main__categories__item" key={`c-${category.name}`}>
-                    <div className="app__home-page__main__categories__item__inner">
-                        <CategoryCard
-                            name={ capitalize(category.name) }
-                            image={ category.image }
-                            link={ `/c/${category.name}` }
-                        />
+            if(category.name !== "all"){
+                return (
+                    <div className="app__home-page__main__categories__item" key={`c-${category.name}`}>
+                        <div className="app__home-page__main__categories__item__inner">
+                            <CategoryCard
+                                name={ capitalize(category.name) }
+                                image={ category.image }
+                                link={ `/c/${category.name}` }
+                            />
+                        </div>
                     </div>
-                </div>
-            )
+                )
+            }
         })
     }
 

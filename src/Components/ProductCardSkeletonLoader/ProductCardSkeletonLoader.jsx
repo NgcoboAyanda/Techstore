@@ -7,7 +7,9 @@ const ProductCardSkeletonLoader = () => {
     return (
         <div className="product-card-skeleton-loader">
             <div className="product-card-skeleton-loader__inner">
-                product-card skeleton loader
+                <span className="shimmer">
+                    
+                </span>
             </div>
         </div>
     )

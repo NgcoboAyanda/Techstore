@@ -1,42 +1,49 @@
 .product-card{
-    width: 300px;
-    padding: var(--margin-mid);
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.068);
+    width: 100%;
     color: var(--font-color-mid);
 }
 
-.product-card:not(:first-child){
+/* There are two product card sizes, thin and wide */
+
+/* PRODUCT CARD THIN */
+.product-card_thin{
+    width: 300px;
+    padding: var(--margin-mid);
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.068);
+}
+
+.product-card_thin:not(:first-child){
     margin-left: var(--margin-mid);
 }
 
-.product-card__inner{
+.product-card_thin__inner{
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.product-card__inner:not(.product-card__image){
+.product-card_thin__inner:not(.product-card_thin__image){
     padding: 0 var(--margin-small);
 }
 
-.product-card__name{
+.product-card_thin__name{
     margin-top: var(--margin-mid);
     font-size: var(--font-size-normal);
 }
 
-.product-card__price{
+.product-card_thin__price{
     margin-top: var(--margin-normal);
     font-weight: var(--font-weight-thickest);
     font-size: var(--font-size-big);
 }
 
-.product-card__action{
+.product-card_thin__action{
     margin-top: var(--margin-mid);
     display: flex;
     justify-content: flex-end;
 }
 
-.product-card__image{
+.product-card_thin__image{
     width: 150px;
     height: 150px;
     display: flex;
@@ -44,6 +51,47 @@
     justify-content: center;
 }
 
-.product-card__image__inner > img {
+.product-card_thin__image__inner > img {
     width: 150px;
+}
+
+/* PRODUCT CARD WIDE */
+.product-card_wide{
+    padding: 0 var(--margin-normal);
+}
+
+.product-card_wide__inner{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card_wide__image{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.product-card_wide__image__inner > img {
+    height: 200px;
+    width: 200px;
+}
+
+.product-card_wide__name__inner{
+    text-align: left;
+    font-size: var(--font-size-normal);
+}
+
+.product-card_wide__price{
+    margin-top: var(--margin-small);
+    display: flex;
+    justify-content: flex-start;
+    font-size: var(--font-size-big);
+    font-weight: var(--font-weight-mid);
+}
+
+.product-card_wide__action{
+    margin-top: var(--margin-big);
+    display: flex;
+    justify-content: flex-end;
 }

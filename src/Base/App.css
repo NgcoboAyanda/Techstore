@@ -28,6 +28,7 @@
 .app__page__header {
     position: fixed;
     width: 100%;
+    z-index: 6;
 }
 
 .app__page__main{

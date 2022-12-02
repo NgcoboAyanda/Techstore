@@ -3,6 +3,9 @@
 }
 
 .product-grid__inner{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: auto;
+    gap: var(--margin-normal) var(--margin-normal);
 }

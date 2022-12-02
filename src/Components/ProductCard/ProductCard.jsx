@@ -3,36 +3,36 @@ import { Link } from 'react-router-dom';
 
 import './ProductCard.css';
 
-const ProductCard = ( { name, price, image, id=1, link, addToCart } ) => {
+const ProductCard = ( { name, price, image, id=1, link, addToCart, size="card" } ) => {
 
     const addProductToCart = ()=>{
         addToCart();
     }
 
     return (
-        <div className="product-card">
-            <div className="product-card__inner">
-                <div className="product-card__image">
-                    <div className="product-card__image__inner">
+        <div className={`product-card product-card_${size}`}>
+            <div className={`product-card_${size}__inner`}>
+                <div className={`product-card_${size}__image`}>
+                    <div className={`product-card_${size}__image__inner`}>
                         <img src={image} alt="" />
                     </div>
                 </div>
-                <div className="product-card__name">
-                    <div className="product-card__name__inner">
+                <div className={`product-card_${size}__name`}>
+                    <div className={`product-card_${size}__name__inner`}>
                         <Link className="link" to={link}>
                             {name}
                         </Link>
                     </div>
                 </div>
-                <div className="product-card__price">
-                    <div className="product-card__price__inner">
+                <div className={`product-card_${size}__price`}>
+                    <div className={`product-card_${size}__price__inner`}>
                         <div>
-                            {price}
+                            <span>R</span>{price}
                         </div>
                     </div>
                 </div>
-                <div className="product-card__action">
-                    <div className="product-card__action__inner">
+                <div className={`product-card_${size}__action`}>
+                    <div className={`product-card_${size}__action__inner`}>
                         <button onClick={()=>addProductToCart()} className="btn btn_small btn_filled">
                             Add To Cart
                         </button>
