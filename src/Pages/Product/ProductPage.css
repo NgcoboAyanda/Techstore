@@ -1,0 +1,7 @@
+.app__product-page__main {
+    color: var(--font-color-mid);
+}
+
+.app__product-page__main__product__gallery{
+    max-width: 600px;
+}

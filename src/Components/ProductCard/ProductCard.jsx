@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './ProductCard.css';
 
-const ProductCard = ( { name, price, image, id=1, link, addToCart, size="card" } ) => {
+const ProductCard = ( { name, price, image, id=1, addToCart, size="card" } ) => {
 
     const addProductToCart = ()=>{
         addToCart();
@@ -19,7 +19,7 @@ const ProductCard = ( { name, price, image, id=1, link, addToCart, size="card" }
                 </div>
                 <div className={`product-card_${size}__name`}>
                     <div className={`product-card_${size}__name__inner`}>
-                        <Link className="link" to={link}>
+                        <Link className="link" to={`/p/${id}`}>
                             {name}
                         </Link>
                     </div>
