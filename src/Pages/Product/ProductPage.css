@@ -1,6 +1,7 @@
 .app__product-page__main {
     color: var(--font-color-mid);
-    padding: var(--margin-normal) 0;
+    padding: 0;
+    padding-top: var(--margin-normal);
 }
 
 .app__product-page__main__inner > *:not(.app__product-page__main__about){
