@@ -2,6 +2,39 @@
     color: var(--font-color-mid);
 }
 
+.app__product-page__main__product__inner{
+    display: flex;
+}
+
 .app__product-page__main__product__gallery{
     max-width: 600px;
+}
+
+.app__product-page__main__product__information{
+    flex: 1;
+    padding-top: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.app__product-page__main__product__information__inner{
+    width: 400px;
+}
+
+.app__product-page__main__product__information__price__inner{
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-thick);
+    color: var(--color-primary-mid);
+}
+
+.app__product-page__main__product__information__rating{
+    margin-top: var(--margin-small);
+}
+
+.app__product-page__main__product__information__delivery{
+    margin-top: var(--margin-small);
+}
+
+.app__product-page__main__product__information__button{
+    margin-top: var(--margin-normal);
 }

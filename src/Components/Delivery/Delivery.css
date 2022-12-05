@@ -1,0 +1,37 @@
+.delivery__inner{
+    display: flex;
+}
+
+.delivery__option{
+    color: var(--font-color-normal);
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.delivery__option:not(:first-child){
+    margin-left: 8px;
+}
+
+.delivery__option_selected{
+    color: var(--color-primary);
+}
+
+.delivery__option__inner{
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery__option__icon__inner > svg {
+    fill: currentColor;
+}
+
+.delivery__option__name{
+    font-weight: var(--font-weight-thick);
+}
+
+.delivery__option__delivery-time{
+    margin-top: 5px;
+    font-size: var(--font-size-small);
+}

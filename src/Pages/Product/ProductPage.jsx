@@ -1,12 +1,22 @@
 import React from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Delivery from '../../Components/Delivery/Delivery';
 import Gallery from '../../Components/Gallery/Gallery';
 import Header from '../../Components/Header/Header';
+import Button from '../../Components/Button/Button';
+import Rating from '../../Components/Rating/Rating';
 
 import './ProductPage.css';
 
 const ProductPage = () => {
+    const [deliveryMethod, setDeliveryMethod] = useState("Pickup");
+
     const { productId } = useParams();
+
+    const addToCart = () => {
+        console.log(productId)
+    }
 
     return (
         <div className="app__page app__product-page">
@@ -36,7 +46,37 @@ const ProductPage = () => {
                                 </div>
                                 <div className="app__product-page__main__product__information">
                                     <div className="app__product-page__main__product__information__inner">
-                                        
+                                        <div className="app__product-page__main__product__information__price">
+                                            <div className="app__product-page__main__product__information__price__inner">
+                                                <span>
+                                                    R{6399.99}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="app__product-page__main__product__information__rating">
+                                            <div className="app__product-page__main__product__information__rating__inner">
+                                                <Rating
+                                                    stars={0}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="app__product-page__main__product__information__delivery">
+                                            <div className="app__product-page__main__product__information__delivery__inner">
+                                                <Delivery
+                                                    value={deliveryMethod}
+                                                    setValue={setDeliveryMethod}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="app__product-page__main__product__information__button">
+                                            <div className="app__product-page__main__product__information__button__inner">
+                                                <Button
+                                                    onClick={addToCart}
+                                                    label="Add To Cart"
+                                                    size="normal"
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
