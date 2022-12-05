@@ -37,15 +37,15 @@
     width: 100%;
     max-width: var(--max-page-width);
     flex: 1;
-    padding: var(--margin-normal) var(--margin-small);
 }
 
 .app__home-page__main__categories-cards{
     margin-top: var(--margin-mid);
 }
 
+/*
 @media screen and (min-width: 750px){
     .app__page__main{
         padding: var(--margin-big) var(--margin-small);
     }
-}
+} */

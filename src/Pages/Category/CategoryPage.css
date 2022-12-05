@@ -1,3 +1,7 @@
+.app__category-page__main{
+    padding: var(--margin-normal);
+}
+
 .app__category-page__main__filter{
     padding: 0 var(--margin-normal);
     margin-top: var(--margin-big);

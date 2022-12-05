@@ -81,6 +81,37 @@ const ProductPage = () => {
                                 </div>
                             </div>
                         </div>
+                        <div className="app__product-page__main__about">
+                            <div className="app__product-page__main__about__inner">
+                                <div className="app__product-page__main__about__heading">
+                                    <div className="app__product-page__main__about__heading__inner">
+                                        <h2 className="heading heading_mid">
+                                            About this item
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div className="app__product-page__main__about__content">
+                                    <div className="app__product-page__main__about__content__inner">
+                                        <div className="app__product-page__main__about__content__description">
+                                            <div className="app__product-page__main__about__content__description__inner">
+                                                <div className="app__product-page__main__about__content__description__label">
+                                                    <div className="app__product-page__main__about__content__description__label__inner">
+                                                        <h3 className="heading heading_small">
+                                                            Description
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                                <div className="app__product-page__main__about__content__description__text">
+                                                    <div className="app__product-page__main__about__content__description__text__inner">
+                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ducimus eveniet dolorem adipisci quasi eos unde iusto omnis necessitatibus beatae, consequuntur repellendus, enim impedit possimus alias fugit veritatis aut facere.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
