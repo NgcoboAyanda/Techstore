@@ -35,8 +35,18 @@
     /* This is the exact size of the header */
     margin-top: 130px;
     width: 100%;
-    max-width: var(--max-page-width);
     flex: 1;
+}
+
+.app__page__main__inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app__page__main__inner > * {
+    width: 100%;
+    max-width: var(--max-page-width);
 }
 
 .app__home-page__main__categories-cards{

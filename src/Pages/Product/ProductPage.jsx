@@ -18,6 +18,21 @@ const ProductPage = () => {
         console.log(productId)
     }
 
+    const renderProductSpecs = () => {
+        return (
+            <div className="app__product-page__main__about__content__specs__text__item">
+                <div className="app__product-page__main__about__content__specs__text__item__inner">
+                    <span className="app__product-page__main__about__content__specs__text__item__key">
+                        {"Dimensions (Overall)"}:
+                    </span>
+                    <span className="app__product-page__main__about__content__specs__text__item__value">
+                        {"7 Inches (H) x 9.29 Inches (W) x 14.17 Inches (D)"}
+                    </span>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="app__page app__product-page">
             <div className="app__page__inner app__product-page__inner">
@@ -103,7 +118,25 @@ const ProductPage = () => {
                                                 </div>
                                                 <div className="app__product-page__main__about__content__description__text">
                                                     <div className="app__product-page__main__about__content__description__text__inner">
-                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ducimus eveniet dolorem adipisci quasi eos unde iusto omnis necessitatibus beatae, consequuntur repellendus, enim impedit possimus alias fugit veritatis aut facere.
+                                                        <span>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quaerat cum accusamus animi magni deleniti itaque nam quas labore facere quibusdam sint tempora molestias temporibus optio ab ea mollitia fugit placeat excepturi, cumque molestiae! Dolorum autem architecto mollitia perspiciatis fuga ut veritatis ipsum quisquam sequi ullam vero quod labore, sed modi eum? Sint eaque minima debitis vitae vero suscipit obcaecati temporibus perspiciatis, dolor quae repudiandae cupiditate! Suscipit corrupti animi asperiores repellendus. Facere, voluptates laboriosam impedit dolore corrupti sint vitae earum?
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="app__product-page__main__about__content__specs">
+                                            <div className="app__product-page__main__about__content__content__specs__inner">
+                                                <div className="app__product-page__main__about__content__specs__label">
+                                                    <div className="app__product-page__main__about__content__specs__label__inner">
+                                                        <h3 className="heading heading_small">
+                                                            Specifications
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                                <div className="app__product-page__main__about__content__specs__text">
+                                                    <div className="app__product-page__main__about__content__specs__text__inner">
+                                                        {renderProductSpecs()}
                                                     </div>
                                                 </div>
                                             </div>

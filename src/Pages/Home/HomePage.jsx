@@ -66,7 +66,7 @@ const HomePage = ()=>{
                     </div>
                 </header>
                 <main className="app__home-page__main  app__page__main">
-                    <div className="app__home-page__main__inner">
+                    <div className="app__home-page__main__inner app__page__main__inner">
                         <PageHeading
                             siteName={ site.name }
                             heading="Home"
