@@ -81,6 +81,10 @@
     padding: var(--margin-normal);
 }
 
+.app__product-page__main__about__content__description{
+    height: 0%;
+}
+
 .app__product-page__main__about__content__description__text{
     margin-top: var(--margin-small);
 }
