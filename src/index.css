@@ -64,6 +64,9 @@ IBM plex
     --scrollbar-color-primary: rgb(199, 199, 199);
     --scrollbar-color-secondary: rgb(238, 238, 238);
     --scrollbar-color: var(--scrollbar-color-primary) var(--scrollbar-color-secondary);
+
+    /* skeleton loaders */
+    --skeleton-loader-color: rgb(237, 236, 236);
 }
 
 /* Works on Firefox */
@@ -167,6 +170,67 @@ body{
 
 .btn_filled:hover{
     background-color: var(--color-primary-light);
+}
+
+.skeleton-loader{
+    background-color: var(--skeleton-loader-color);
+    height: 100%;
+    width: 100%;
+    min-height: 100px;
+    max-height: 300px;
+}
+
+.skeleton-loader_image{
+    background-color: transparent;
+    height: 45vw;
+    width: 45vw;
+    max-height: 500px !important;
+    padding: 50px;
+}
+
+.skeleton-loader_image__inner{
+    height: 100%;
+    width: 100%;
+    background-color: var(--skeleton-loader-color);
+}
+
+.skeleton-loader_bordered-image{
+    height: 80px;
+    width: 80px;
+    border: 1px solid var(--skeleton-loader-color);
+    background-color: transparent;
+    padding: 10px;
+}
+
+.skeleton-loader_bordered-image__inner{
+    height: 100%;
+    width: 100%;
+    background-color: var(--skeleton-loader-color);
+}
+
+.skeleton-loader_text{
+    height: 60px;
+    max-width: 97% !important;
+}
+
+.skeleton_loader_text-list{
+
+}
+
+.skeleton_loader_text-list__inner{
+    display: flex;
+    flex-direction: column;
+}
+
+.skeleton_loader_text-list__item{
+    width: 100%;
+    height: 30px;
+    background-color: var(--skeleton-loader-color);
+    border-radius: 2px;
+}
+
+.skeleton_loader_text-list__item:not(:first-child){
+    margin-top: 12px;
 }
 
 /* Modifiers */

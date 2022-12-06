@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './Gallery.css';
 
 const Gallery = ({ images=[] }) => {
-    const[ currentImage, setCurrentImage ] = useState(images[0])
+    const[ currentImage, setCurrentImage ] = useState(images[0] || null)
 
     console.log(currentImage)
 
@@ -31,7 +31,9 @@ const Gallery = ({ images=[] }) => {
         else {
             //if images array is empty
             return (
-                <div className="gallery__sidebar__skeleton"></div>
+                <div className="skeleton-loader_bordered-image">
+                    <div className="skeleton-loader_bordered-image__inner"></div>
+                </div>
             )
         }
     }
@@ -48,7 +50,11 @@ const Gallery = ({ images=[] }) => {
         }
         else {
             return (
-                <div className="gallery__current-image__skeleton"></div>
+                <div className="skeleton-loader skeleton-loader_image">
+                    <div className="skeleton-loader_image__inner">
+
+                    </div>
+                </div>
             )
         }
     }

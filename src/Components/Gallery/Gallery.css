@@ -11,6 +11,11 @@
     flex: 2;
 }
 
+.gallery__current-image__inner{
+    display: flex;
+    justify-content: center;
+}
+
 .gallery__current-image__element__inner{
     /* padding:  20px; */
 }
@@ -48,9 +53,9 @@
 }
 
 .gallery__sidebar__skeleton{
-    height: 60px;
-    width: 60px;
-    background-color: red;
+    height: 80px;
+    width: 80px;
+    background-color: var(--skeleton-loader-color);
 }
 
 @media screen and (min-width: 750px){
