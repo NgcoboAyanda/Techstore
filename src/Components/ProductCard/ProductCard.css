@@ -8,8 +8,21 @@
 /* PRODUCT CARD THIN */
 .product-card_thin{
     width: 300px;
+}
+
+.product-card_thin_loaded{
     padding: var(--margin-mid);
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.068);
+}
+
+.product-card_thin_loaded > div:not(.product-card_thin__image){
+    padding: 0 var(--margin-small);
+}
+
+
+.product-card_thin__skeleton{
+    width: 240px;
+    min-height: 390px;
 }
 
 .product-card_thin:not(:first-child){
@@ -20,10 +33,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-.product-card_thin__inner:not(.product-card_thin__image){
-    padding: 0 var(--margin-small);
 }
 
 .product-card_thin__name{

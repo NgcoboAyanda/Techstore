@@ -67,23 +67,37 @@ const CategoryRow = ({ name='all', products=[
     
     const dispatch = useDispatch();
 
+    const productsHaveLoaded = () => {
+        return products.length > 0
+    }
+
     const renderProducts = () => {
-        let id = 0;
-        return products.map( product=>{
-            id++;
-            return(
-                <React.Fragment key={`p-${id}`}>
+        if(productsHaveLoaded()){
+            return products.map( (product, id)=>{
+                return(
+                    <React.Fragment key={`p-${id}`}>
+                        <ProductCard
+                            name={ product.name }
+                            price={ product.price }
+                            image={ product.image }
+                            link={ `/p/${product.id}` }
+                            addToCart={()=>dispatch(addToCart(product)) }
+                            size="thin"
+                        />
+                    </React.Fragment>
+                )
+            })
+        }
+        else {
+            //products have not loaded
+            return [...Array(8)].map( (item, index)=> {
+                <React.Fragment key={index}>
                     <ProductCard
-                        name={ product.name }
-                        price={ product.price }
-                        image={ product.image }
-                        link={ `/p/${product.id}` }
-                        addToCart={()=>dispatch(addToCart(product)) }
-                        size="thin"
+                        empty={true}
                     />
                 </React.Fragment>
-            )
-        })
+            })
+        }
     }
 
     return (

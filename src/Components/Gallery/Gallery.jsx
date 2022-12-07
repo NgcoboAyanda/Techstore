@@ -32,7 +32,7 @@ const Gallery = ({ images=[] }) => {
             //if images array is empty
             return (
                 <div className="skeleton-loader_bordered-image">
-                    <div className="skeleton-loader_bordered-image__inner"></div>
+                    <div className="skeleton-loader_bordered-image__inner skeleton-loader_blink"></div>
                 </div>
             )
         }
@@ -51,7 +51,7 @@ const Gallery = ({ images=[] }) => {
         else {
             return (
                 <div className="skeleton-loader skeleton-loader_image">
-                    <div className="skeleton-loader_image__inner">
+                    <div className="skeleton-loader_image__inner skeleton-loader_blink">
 
                     </div>
                 </div>

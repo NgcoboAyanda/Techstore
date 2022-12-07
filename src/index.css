@@ -67,6 +67,7 @@ IBM plex
 
     /* skeleton loaders */
     --skeleton-loader-color: rgb(237, 236, 236);
+    --skeleton-loader-color-light: rgb(248, 248, 248);
 }
 
 /* Works on Firefox */
@@ -180,10 +181,27 @@ body{
     max-height: 300px;
 }
 
+.skeleton-loader_blink{
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%{
+        background-color: var(--skeleton-loader-color);
+    }
+    50%{
+        background-color: var(--skeleton-loader-color-light) ;
+    }
+
+    100%{
+        background-color: var(--skeleton-loader-color);
+    }
+}
+
 .skeleton-loader_image{
     background-color: transparent;
-    height: 45vw;
-    width: 45vw;
+    height: 70vw;
+    width: 70vw;
     max-width: 500px;
     max-height: 500px !important;
     padding: 50px;
@@ -266,4 +284,22 @@ body{
 
 .--no-events{
     pointer-events: none;
+}
+
+@media screen and (min-width: 750px) {
+    
+    .skeleton-loader_image{
+        background-color: transparent;
+        height: 45vw;
+        width: 45vw;
+        max-width: 500px;
+        max-height: 500px !important;
+        padding: 50px;
+    }
+
+    .skeleton-loader_block{
+        width: 30vw;
+        max-width: 100%;
+    }
+    
 }

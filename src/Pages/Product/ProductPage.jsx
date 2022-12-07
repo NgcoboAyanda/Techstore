@@ -66,7 +66,7 @@ const ProductPage = () => {
         else{
             //if product has not loaded
             return (
-                <div className="skeleton-loader"></div>
+                <div className="skeleton-loader skeleton-loader_block skeleton-loader_blink"></div>
             )
         }
     }
@@ -85,7 +85,7 @@ const ProductPage = () => {
         }
         else{
             return (
-                <div className="skeleton-loader skeleton-loader_text"></div>
+                <div className="skeleton-loader skeleton-loader_text skeleton-loader_blink"></div>
             )
         }
     }
@@ -109,12 +109,12 @@ const ProductPage = () => {
             return (
                 <div className="skeleton_loader skeleton_loader_text-list">
                     <div className="skeleton_loader_text-list__inner">
-                        <div className="skeleton_loader_text-list__item"></div>
-                        <div className="skeleton_loader_text-list__item"></div>
-                        <div className="skeleton_loader_text-list__item"></div>
-                        <div className="skeleton_loader_text-list__item"></div>
-                        <div className="skeleton_loader_text-list__item"></div>
-                        <div className="skeleton_loader_text-list__item"></div>
+                        <div className="skeleton_loader_text-list__item skeleton-loader_blink"></div>
+                        <div className="skeleton_loader_text-list__item skeleton-loader_blink"></div>
+                        <div className="skeleton_loader_text-list__item skeleton-loader_blink"></div>
+                        <div className="skeleton_loader_text-list__item skeleton-loader_blink"></div>
+                        <div className="skeleton_loader_text-list__item skeleton-loader_blink"></div>
+                        <div className="skeleton_loader_text-list__item skeleton-loader_blink"></div>
                     </div>
                 </div>
             )
@@ -130,7 +130,7 @@ const ProductPage = () => {
             )
         }
         else {
-            return <div className="skeleton-loader"></div>
+            return <div className="skeleton-loader skeleton-loader_blink"></div>
         }
     }
 

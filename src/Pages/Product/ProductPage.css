@@ -8,6 +8,10 @@
     padding: 0 var(--margin-normal);
 }
 
+.app__product-page__main__product{
+    overflow-x: hidden;
+}
+
 .app__product-page__main__product__inner{
     display: flex;
     flex-direction: column;
