@@ -54,6 +54,6 @@ export const uiSlice = createSlice({
     }
 })
 
-export const { toggleMobileMenu, addToCart, setFilterValue, toggleFilter, toggleCheckout } = uiSlice.actions;
+export const { toggleMobileMenu, addToCart, removeFromCart , setFilterValue, toggleFilter, toggleCheckout } = uiSlice.actions;
 
 export default uiSlice.reducer;

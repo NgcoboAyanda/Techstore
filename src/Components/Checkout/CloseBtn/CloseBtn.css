@@ -1,0 +1,32 @@
+.close-btn{
+    border-radius: 100px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--font-color-normal);
+}
+
+.close-btn_big{
+    height: 50px;
+    width: 50px;
+}
+
+.close-btn_small{
+    height: 35px;
+    width: 35px;
+}
+
+.close-btn__inner > button {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.close-btn__inner > button > svg {
+    height: 100%;
+    width: 100%;
+    fill: currentColor;
+}

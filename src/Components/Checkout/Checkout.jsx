@@ -1,13 +1,28 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-
-import ProductCard from '../ProductCard/ProductCard';
+import { useDispatch, useSelector } from 'react-redux';
+import {removeFromCart} from '../../Features/Ui/UiSlice';
 
 import './Checkout.css';
 
+import ProductCard from '../ProductCard/ProductCard';
+import CheckoutItem from './CheckoutItem/CheckoutItem';
+import CloseBtn from './CloseBtn/CloseBtn';
+import { useState } from 'react';
+
 const Checkout = ({isOpen=false, toggle}) => {
     const cartItems = useSelector(state=> state.ui.cart);
+    const [subtotal, setSubtotal] = useState(0)
+
+    const dispatch = useDispatch()
+
+    const calculateSubtotal = () => {
+        let total = 0;
+        cartItems.map(item=>{
+            total = total + parseFloat(item.price);
+        })
+        setSubtotal(total.toFixed(2))
+    }
 
     useEffect(
         ()=>{
@@ -19,6 +34,13 @@ const Checkout = ({isOpen=false, toggle}) => {
             }
         },
         [isOpen]
+    )
+
+    useEffect(
+        ()=>{
+            calculateSubtotal()
+        },
+        [cartItems]
     )
 
     const renderItemCount = () => {
@@ -35,7 +57,12 @@ const Checkout = ({isOpen=false, toggle}) => {
         return cartItems.map( (item, i) => {
             return (
                 <React.Fragment key={i}>
-                    
+                    <CheckoutItem
+                        name={item.name}
+                        image={item.image}
+                        price={item.price}
+                        removeItem={()=>dispatch( removeFromCart(item.id) )}
+                    />
                 </React.Fragment>
             )
         } )
@@ -60,7 +87,7 @@ const Checkout = ({isOpen=false, toggle}) => {
                                         <div className="checkout__content__heading__total">
                                             <div className="checkout__content__heading__total__inner">
                                                 <span className="amount">
-                                                    R{"4599.99"} subtotal
+                                                    R{subtotal} subtotal
                                                 </span>
                                                 <span>
                                                     &#160;
@@ -83,9 +110,10 @@ const Checkout = ({isOpen=false, toggle}) => {
                         </div>
                         <div className="checkout__close-btn">
                             <div className="checkout__close-btn__inner">
-                                <button type="button" onClick={()=>toggle()}>
-                                    X
-                                </button>
+                                <CloseBtn
+                                    onClick={()=>toggle()}
+                                    size="big"
+                                />
                             </div>
                         </div>
                     </div>

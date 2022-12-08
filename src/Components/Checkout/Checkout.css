@@ -4,6 +4,7 @@
     background-color: white;
     color: var(--font-color-mid);
     padding: var(--margin-big) 0;
+    overflow-y: scroll;
 }
 
 .checkout__inner{
@@ -14,7 +15,7 @@
 .checkout__content{
     width: 100%;
     max-width: 500px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     min-height: 800px;
 }
 
@@ -38,6 +39,11 @@
 .checkout__content__heading__total__inner{
     display: flex;
     justify-content: center;
+}
+
+.checkout__content__items{
+    margin-top: var(--margin-big);
+    box-shadow: 0 0 15px -5px rgb(198, 198, 198);
 }
 
 .checkout__close-btn{
