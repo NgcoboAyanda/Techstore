@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 import './ProductCard.css';
 
-const ProductCard = ( { name, price, image, id=1, addToCart, size="card", empty=false } ) => {
+const ProductCard = ( { name, price, image, id=1, addToCart, size="thin", empty=false } ) => {
+    // the sizes are:
+    // thin and wide
 
     const addProductToCart = ()=>{
         addToCart();

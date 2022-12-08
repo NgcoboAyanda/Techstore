@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 //Actions
 import { signOut } from '../../Features/Auth/AuthSlice';
-import { toggleMobileMenu } from '../../Features/Ui/UiSlice';
+import { toggleMobileMenu, toggleCheckout } from '../../Features/Ui/UiSlice';
 
 //Components
 import CartBtn from '../CartBtn/CartBtn';
@@ -203,6 +203,7 @@ const Header = ()=>{
                                     <div className="header__nav__links__item__inner  header__nav__links__cart__inner">
                                         <CartBtn
                                             cartCounter={ cart.length }
+                                            onClick={()=>dispatch(toggleCheckout())}
                                         />
                                     </div>
                                 </div>

@@ -53,6 +53,13 @@
     margin-top: var(--margin-mid);
 }
 
+.app__checkout{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 7;
+}
+
 /*
 @media screen and (min-width: 750px){
     .app__page__main{

@@ -3,7 +3,7 @@ import CartIcon from './CartIcon.svg';
 
 import './CartBtn.css';
 
-const CartBtn = ( { toggleCart, cartCounter=0 } )=>{
+const CartBtn = ( { onClick, cartCounter=0 } )=>{
 
     const renderCartCounter = ()=>{
         if(cartCounter){
@@ -21,7 +21,7 @@ const CartBtn = ( { toggleCart, cartCounter=0 } )=>{
     }
 
     return (
-        <div className="cart">
+        <div className="cart" onClick={()=>onClick()}>
             <div className="cart__inner">
                 <div className="cart__icon">
                     <div className="cart__icon__inner">

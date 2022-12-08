@@ -16,12 +16,14 @@ import Footer from '../Components/Footer/Footer';
 import './App.css'
 import ForgotPasswordPage from '../Pages/Auth/ForgotPasswordPage/ForgotPasswordPage';
 import MobileMenu from '../Components/MobileMenu/MobileMenu';
-import { toggleMobileMenu } from '../Features/Ui/UiSlice';
+import { toggleCheckout, toggleMobileMenu } from '../Features/Ui/UiSlice';
 import { signOut } from '../Features/Auth/AuthSlice';
 import CategoryPage from '../Pages/Category/CategoryPage';
 import ProductPage from '../Pages/Product/ProductPage';
+import Checkout from '../Components/Checkout/Checkout';
 
 const App = ()=>{
+    const checkoutIsOpen = useSelector( state=> state.ui.checkoutIsOpen )
     const mobileMenuIsOpen = useSelector( state=> state.ui.mobileMenuIsOpen ); 
     const userIsLoggedIn = useSelector( state=> state.auth.userIsLoggedIn );
     const categories = useSelector(state=> state.data.categories);
@@ -40,6 +42,14 @@ const App = ()=>{
                                 userIsLoggedIn={userIsLoggedIn}
                                 categories={categories}
                                 signOut={()=>dispatch(signOut())}
+                            />
+                        </div>
+                    </div>
+                    <div className="app__checkout">
+                        <div className="app__checkout__inner">
+                            <Checkout
+                                isOpen={checkoutIsOpen}
+                                toggle={()=>dispatch(toggleCheckout())}
                             />
                         </div>
                     </div>

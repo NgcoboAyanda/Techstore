@@ -1,6 +1,7 @@
 .product-card-skeleton-loader{
     height: 300px;
     background-color: #f1f2f3;
+    overflow-x: hidden;
 }
 
 .product-card-skeleton-loader__inner{

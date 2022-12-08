@@ -4,9 +4,7 @@ import './Gallery.css';
 
 const Gallery = ({ images=[] }) => {
     const[ currentImage, setCurrentImage ] = useState(images[0] || null)
-
-    console.log(currentImage)
-
+    
     const renderGalleryItemClass = (image) => {
         if(image === currentImage){
             return "gallery__sidebar__item_selected"
