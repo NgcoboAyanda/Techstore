@@ -14,7 +14,7 @@
 
 .checkout-item__content{
     /*border: 1px solid grey;*/
-    height: 100px;
+    height: 80px;
 }
 
 .checkout-item__content__inner{
@@ -39,15 +39,16 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .checkout-item__content__details__price{
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-mid);
     font-weight: var(--font-weight-thickest);
 }
 
 .checkout-item__content__details__name{
-    font-size: var(--font-size-mid);
+    margin-top: var(--margin-mid);
+    color: var(--font-color-light);
+    font-size: var(--font-size-normal);
     font-weight: var(--font-weight-thick);
 }
