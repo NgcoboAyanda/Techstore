@@ -2,6 +2,10 @@
     padding: var(--margin-normal);
 }
 
+.app__category-page__main__inner{
+    margin-bottom: 100px;
+}
+
 .app__category-page__main__filter{
     padding: 0 var(--margin-normal);
     margin-top: var(--margin-big);

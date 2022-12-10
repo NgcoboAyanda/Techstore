@@ -78,7 +78,7 @@
 
 .checkout__content__order-summary__total{
     margin-top: var(--margin-mid);
-    --border: 1px solid var(--font-color-lighter);
+    --border: 1px solid rgb(211, 211, 211);
     border-top: var(--border);
     border-bottom: var(--border);
     padding: 12px 0;

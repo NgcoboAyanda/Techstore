@@ -49,9 +49,9 @@ const CheckoutItem = ({ image, price, name, removeItem, empty=false }) => {
         }
         else {
             return (
-                <div className="checkout-item__content">
-                        <div className="checkout-item__content__inner">
-                            aa
+                <div className="checkout-item__content checkout-item_empty">
+                        <div className="checkout-item__content__inner checkout-item_empty__inner">
+                            Your cart is empty
                         </div>
                     </div>
             )

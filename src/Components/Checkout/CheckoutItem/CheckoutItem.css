@@ -3,6 +3,19 @@
     padding: var(--margin-normal) var(--margin-small);
 }
 
+.checkout-item_empty{
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-thickest);
+    text-align: center;
+    color: var(--font-color-light);
+}
+
+.checkout-item_empty__inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .checkout-item__inner{
     position: relative;
 }
