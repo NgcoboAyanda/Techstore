@@ -76,14 +76,15 @@
 }
 
 .product-card_wide__image{
+    max-height: 200px;
     flex: 1;
     display: flex;
     justify-content: center;
 }
 
 .product-card_wide__image__inner > img {
-    height: 200px;
     width: 200px;
+    height: 200px;
 }
 
 .product-card_wide__name__inner{
@@ -100,7 +101,7 @@
 }
 
 .product-card_wide__action{
-    margin-top: var(--margin-big);
+    margin-top: auto;
     display: flex;
     justify-content: flex-end;
 }

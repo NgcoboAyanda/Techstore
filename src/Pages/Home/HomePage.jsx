@@ -25,15 +25,15 @@ const HomePage = ()=>{
     const categories = useSelector(state=> state.data.categories);
 
     const renderCategoryCards = () =>{
-        return categories.map( category => {
-            if(category.name !== "all"){
+        return Object.keys(categories).map( categoryName => {
+            if(categoryName !== "all"){
                 return (
-                    <div className="app__home-page__main__categories__item" key={`c-${category.name}`}>
+                    <div className="app__home-page__main__categories__item" key={`c-${categoryName}`}>
                         <div className="app__home-page__main__categories__item__inner">
                             <CategoryCard
-                                name={ capitalize(category.name) }
-                                image={ category.image }
-                                link={ `/c/${category.name}` }
+                                name={ capitalize(categoryName) }
+                                image={ categories[categoryName].image }
+                                link={ `/c/${categoryName}` }
                             />
                         </div>
                     </div>
@@ -43,13 +43,13 @@ const HomePage = ()=>{
     }
 
     const renderCategoryRows = () => {
-        return categories.map( category=> {
+        return Object.keys(categories).map( categoryName=> {
             return (
-                <div className="app__home-page__main__categories-rows__item" key={`cr-${category.name}`}>
+                <div className="app__home-page__main__categories-rows__item" key={`cr-${categoryName}`}>
                     <div className="app__home-page__main__categories-rows__item__inner">
                         <CategoryRow
-                            name={ capitalize(category.name) }
-                            link={ `/c/${category.name}` }
+                            name={ capitalize(categoryName) }
+                            link={ `/c/${categoryName}` }
                         />
                     </div>
                 </div>

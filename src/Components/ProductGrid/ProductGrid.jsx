@@ -6,7 +6,7 @@ import ProductCardSkeletonLoader from '../ProductCardSkeletonLoader/ProductCardS
 
 import './ProductGrid.css';
 
-const ProductGrid = ({ products=[], size })=> {
+const ProductGrid = ({ products=[], size, status })=> {
 
     const dispatch = useDispatch()
 
@@ -43,8 +43,9 @@ const ProductGrid = ({ products=[], size })=> {
     }
 
     const renderProductGridItems = () => {
-        if(products.length === 0){
-            //if there are no products
+        if(status === 'loading'){
+            console.log(status)
+            //if app is loading
             return (
                 <>
                     {renderProductGridSkeletons()}
@@ -52,7 +53,7 @@ const ProductGrid = ({ products=[], size })=> {
             )
         }
         else {
-            //there are products
+            //app is idle / meaning loading has completed
             return (
                 <>
                     {renderProductGridCards()}

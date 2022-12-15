@@ -1,18 +1,32 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Filter from '../../Components/Filter/Filter';
 import Header from '../../Components/Header/Header';
 import PageHeading from '../../Components/PageHeading/PageHeading';
 import ProductGrid from '../../Components/ProductGrid/ProductGrid';
+import { fetchCategoryProducts } from '../../Features/Data/DataSlice';
 
 import './CategoryPage.css';
 
 //Base page for every category
 const CategoryPage = ( )=> {
-    const { categoryName } = useParams()
-    const categories = useSelector(state=>state.data.categories)
-    //const products = categories.filter(cat=>cat.name===categoryName)[0].products
+    const { categoryName } = useParams();
+    const categories = useSelector(state=>state.data.categories);
+    const status = useSelector(state => state.data.status);
+    let products = useSelector(state => state.data.categories[categoryName].products)
+
+    const dispatch = useDispatch();
+
+    useEffect(
+        () => {
+            dispatch(fetchCategoryProducts(categoryName));
+        },
+        []
+    )
+
+    /*
     const products = [
         {
             'name': "Polaroid 16MP Waterproof Digital Camera",
@@ -68,7 +82,8 @@ const CategoryPage = ( )=> {
             'price': "49.99",
             'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
         },
-    ]
+    ] */
+
     const productsCount = products.length
 
     return (
@@ -102,6 +117,7 @@ const CategoryPage = ( )=> {
                                                 <ProductGrid
                                                     products={products}
                                                     size="wide"
+                                                    status={status}
                                                 />
                                             </div>
                                         </div>

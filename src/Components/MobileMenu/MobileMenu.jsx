@@ -27,22 +27,22 @@ const MobileMenu = ({isOpen, toggle, userIsLoggedIn=false, signOut, categories=[
     }
 
     const renderNewArrivalsItems = ()=>{
-        return categories.map(category=>{
-            if(category.name !== "all"){
+        return Object.keys(categories).map(categoryName=>{
+            if(categoryName !== "all"){
                 return(
-                    <li className="mobile-menu__new-arrivals__content__item">
+                    <li className="mobile-menu__new-arrivals__content__item" key={`asc-${categoryName}`}>
                         <div className="mobile-menu__new-arrivals__content__item__image">
                             <div className="mobile-menu__new-arrivals__content__item__image__inner">
                                 <img 
-                                    src={category.image} 
-                                    alt={category.name} 
+                                    src={categories[categoryName].image} 
+                                    alt={categoryName} 
                                 />
                             </div>
                         </div>
                         <div className="mobile-menu__new-arrivals__content__item__label">
                             <div className="mobile-menu__new-arrivals__content__item__label__inner">
                                 <div>
-                                    {capitalize(category.name)} New Arrivals
+                                    {capitalize(categoryName)} New Arrivals
                                 </div>
                             </div>
                         </div>
@@ -53,16 +53,16 @@ const MobileMenu = ({isOpen, toggle, userIsLoggedIn=false, signOut, categories=[
     }
 
     const renderCategories = ()=>{
-        return categories.map(category=>{
+        return Object.keys(categories).map(categoryName=>{
             return(
-                <li className="mobile-menu__categories__list__item" key={`c-${category.name}`}>
+                <li className="mobile-menu__categories__list__item" key={`c-${categoryName}`}>
                     <div className="mobile-menu__categories__list__item__inner">
                         <Link 
                                 className="mobile-menu-link" 
                                 onClick={()=>toggle()} 
-                                to={`/c/${category.name}`}
+                                to={`/c/${categoryName}`}
                             >
-                            {capitalize(category.name)}    
+                            {capitalize(categoryName)}    
                         </Link> 
                     </div>
                 </li>
