@@ -11,6 +11,7 @@ import './ProductPage.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCurrentProduct, fetchProduct } from '../../Features/Data/DataSlice';
+import { addToCart } from '../../Features/Ui/UiSlice';
 
 const ProductPage = () => {
     const [deliveryMethod, setDeliveryMethod] = useState("Pickup");
@@ -30,8 +31,8 @@ const ProductPage = () => {
         []
     )
 
-    const addToCart = () => {
-        console.log(productId)
+    const addItemToCart = () => {
+        dispatch(addToCart(product));
     }
 
     const productHasLoaded = () => {
@@ -69,7 +70,7 @@ const ProductPage = () => {
                     <div className="app__product-page__main__product__information__button">
                         <div className="app__product-page__main__product__information__button__inner">
                             <Button
-                                onClick={addToCart}
+                                onClick={addItemToCart}
                                 label="Add To Cart"
                                 size="normal"
                             />
