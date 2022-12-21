@@ -61,7 +61,7 @@ const Header = ()=>{
     const projectGithubLink = "https://github.com/NgcoboAyanda/Techstore-Frontend";
     //site categories
     const categories = [
-        "laptops", "desktops", "phones", "tablets", "accessories"
+        "laptops", "desktops", "phones", "tablets", "accessories","consoles"
     ]
     //Redux/State
     const dispatch = useDispatch();

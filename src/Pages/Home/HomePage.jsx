@@ -1,10 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CategoryCard from '../../Components/CategoryCard/CategoryCard';
 import CategoryRow from '../../Components/CategoryRow/CategoryRow';
 import Header from '../../Components/Header/Header';
 import PageHeading from '../../Components/PageHeading/PageHeading';
+import { fetchHomePageProducts } from '../../Features/Pages/Pages';
 
 //css
 import './HomePage.css'
@@ -16,6 +18,18 @@ const HomePage = ()=>{
         name: "Techstore",
         niche: "Electronics"
     }
+
+    const dispatch = useDispatch();
+
+    useEffect(
+        () => {
+            dispatch( fetchHomePageProducts({}) );
+        },
+        []
+    )
+
+    const status = useSelector(state => state.pages.homePage.status);
+    const products = useSelector(state => state.pages.homePage.products);
 
     const capitalize = string => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -50,6 +64,9 @@ const HomePage = ()=>{
                         <CategoryRow
                             name={ capitalize(categoryName) }
                             link={ `/c/${categoryName}` }
+                            categoryName={categoryName}
+                            products={products[categoryName]}
+                            status={status}
                         />
                     </div>
                 </div>

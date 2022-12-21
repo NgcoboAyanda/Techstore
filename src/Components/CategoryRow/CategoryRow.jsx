@@ -8,71 +8,12 @@ import ProductCard from '../ProductCard/ProductCard';
 
 import './CategoryRow.css';
 
-const CategoryRow = ({ name='all', products=[
-    {
-        'name': "Polaroid 16MP Waterproof Digital Camera",
-        'id': "1",
-        'price': "49.99",
-        'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-    },
-    {
-        'name': "Polaroid 16MP Waterproof Digital Camera",
-        'id': "2",
-        'price': "49.99",
-        'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-    },
-    {
-        'name': "Polaroid 16MP Waterproof Digital Camera",
-        'id': "3",
-        'price': "49.99",
-        'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-    },
-    {
-        'name': "Polaroid 16MP Waterproof Digital Camera",
-        'id': "4",
-        'price': "49.99",
-        'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-    },
-    {
-        'name': "Polaroid 16MP Waterproof Digital Camera",
-        'id': "5",
-        'price': "49.99",
-        'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-    },
-    {
-        'name': "Polaroid 16MP Waterproof Digital Camera",
-        'id': "6",
-        'price': "49.99",
-        'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-    },
-    {
-        'name': "Polaroid 16MP Waterproof Digital Camera",
-        'id': "7",
-        'price': "49.99",
-        'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-    },
-    {
-        'name': "Polaroid 16MP Waterproof Digital Camera",
-        'id': "8",
-        'price': "49.99",
-        'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-    },
-    {
-        'name': "Polaroid 16MP Waterproof Digital Camera",
-        'id': "9",
-        'price': "49.99",
-        'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-    },
-], link }) => {
-    
+const CategoryRow = ({ name='all', products=[], link, status, categoryName }) => {
+
     const dispatch = useDispatch();
 
-    const productsHaveLoaded = () => {
-        return products.length > 0
-    }
-
     const renderProducts = () => {
-        if(productsHaveLoaded()){
+        if(status === 'idle'){
             return products.map( (product, id)=>{
                 return(
                     <React.Fragment key={`p-${id}`}>
@@ -80,7 +21,7 @@ const CategoryRow = ({ name='all', products=[
                             name={ product.name }
                             price={ product.price }
                             image={ product.image }
-                            link={ `/p/${product.id}` }
+                            link={ `/${categoryName}/${product.id}` }
                             addToCart={()=>dispatch(addToCart(product)) }
                             size="thin"
                         />
@@ -88,14 +29,16 @@ const CategoryRow = ({ name='all', products=[
                 )
             })
         }
-        else {
+        else if (status === 'loading'){
             //products have not loaded
             return [...Array(8)].map( (item, index)=> {
-                <React.Fragment key={index}>
-                    <ProductCard
-                        empty={true}
-                    />
-                </React.Fragment>
+                return (
+                    <React.Fragment key={index}>
+                        <ProductCard
+                            empty={true}
+                        />
+                    </React.Fragment>
+                )
             })
         }
     }

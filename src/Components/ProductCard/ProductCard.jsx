@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 import './ProductCard.css';
 
-const ProductCard = ( { name, price, image, id=1, addToCart, size="thin", empty=false } ) => {
+const ProductCard = ( { name, price, image, id=1, addToCart, size="thin", empty=false, link=''} ) => {
     let {categoryName} = useParams();
 
     // the sizes are:
@@ -11,6 +11,15 @@ const ProductCard = ( { name, price, image, id=1, addToCart, size="thin", empty=
 
     const addProductToCart = ()=>{
         addToCart();
+    }
+
+    const renderProductLink = () => {
+        if(categoryName){
+            return `/${categoryName}/${id}`
+        }
+        else{
+            return link
+        }
     }
 
     const renderCard = () => {
@@ -25,7 +34,7 @@ const ProductCard = ( { name, price, image, id=1, addToCart, size="thin", empty=
                     </div>
                     <div className={`product-card_${size}__name`}>
                         <div className={`product-card_${size}__name__inner`}>
-                            <Link className="link" to={`/${categoryName}/${id}`}>
+                            <Link className="link" to={renderProductLink()}>
                                 {name}
                             </Link>
                         </div>
