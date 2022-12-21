@@ -4,14 +4,20 @@ import { useEffect } from 'react';
 import './Gallery.css';
 
 const Gallery = ({ images=[] }) => {
-    const[ Image, setImage ] = useState("");
+    const[ currentImage, setCurrentImage ] = useState("");
 
     useEffect(
         ()=>{
             window.scrollTo(0,0);
-            setImage(images[0]);
         },
         []
+    )
+
+    useEffect(
+        () => {
+            setCurrentImage([0]);
+        },
+        [images]
     )
     
     const renderGalleryItemClass = (image) => {
@@ -27,7 +33,7 @@ const Gallery = ({ images=[] }) => {
             return images.map( image=> {
                 count++;
                 return (
-                    <div className={`gallery__sidebar__item ${renderGalleryItemClass(image)}`} key={count} onClick={()=>setImage(image)}>
+                    <div className={`gallery__sidebar__item ${renderGalleryItemClass(image)}`} key={count} onClick={()=>setCurrentImage(image)}>
                         <div className="gallery__sidebar__item__inner">
                             <img src={image} />
                         </div>

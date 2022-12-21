@@ -60,7 +60,7 @@
 }
 
 .checkout-item__content__details__name{
-    margin-top: var(--margin-mid);
+    margin-top: var(--margin-small);
     color: var(--font-color-light);
     font-size: var(--font-size-normal);
     font-weight: var(--font-weight-thick);

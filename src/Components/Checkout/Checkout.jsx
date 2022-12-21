@@ -28,7 +28,8 @@ const Checkout = ({isOpen=false, toggle}) => {
         let total = 0;
         let tax = 0;
         cartItems.map(item=>{
-            total = total + parseFloat(item.price);
+            let itemPrice = item.price.replace(',','');
+            total = total + parseFloat(itemPrice);
         })
         setSubtotal((total+deliveryFee).toFixed(2));
         //calculating subtotal with tax
@@ -57,7 +58,7 @@ const Checkout = ({isOpen=false, toggle}) => {
 
     useEffect(
         ()=>{
-            calculateSubtotal()
+            calculateSubtotal();
         },
         [cartItems]
     )

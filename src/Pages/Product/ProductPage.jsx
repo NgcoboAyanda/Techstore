@@ -91,8 +91,8 @@ const ProductPage = () => {
             return (
                 <div className="app__product-page__main__heading">
                     <div className="app__product-page__main__heading__inner">
-                        <h1 className='heading_mid'>
-                            Lenovo IdeaPad 3i 15.6" Laptop with Windows 11 - Intel Processor - 8GB RAM Memory - 512GB Storage - Blue (82RK00BDUS)
+                        <h1 className='heading_big'>
+                            {product.name}
                         </h1>
                     </div>
                 </div>
@@ -107,8 +107,8 @@ const ProductPage = () => {
 
     const renderProductSpecs = () => {
         if(productHasLoaded()){
-            const {os, battery, storage, camera, gpu} = product;
-            const specs = [{os}, {battery}, {storage}, {camera}, {gpu}]
+            const {os, battery, storage, camera, gpu, ram} = product;
+            const specs = [{os}, {ram}, {battery}, {storage}, {camera}, {gpu}]
             return specs.map((spec, i) => {
                 const key = Object.keys(spec)[0];
                 return (
