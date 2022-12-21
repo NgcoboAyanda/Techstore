@@ -7,7 +7,9 @@ const Rating = ({ stars = 0 }) => {
     const renderAllStars = () => {
         return [...Array(5)].map( (e, i)=> {
             return (
-                renderStar()
+                <React.Fragment key={i}>
+                    {renderStar()}
+                </React.Fragment>
             )
         } )
     }

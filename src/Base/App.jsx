@@ -1,5 +1,6 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 
 import { useDispatch, useSelector } from 'react-redux'; 
 
@@ -33,7 +34,7 @@ const App = ()=>{
     return(
         <div className='app'>
             <div className="app__inner">
-                <Router basename={ process.env.PUBLIC_URL } >
+                <HashRouter>
                     <div className="app__mobile-menu">
                         <div className="app__mobile-menu__inner">
                             <MobileMenu
@@ -84,12 +85,12 @@ const App = ()=>{
                         />
                         {/* Product Page */}
                         <Route
-                            exact path='/p/:productId'
+                            exact path='/:categoryName/:productId'
                             element={<ProductPage/>}
                         />
                     </Routes>
                     <Footer/>
-                </Router>
+                </HashRouter>
             </div>
         </div>
     )

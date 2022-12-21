@@ -45,7 +45,8 @@ const initialState = {
             'image': "https://static.lenovo.com/ww/img/accessories/thinkpad-x1-anc-headphones/gallery/lenovo-accessory-thinkpad-x1-anc-headphones-gallery-3.jpg",
             products: []
         } 
-    }
+    },
+    currentProduct: {}
 }
 
 const requestConfig = {
@@ -62,12 +63,22 @@ export const fetchCategoryProducts = createAsyncThunk(
         const response = await fetch(`${apiBaseUrl}/shop/${categoryName}/`, {...requestConfig});
         if(response.status === 200){
             const res = await response.json()
-            console.log(res.results)
             const { updateProducts } = dataSlice.actions;
             thunkAPI.dispatch(updateProducts({categoryName, products: res.results}));
         }
-        else{
-            console.log(response.status)
+    }
+)
+
+export const fetchProduct = createAsyncThunk(
+    'data/fetchProduct',
+    async ({categoryName, productId}, thunkAPI) => {
+        const response = await fetch(`${apiBaseUrl}/shop/${categoryName}/${productId}/`)
+        if (response.status === 200){
+            const res = await response.json();
+            const {setCurrentProduct} = dataSlice.actions;
+            thunkAPI.dispatch(
+                setCurrentProduct({currentProduct: res})
+            )
         }
     }
 )
@@ -80,6 +91,14 @@ const dataSlice = createSlice({
         updateProducts: (state, action)=> {
             const {categoryName, products} = action.payload;
             state.categories[categoryName].products = products
+        },
+        //Current Product
+        setCurrentProduct: (state, action) => {
+            const {currentProduct} = action.payload;
+            return {...state, currentProduct};
+        },
+        clearCurrentProduct: (state, action) => {
+            return {...state, currentProduct: {}};
         }
     },
     extraReducers: builder => {
@@ -94,6 +113,6 @@ const dataSlice = createSlice({
     }
 })
 
-export const { updateProducts } = dataSlice.actions;
+export const { updateProducts, clearCurrentProduct } = dataSlice.actions;
 
 export default dataSlice.reducer;

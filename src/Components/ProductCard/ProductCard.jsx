@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import './ProductCard.css';
 
 const ProductCard = ( { name, price, image, id=1, addToCart, size="thin", empty=false } ) => {
+    let {categoryName} = useParams();
+
     // the sizes are:
     // thin and wide
 
@@ -23,7 +25,7 @@ const ProductCard = ( { name, price, image, id=1, addToCart, size="thin", empty=
                     </div>
                     <div className={`product-card_${size}__name`}>
                         <div className={`product-card_${size}__name__inner`}>
-                            <Link className="link" to={`/p/${id}`}>
+                            <Link className="link" to={`/${categoryName}/${id}`}>
                                 {name}
                             </Link>
                         </div>

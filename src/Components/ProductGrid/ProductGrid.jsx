@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { addToCart } from '../../Features/Ui/UiSlice';
 import ProductCard from '../ProductCard/ProductCard';
 import ProductCardSkeletonLoader from '../ProductCardSkeletonLoader/ProductCardSkeletonLoader';
@@ -7,6 +8,7 @@ import ProductCardSkeletonLoader from '../ProductCardSkeletonLoader/ProductCardS
 import './ProductGrid.css';
 
 const ProductGrid = ({ products=[], size, status })=> {
+    const {categoryName} = useParams();
 
     const dispatch = useDispatch()
 
@@ -25,15 +27,15 @@ const ProductGrid = ({ products=[], size, status })=> {
     }
 
     const renderProductGridCards = () => {
-        return products.map(product=>{
+        return products.map( (product, i)=>{
             return (
-                <React.Fragment key={product.id}>
+                <React.Fragment key={i}>
                     <ProductCard
                         name = {product.name}
                         image= {product.image}
                         price = {product.price}
                         id = {product.id}
-                        link= {product.link}
+                        link= {`/${categoryName}/${product.id}`}
                         size={size}
                         addToCart={()=>dispatch(addToCart(product))}
                     />

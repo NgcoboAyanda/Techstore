@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 
 import './Gallery.css';
 
 const Gallery = ({ images=[] }) => {
-    const[ currentImage, setCurrentImage ] = useState(images[0] || null)
+    const[ Image, setImage ] = useState("");
+
+    useEffect(
+        ()=>{
+            window.scrollTo(0,0);
+            setImage(images[0]);
+        },
+        []
+    )
     
     const renderGalleryItemClass = (image) => {
-        if(image === currentImage){
+        if(image === Image){
             return "gallery__sidebar__item_selected"
         }
     }
@@ -18,7 +27,7 @@ const Gallery = ({ images=[] }) => {
             return images.map( image=> {
                 count++;
                 return (
-                    <div className={`gallery__sidebar__item ${renderGalleryItemClass(image)}`} key={count} onClick={()=>setCurrentImage(image)}>
+                    <div className={`gallery__sidebar__item ${renderGalleryItemClass(image)}`} key={count} onClick={()=>setImage(image)}>
                         <div className="gallery__sidebar__item__inner">
                             <img src={image} />
                         </div>
@@ -36,12 +45,12 @@ const Gallery = ({ images=[] }) => {
         }
     }
 
-    const renderCurrentImage = () => {
-        if(currentImage){
+    const renderImage = () => {
+        if(images.length > 0){
             return (
                 <div className="gallery__current-image__element">
                     <div className="gallery__current-image__element__inner">
-                        <img src={currentImage} />
+                        <img src={images[0]} />
                     </div>
                 </div>
             )
@@ -67,7 +76,7 @@ const Gallery = ({ images=[] }) => {
                 </div>
                 <div className="gallery__current-image">
                     <div className="gallery__current-image__inner">
-                        {renderCurrentImage()}
+                        {renderImage()}
                     </div>
                 </div>
             </div>

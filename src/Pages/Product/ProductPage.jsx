@@ -8,12 +8,27 @@ import Button from '../../Components/Button/Button';
 import Rating from '../../Components/Rating/Rating';
 
 import './ProductPage.css';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearCurrentProduct, fetchProduct } from '../../Features/Data/DataSlice';
 
 const ProductPage = () => {
     const [deliveryMethod, setDeliveryMethod] = useState("Pickup");
-    const [product, setProduct] = useState({})
+    const product = useSelector(state => state.data.currentProduct);
 
-    const { productId } = useParams();
+    const { categoryName, productId } = useParams();
+
+    const dispatch = useDispatch();
+
+    useEffect(
+        () => {
+            dispatch(fetchProduct({categoryName, productId}));
+            return ()=>{
+                dispatch(clearCurrentProduct());
+            }
+        },
+        []
+    )
 
     const addToCart = () => {
         console.log(productId)
@@ -92,18 +107,23 @@ const ProductPage = () => {
 
     const renderProductSpecs = () => {
         if(productHasLoaded()){
-            return (
-                <div className="app__product-page__main__about__content__specs__text__item">
+            const {os, battery, storage, camera, gpu} = product;
+            const specs = [{os}, {battery}, {storage}, {camera}, {gpu}]
+            return specs.map((spec, i) => {
+                const key = Object.keys(spec)[0];
+                return (
+                    <div className="app__product-page__main__about__content__specs__text__item" key={i}>
                     <div className="app__product-page__main__about__content__specs__text__item__inner">
                         <span className="app__product-page__main__about__content__specs__text__item__key">
-                            {"Dimensions (Overall)"}:
+                            {key.toUpperCase()}:
                         </span>
                         <span className="app__product-page__main__about__content__specs__text__item__value">
-                            {"7 Inches (H) x 9.29 Inches (W) x 14.17 Inches (D)"}
+                            {spec[key]}
                         </span>
                     </div>
                 </div>
-            )
+                )
+            })
         }
         else {
             return (
@@ -125,7 +145,7 @@ const ProductPage = () => {
         if(productHasLoaded()){
             return (
                 <span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quaerat cum accusamus animi magni deleniti itaque nam quas labore facere quibusdam sint tempora molestias temporibus optio ab ea mollitia fugit placeat excepturi, cumque molestiae! Dolorum autem architecto mollitia perspiciatis fuga ut veritatis ipsum quisquam sequi ullam vero quod labore, sed modi eum? Sint eaque minima debitis vitae vero suscipit obcaecati temporibus perspiciatis, dolor quae repudiandae cupiditate! Suscipit corrupti animi asperiores repellendus. Facere, voluptates laboriosam impedit dolore corrupti sint vitae earum?
+                    {product.description}
                 </span>
             )
         }
@@ -138,7 +158,7 @@ const ProductPage = () => {
         if(productHasLoaded()){
             return (
                 <Gallery
-                    images={product.images}
+                    images={[product.image]}
                 />
             )
         }

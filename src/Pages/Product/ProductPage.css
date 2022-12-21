@@ -97,6 +97,15 @@
     margin-top: var(--margin-small);
 }
 
+.app__product-page__main__about__content__specs__text__item:first-child{
+    margin-top: var(--margin-mid);
+}
+
+
+.app__product-page__main__about__content__specs__text__item:not(:first-child){
+    margin-top: var(--margin-small);
+}
+
 .app__product-page__main__about__content__specs__text__item__key{
     font-weight: var(--font-weight-mid);
     margin-right: 8px;
