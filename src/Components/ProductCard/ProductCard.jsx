@@ -22,6 +22,18 @@ const ProductCard = ( { name, price, image, id=1, addToCart, size="thin", empty=
         }
     }
 
+    const renderProductLinkText = () => {
+        if(name.length < 71){
+            return name
+        }
+        else{
+            console.log(typeof(name))
+            return (
+                name.substring(0, 77) + '...'
+            )
+        }
+    }
+
     const renderCard = () => {
         if(!empty){
             //if card is not empty
@@ -35,7 +47,7 @@ const ProductCard = ( { name, price, image, id=1, addToCart, size="thin", empty=
                     <div className={`product-card_${size}__name`}>
                         <div className={`product-card_${size}__name__inner`}>
                             <Link className="link" to={renderProductLink()}>
-                                {name}
+                                {renderProductLinkText()}
                             </Link>
                         </div>
                     </div>

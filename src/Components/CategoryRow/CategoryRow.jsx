@@ -13,7 +13,7 @@ const CategoryRow = ({ name='all', products=[], link, status, categoryName }) =>
     const dispatch = useDispatch();
 
     const renderProducts = () => {
-        if(status === 'idle'){
+        if(status === 'idle' && products.length > 0){
             return products.map( (product, id)=>{
                 return(
                     <React.Fragment key={`p-${id}`}>
@@ -29,7 +29,7 @@ const CategoryRow = ({ name='all', products=[], link, status, categoryName }) =>
                 )
             })
         }
-        else if (status === 'loading'){
+        else{
             //products have not loaded
             return [...Array(8)].map( (item, index)=> {
                 return (
