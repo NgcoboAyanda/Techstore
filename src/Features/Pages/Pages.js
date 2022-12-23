@@ -75,7 +75,7 @@ const pagesSlice = createSlice({
         //categorypage
         setCurrentCategory: (state, action) => {
             const {categoryName} = action.payload;
-            return {...state, categoryPage: {...state.categoryPage, currentCategory: categoryName }};
+            return {...state, categoryPage: {...state.categoryPage, currentCategory: categoryName, categoryProducts: [] }};
         },
         setCategoryPageProducts: (state, action) => {
             const {products} = action.payload;
@@ -90,6 +90,13 @@ const pagesSlice = createSlice({
         })
         .addCase(fetchHomePageProducts.fulfilled, (state, action)=>{
             return { ...state, homePage:{...state.homePage, status:"idle"} };
+        })
+        //categoryPage
+        .addCase(fetchCategoryPageProducts.pending, (state, action)=>{
+            return { ...state, homePage:{...state.categoryPage, status:"loading"} };
+        })
+        .addCase(fetchCategoryPageProducts.fulfilled, (state, action)=>{
+            return { ...state, homePage:{...state.categoryPage, status:"idle"} };
         })
     }
 })

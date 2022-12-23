@@ -46,7 +46,6 @@ const ProductGrid = ({ products=[], size, status })=> {
 
     const renderProductGridItems = () => {
         if(status === 'loading'){
-            console.log(status)
             //if app is loading
             return (
                 <>
@@ -54,7 +53,7 @@ const ProductGrid = ({ products=[], size, status })=> {
                 </>
             )
         }
-        else {
+        else if(status === 'idle') {
             //app is idle / meaning loading has completed
             return (
                 <>
