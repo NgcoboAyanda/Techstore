@@ -7,84 +7,30 @@ import Header from '../../Components/Header/Header';
 import PageHeading from '../../Components/PageHeading/PageHeading';
 import ProductGrid from '../../Components/ProductGrid/ProductGrid';
 import { fetchCategoryProducts } from '../../Features/Data/DataSlice';
+import { fetchCategoryPageProducts, setCurrentCategory } from '../../Features/Pages/Pages';
 
 import './CategoryPage.css';
 
 //Base page for every category
 const CategoryPage = ( )=> {
     const { categoryName } = useParams();
-    const categories = useSelector(state=>state.data.categories);
-    const status = useSelector(state => state.data.status);
-    let products = useSelector(state => state.data.categories[categoryName].products)
+    const {currentCategory, status, categoryProducts: products } = useSelector(state=>state.pages.categoryPage);
 
     const dispatch = useDispatch();
 
     useEffect(
         () => {
-            dispatch(fetchCategoryProducts(categoryName));
+            dispatch( setCurrentCategory({categoryName}) );
         },
-        []
+        [categoryName]
     )
 
-    /*
-    const products = [
-        {
-            'name': "Polaroid 16MP Waterproof Digital Camera",
-            'id': "1",
-            'price': "49.99",
-            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
+    useEffect(
+        () => {
+            dispatch( fetchCategoryPageProducts({currentCategory}) );
         },
-        {
-            'name': "Polaroid 16MP Waterproof Digital Camera",
-            'id': "2",
-            'price': "49.99",
-            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-        },
-        {
-            'name': "Polaroid 16MP Waterproof Digital Camera",
-            'id': "3",
-            'price': "49.99",
-            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-        },
-        {
-            'name': "Polaroid 16MP Waterproof Digital Camera",
-            'id': "4",
-            'price': "49.99",
-            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-        },
-        {
-            'name': "Polaroid 16MP Waterproof Digital Camera",
-            'id': "5",
-            'price': "49.99",
-            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-        },
-        {
-            'name': "Polaroid 16MP Waterproof Digital Camera",
-            'id': "6",
-            'price': "49.99",
-            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-        },
-        {
-            'name': "Polaroid 16MP Waterproof Digital Camera",
-            'id': "7",
-            'price': "49.99",
-            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-        },
-        {
-            'name': "Polaroid 16MP Waterproof Digital Camera",
-            'id': "8",
-            'price': "49.99",
-            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-        },
-        {
-            'name': "Polaroid 16MP Waterproof Digital Camera",
-            'id': "9",
-            'price': "49.99",
-            'image': "https://target.scene7.com/is/image/Target/GUEST_06ec4798-d497-4f3e-ac92-110f47d87cac?qlt=85&fmt=webp&hei=199&wid=199"
-        },
-    ] */
-
-    const productsCount = products.length
+        [currentCategory]
+    )
 
     return (
         <div className="app__category__page app__page">
@@ -106,7 +52,7 @@ const CategoryPage = ( )=> {
                                 <div className="app__category-page__main__products__count">
                                     <div className="app__category-page__main__products__count__inner">
                                         <div>
-                                            {productsCount} Products
+                                            {products.length} Products
                                         </div>
                                     </div>
                                 </div>

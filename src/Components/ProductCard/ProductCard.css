@@ -89,6 +89,10 @@
     height: 200px;
 }
 
+.product-card_wide__name{
+    height: 64px;
+}
+
 .product-card_wide__name__inner{
     text-align: left;
     font-size: var(--font-size-normal);

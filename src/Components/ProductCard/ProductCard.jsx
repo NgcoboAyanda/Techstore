@@ -27,7 +27,6 @@ const ProductCard = ( { name, price, image, id=1, addToCart, size="thin", empty=
             return name
         }
         else{
-            console.log(typeof(name))
             return (
                 name.substring(0, 77) + '...'
             )
