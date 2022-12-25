@@ -84,9 +84,15 @@
     justify-content: center;
 }
 
+.product-card_wide__image__inner{
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+
 .product-card_wide__image__inner > img {
     width: 200px;
-    height: 200px;
+    height: auto;
 }
 
 .product-card_wide__name{
