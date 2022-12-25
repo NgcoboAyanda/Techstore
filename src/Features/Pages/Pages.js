@@ -93,10 +93,10 @@ const pagesSlice = createSlice({
         })
         //categoryPage
         .addCase(fetchCategoryPageProducts.pending, (state, action)=>{
-            return { ...state, homePage:{...state.categoryPage, status:"loading"} };
+            return { ...state, categoryPage:{...state.categoryPage, status:"loading"} };
         })
         .addCase(fetchCategoryPageProducts.fulfilled, (state, action)=>{
-            return { ...state, homePage:{...state.categoryPage, status:"idle"} };
+            return { ...state, categoryPage:{...state.categoryPage, status:"idle"} };
         })
     }
 })
