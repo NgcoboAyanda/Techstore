@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
 const initialState = {
     homePage:{
@@ -24,7 +23,7 @@ const initialState = {
     },
 }
 
-const apiBaseUrl = 'http://localhost:8000'
+const apiBaseUrl = 'https://techstoreapi.onrender.com'; 
 
 export const fetchHomePageProducts = createAsyncThunk(
     'pages/fetchHomePageProducts',
@@ -48,9 +47,7 @@ export const fetchHomePageProducts = createAsyncThunk(
 
 export const fetchCategoryPageProducts = createAsyncThunk(
     'pages/fetchCategoryPageProducts',
-    async (obj, thunkAPI) => {
-        console.log(obj)
-        const {currentCategory} = obj;
+    async ( { currentCategory }, thunkAPI) => {
         let response = await fetch(`${apiBaseUrl}/shop/${currentCategory}/`);
         if(response.status === 200){
             response = await response.json();
@@ -58,6 +55,20 @@ export const fetchCategoryPageProducts = createAsyncThunk(
             const {setCategoryPageProducts} = pagesSlice.actions;
             thunkAPI.dispatch(
                 setCategoryPageProducts({products})
+            )
+        }
+    }
+)
+
+export const fetchProduct = createAsyncThunk(
+    'pages/fetchProduct',
+    async ({ categoryName, productId }, thunkAPI) => {
+        let response = await fetch(`${apiBaseUrl}/shop/${categoryName}/${productId}/`)
+        if (response.status === 200){
+            const product = await response.json();
+            const {setProductPageProduct} = pagesSlice.actions;
+            thunkAPI.dispatch(
+                setProductPageProduct({product})
             )
         }
     }
@@ -73,13 +84,21 @@ const pagesSlice = createSlice({
             return {...state, homePage: {...state.homePage, products:{...state.homePage.products, [category]: products}}};
         },
         //categorypage
-        setCurrentCategory: (state, action) => {
+        setCategoryPageCategory: (state, action) => {
             const {categoryName} = action.payload;
             return {...state, categoryPage: {...state.categoryPage, currentCategory: categoryName, categoryProducts: [] }};
         },
         setCategoryPageProducts: (state, action) => {
             const {products} = action.payload;
             return {...state, categoryPage: {...state.categoryPage, categoryProducts: products } };
+        },
+        //productpage
+        setProductPageProduct: (state, action) => {
+            const {product} = action.payload;
+            return {...state, productPage:{...state.productPage, product}};
+        },
+        clearProductPageProduct: (state, action) => {
+            return {...state, productPage: {...state.productPage, product:{}}};
         }
     },
     extraReducers: (builder) => {
@@ -101,6 +120,6 @@ const pagesSlice = createSlice({
     }
 })
 
-export const { addHomePageProducts, setCurrentCategory } = pagesSlice.actions;
+export const { addHomePageProducts, setCategoryPageCategory, clearProductPageProduct } = pagesSlice.actions;
 
 export default pagesSlice.reducer;

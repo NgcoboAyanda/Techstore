@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const apiBaseUrl = 'http://localhost:8000';
+const apiBaseUrl = 'https://techstoreapi.onrender.com';
 
 const initialState = {
     userIsLoggedIn: false,

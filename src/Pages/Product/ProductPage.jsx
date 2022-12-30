@@ -10,8 +10,8 @@ import Rating from '../../Components/Rating/Rating';
 import './ProductPage.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearCurrentProduct, fetchProduct } from '../../Features/Data/DataSlice';
 import { addToCart } from '../../Features/Ui/UiSlice';
+import { clearProductPageProduct, fetchProduct } from '../../Features/Pages/Pages';
 
 const ProductPage = () => {
     const [deliveryMethod, setDeliveryMethod] = useState("Pickup");
@@ -25,7 +25,7 @@ const ProductPage = () => {
         () => {
             dispatch(fetchProduct({categoryName, productId}));
             return ()=>{
-                dispatch(clearCurrentProduct());
+                dispatch(clearProductPageProduct());
             }
         },
         []

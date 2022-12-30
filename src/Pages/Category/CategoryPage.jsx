@@ -6,21 +6,20 @@ import Filter from '../../Components/Filter/Filter';
 import Header from '../../Components/Header/Header';
 import PageHeading from '../../Components/PageHeading/PageHeading';
 import ProductGrid from '../../Components/ProductGrid/ProductGrid';
-import { fetchCategoryProducts } from '../../Features/Data/DataSlice';
-import { fetchCategoryPageProducts, setCurrentCategory } from '../../Features/Pages/Pages';
+import { fetchCategoryPageProducts, setCategoryPageCategory } from '../../Features/Pages/Pages';
 
 import './CategoryPage.css';
 
 //Base page for every category
 const CategoryPage = ( )=> {
-    const { categoryName } = useParams();
+    const { categoryName}  = useParams();
     const {currentCategory, status, categoryProducts: products } = useSelector(state=>state.pages.categoryPage);
 
     const dispatch = useDispatch();
 
     useEffect(
         () => {
-            dispatch( setCurrentCategory({categoryName}) );
+            dispatch( setCategoryPageCategory({categoryName}) );
         },
         [categoryName]
     )
