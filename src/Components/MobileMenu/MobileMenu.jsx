@@ -152,8 +152,11 @@ const MobileMenu = ({isOpen, toggle, userIsLoggedIn=false, signOut, categories=[
                                 </div>
                             </div>
                         </div>
+                        {/* Remove New Arrivals for now, the feature will be added later
                         <div className="mobile-menu__new-arrivals">
                             <div className="mobile-menu__new-arrivals__inner">
+                                
+
                                 <div className="mobile-menu__new-arrivals__heading">
                                     <div className="mobile-menu__new-arrivals__heading__inner">
                                         <div>
@@ -168,6 +171,7 @@ const MobileMenu = ({isOpen, toggle, userIsLoggedIn=false, signOut, categories=[
                                 </div>
                             </div>
                         </div>
+                        */}
                         <div className="mobile-menu__categories">
                             <div className="mobile-menu__categories__inner">
                                 <div className="mobile-menu__categories__heading">
