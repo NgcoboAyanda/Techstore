@@ -24,11 +24,7 @@ const initialState = {
         tablets: {
             'id': "5",
             'image': "https://www.lenovo.com/medias/lenovo%E2%80%90tablet%E2%80%90lenovo-tab-p12%E2%80%90pro-series-front.png?context=bWFzdGVyfHJvb3R8MTAzMTU5fGltYWdlL3BuZ3xoYTgvaGM1LzEyNjgwMzcyMDI3NDIyLnBuZ3w0ZDlmNWEyNTMyNDRlMjk4NDlkMmFjODA3MjI4Y2QxYmUyZGQ4YjE2NTZkYzI2MjA2MTA2Y2ZhMjg4OWQ3ZDc3"
-        }, 
-        cameras: {
-            'id': "6",
-            'image': "https://target.scene7.com/is/image/Target/5xtez-cameras-camcorders-QUIVER-190507-1557249221821?wid=167&hei=167&qlt=100&fmt=webp"
-        }, 
+        },
         accessories: {
             'id': "7",
             'image': "https://static.lenovo.com/ww/img/accessories/thinkpad-x1-anc-headphones/gallery/lenovo-accessory-thinkpad-x1-anc-headphones-gallery-3.jpg"

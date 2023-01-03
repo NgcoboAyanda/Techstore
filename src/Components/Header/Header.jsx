@@ -60,9 +60,7 @@ const Header = ()=>{
     const telegramContactLink = "https://t.me/kiingcxld";
     const projectGithubLink = "https://github.com/NgcoboAyanda/Techstore-Frontend";
     //site categories
-    const categories = [
-        "laptops", "desktops", "phones", "tablets", "accessories","consoles"
-    ]
+    const categories = Object.keys( useSelector(state => state.data.categories) );
     //Redux/State
     const dispatch = useDispatch();
     const userIsLoggedIn = useSelector(state => state.auth.userIsLoggedIn);
