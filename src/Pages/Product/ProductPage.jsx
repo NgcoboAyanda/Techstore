@@ -15,7 +15,7 @@ import { clearProductPageProduct, fetchProduct } from '../../Features/Pages/Page
 
 const ProductPage = () => {
     const [deliveryMethod, setDeliveryMethod] = useState("Pickup");
-    const product = useSelector(state => state.data.currentProduct);
+    const { product } = useSelector(state => state.pages.productPage);
 
     const { categoryName, productId } = useParams();
 
@@ -43,12 +43,13 @@ const ProductPage = () => {
     const renderProductInformation = () => {
         if(productHasLoaded()){
             //if product has loaded
+            const {price} = product;
             return (
                 <>
                     <div className="app__product-page__main__product__information__price">
                         <div className="app__product-page__main__product__information__price__inner">
                             <span>
-                                R{6399.99}
+                                R{price}
                             </span>
                         </div>
                     </div>
@@ -89,11 +90,12 @@ const ProductPage = () => {
 
     const renderProductHeading = () => {
         if(productHasLoaded()){
+            const {name=''} = product;
             return (
                 <div className="app__product-page__main__heading">
                     <div className="app__product-page__main__heading__inner">
                         <h1 className='heading_big'>
-                            {product.name}
+                            {name}
                         </h1>
                     </div>
                 </div>

@@ -58,7 +58,6 @@ const HomePage = ()=>{
 
     const renderCategoryRows = () => {
         let theCategories = Object.keys(categories);
-        theCategories = theCategories.splice(1, theCategories.length);//remving the all category
         return theCategories.map( categoryName=> {
             return (
                 <div className="app__home-page__main__categories-rows__item" key={`cr-${categoryName}`}>
