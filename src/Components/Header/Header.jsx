@@ -139,6 +139,7 @@ const Header = ()=>{
             <div className="header__inner">
                 <div className="header__top">
                     <div className="header__top__inner">
+                        {/* 
                         <div className="header__top__links">
                             <ul className="header__top__links__inner">
                                 <div className="header__top__links__item">
@@ -165,6 +166,7 @@ const Header = ()=>{
                                 </div>
                             </ul>
                         </div>
+                        */}
                     </div>
                 </div>
                 <div className="header__nav">
@@ -188,6 +190,7 @@ const Header = ()=>{
                                 {renderCategories()}
                             </ul>
                         </div>
+                        {/* TEMPORARIRLY REMOVED HEADER SEARCHBARS
                         <form className="header__nav__search-box" onSubmit={handleSubmit(data=>submitSearch(data))}>
                             <div className="header__nav__search-box__inner">
                                 <SearchInput
@@ -196,6 +199,7 @@ const Header = ()=>{
                                 />
                             </div>
                         </form>
+                        */}
                         <div className="header__nav__links">
                             <div className="header__nav__links__inner">
                                 {renderSignInSignOut()}
@@ -211,6 +215,7 @@ const Header = ()=>{
                         </div>
                     </div>
                 </div>
+                {/* TEMPORARILY REMOVED HEADER SEARCHBARS 
                 <form className="header__search-bar" onSubmit={handleSubmit(data=>submitSearch(data))}>
                     <div className="header__search-bar__inner">
                         <SearchInput
@@ -219,6 +224,7 @@ const Header = ()=>{
                         />
                     </div>
                 </form>
+                */}
             </div>
         </div>
     )

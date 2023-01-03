@@ -33,7 +33,7 @@
 
 .app__page__main{
     /* This is the exact size of the header */
-    margin-top: 130px;
+    margin-top: 80px;
     width: 100%;
     flex: 1;
 }
@@ -60,9 +60,9 @@
     z-index: 7;
 }
 
-/*
+
 @media screen and (min-width: 750px){
     .app__page__main{
-        padding: var(--margin-big) var(--margin-small);
+        margin-top: 140px;
     }
-} */
+}

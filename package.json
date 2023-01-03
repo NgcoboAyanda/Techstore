@@ -1,7 +1,7 @@
 {
   "name": "techstore",
   "version": "1.0.0",
-  "homepage": "https://ngcoboayanda.github.io/",
+  "homepage": "https://ngcoboayanda.github.io/Techstore/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
