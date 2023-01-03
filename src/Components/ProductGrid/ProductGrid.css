@@ -4,8 +4,12 @@
 
 .product-grid__inner{
     display: grid;
-    justify-items: center;
-    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 350px));
     grid-auto-rows: auto;
     gap: var(--margin-mid) var(--margin-normal);
+}
+
+.product-grid__inner > * {
+    width: 100%;
 }
