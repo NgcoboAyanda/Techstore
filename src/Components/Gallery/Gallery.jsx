@@ -15,7 +15,9 @@ const Gallery = ({ images=[] }) => {
 
     useEffect(
         () => {
-            setCurrentImage(images[0]);
+            if(images.length > 0){
+                setCurrentImage(images[0]);
+            }
         },
         [images]
     )
