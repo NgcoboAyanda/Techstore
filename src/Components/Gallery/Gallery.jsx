@@ -15,13 +15,15 @@ const Gallery = ({ images=[] }) => {
 
     useEffect(
         () => {
-            setCurrentImage([0]);
+            setCurrentImage(images[0]);
         },
         [images]
     )
     
     const renderGalleryItemClass = (image) => {
-        if(image === Image){
+        console.log(image)
+        console.log(currentImage)
+        if(image === currentImage){
             return "gallery__sidebar__item_selected"
         }
     }
