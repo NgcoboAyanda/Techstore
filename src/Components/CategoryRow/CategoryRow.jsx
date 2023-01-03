@@ -31,7 +31,7 @@ const CategoryRow = ({ name='all', products=[], link, status, categoryName }) =>
         }
         else{
             //products have not loaded
-            return [...Array(8)].map( (item, index)=> {
+            return [...Array(6)].map( (item, index)=> {
                 return (
                     <React.Fragment key={index}>
                         <ProductCard

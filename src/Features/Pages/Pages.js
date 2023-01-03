@@ -35,7 +35,7 @@ export const fetchHomePageProducts = createAsyncThunk(
             let response = await fetch(`${apiBaseUrl}/shop/${category}/`);
             if(response.status === 200){
                 let data = await response.json();
-                let products = data.results.splice(0,7);//Get 7 products
+                let products = data.results.splice(0,6);//Get 6 products
                 const {addHomePageProducts} = pagesSlice.actions;
                 thunkAPI.dispatch(
                     addHomePageProducts({category, products})

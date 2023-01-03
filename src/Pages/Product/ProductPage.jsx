@@ -110,22 +110,22 @@ const ProductPage = () => {
 
     const renderProductSpecs = () => {
         if(productHasLoaded()){
-            const {os, battery, storage, camera, gpu, ram} = product;
-            const specs = [{os}, {ram}, {battery}, {storage}, {camera}, {gpu}]
-            return specs.map((spec, i) => {
-                const key = Object.keys(spec)[0];
-                return (
-                    <div className="app__product-page__main__about__content__specs__text__item" key={i}>
-                    <div className="app__product-page__main__about__content__specs__text__item__inner">
-                        <span className="app__product-page__main__about__content__specs__text__item__key">
-                            {key.toUpperCase()}:
-                        </span>
-                        <span className="app__product-page__main__about__content__specs__text__item__value">
-                            {spec[key]}
-                        </span>
+            const notGoingToBeRendered = ["id", "name", "stock", "description", "price", "image"];
+            return Object.keys(product).map((productObjKey, i) => {
+                if(!notGoingToBeRendered.includes(productObjKey)){
+                    return (
+                        <div className="app__product-page__main__about__content__specs__text__item" key={i}>
+                        <div className="app__product-page__main__about__content__specs__text__item__inner">
+                            <span className="app__product-page__main__about__content__specs__text__item__key">
+                                {productObjKey.replace('_',' ').toUpperCase()}:
+                            </span>
+                            <span className="app__product-page__main__about__content__specs__text__item__value">
+                                {product[productObjKey]}
+                            </span>
+                        </div>
                     </div>
-                </div>
-                )
+                    )
+                }
             })
         }
         else {
