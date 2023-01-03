@@ -19,7 +19,8 @@ const CategoryPage = ( )=> {
 
     useEffect(
         () => {
-            if(categoryName){
+            if(categoryName && status !== 'loading'){
+                dispatch( clearCategoryPageProducts() )
                 dispatch( setCategoryPageCategory({categoryName}) );
             }
             //on unmount

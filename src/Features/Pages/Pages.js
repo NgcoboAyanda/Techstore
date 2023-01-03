@@ -93,7 +93,7 @@ const pagesSlice = createSlice({
             return {...state, categoryPage: {...state.categoryPage, categoryProducts: products } };
         },
         clearCategoryPageProducts: (state, action) => {
-            return {...state, categoryPage: {categoryProducts:[], currentCategory:'', ...state.categoryPage}}
+            return {...state, categoryPage: {...state.categoryPage,categoryProducts:[], currentCategory:''}}
         },
         //productpage
         setProductPageProduct: (state, action) => {
