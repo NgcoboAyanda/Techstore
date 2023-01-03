@@ -6,7 +6,7 @@ import Filter from '../../Components/Filter/Filter';
 import Header from '../../Components/Header/Header';
 import PageHeading from '../../Components/PageHeading/PageHeading';
 import ProductGrid from '../../Components/ProductGrid/ProductGrid';
-import { fetchCategoryPageProducts, setCategoryPageCategory } from '../../Features/Pages/Pages';
+import { clearCategoryPageProducts, fetchCategoryPageProducts, setCategoryPageCategory } from '../../Features/Pages/Pages';
 
 import './CategoryPage.css';
 
@@ -21,6 +21,10 @@ const CategoryPage = ( )=> {
         () => {
             if(categoryName){
                 dispatch( setCategoryPageCategory({categoryName}) );
+            }
+            //on unmount
+            return () => {
+                dispatch( clearCategoryPageProducts())
             }
         },
         [categoryName]

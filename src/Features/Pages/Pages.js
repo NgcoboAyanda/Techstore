@@ -92,6 +92,9 @@ const pagesSlice = createSlice({
             const {products} = action.payload;
             return {...state, categoryPage: {...state.categoryPage, categoryProducts: products } };
         },
+        clearCategoryPageProducts: (state, action) => {
+            return {...state, categoryPage: {categoryProducts:[], currentCategory:'', ...state.categoryPage}}
+        },
         //productpage
         setProductPageProduct: (state, action) => {
             const {product} = action.payload;
@@ -120,6 +123,6 @@ const pagesSlice = createSlice({
     }
 })
 
-export const { addHomePageProducts, setCategoryPageCategory, clearProductPageProduct } = pagesSlice.actions;
+export const { addHomePageProducts, setCategoryPageCategory, clearProductPageProduct, clearCategoryPageProducts } = pagesSlice.actions;
 
 export default pagesSlice.reducer;
