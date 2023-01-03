@@ -19,7 +19,7 @@ const CategoryPage = ( )=> {
 
     useEffect(
         () => {
-            if(currentCategory !== categoryName){
+            if(categoryName){
                 dispatch( setCategoryPageCategory({categoryName}) );
             }
         },
