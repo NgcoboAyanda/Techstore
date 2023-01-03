@@ -23,8 +23,6 @@ const Gallery = ({ images=[] }) => {
     )
     
     const renderGalleryItemClass = (image) => {
-        console.log(image)
-        console.log(currentImage)
         if(image === currentImage){
             return "gallery__sidebar__item_selected"
         }
