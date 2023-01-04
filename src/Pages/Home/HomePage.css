@@ -55,7 +55,7 @@
     }
 
     .app__home-page__main__categories-cards__inner > .category-card-container > .category-card-container__inner{
-        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
     .app__home-page__heading__sub-text{

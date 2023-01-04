@@ -99,9 +99,11 @@ const HomePage = ()=>{
                                 </div>
                                 <div className="category-card-link">
                                     <div className="category-card-link__inner">
+                                        {/* 
                                         <Link className="link link_btn" to="/c/all">
                                             Shop All Categories
                                         </Link>
+                                        */}
                                     </div>
                                 </div>
                             </div>

@@ -17,13 +17,18 @@
 
 @media screen and (min-width: 750px){
     .category-card__image__inner > img {
-        height: 90px;
-    }   
+        height: 110px;
+    }
+    
+    .category-card__label{
+        text-align: center;
+        font-size: var(--font-size-mid);
+    }
 }
 
 
 @media screen and (min-width: 1100px){
     .category-card__image__inner > img {
-        height: 100px;
+        height: 140px;
     }  
 }
