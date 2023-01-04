@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Techstore/static/css/main.b7772121.css",
-    "main.js": "/Techstore/static/js/main.b949e970.js",
+    "main.css": "/Techstore/static/css/main.4e49c55c.css",
+    "main.js": "/Techstore/static/js/main.31f65135.js",
     "static/media/Logo.svg": "/Techstore/static/media/Logo.44fb06dfdd416eabae774bfd16a7b5c9.svg",
     "static/media/CartIcon.svg": "/Techstore/static/media/CartIcon.5ce14c932e99ef109d107eb13a41d670.svg",
     "static/media/loader-icon.svg": "/Techstore/static/media/loader-icon.bc21964c14b995469c2cbe6623dbb845.svg",
     "index.html": "/Techstore/index.html",
-    "main.b7772121.css.map": "/Techstore/static/css/main.b7772121.css.map",
-    "main.b949e970.js.map": "/Techstore/static/js/main.b949e970.js.map"
+    "main.4e49c55c.css.map": "/Techstore/static/css/main.4e49c55c.css.map",
+    "main.31f65135.js.map": "/Techstore/static/js/main.31f65135.js.map"
   },
   "entrypoints": [
-    "static/css/main.b7772121.css",
-    "static/js/main.b949e970.js"
+    "static/css/main.4e49c55c.css",
+    "static/js/main.31f65135.js"
   ]
 }
